@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{62742B03-4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "test\UnitTests\UnitTests.csproj", "{3F9FB7FC-68CA-451D-9828-323F20FB3DB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMediator.Microsoft.Extensions.DependencyInjection", "src\FluentMediator.Microsoft.Extensions.DependencyInjection\FluentMediator.Microsoft.Extensions.DependencyInjection.csproj", "{2E365BC8-38CB-4FAD-B186-85F053B2D53F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,9 +50,22 @@ Global
 		{3F9FB7FC-68CA-451D-9828-323F20FB3DB7}.Release|x64.Build.0 = Release|Any CPU
 		{3F9FB7FC-68CA-451D-9828-323F20FB3DB7}.Release|x86.ActiveCfg = Release|Any CPU
 		{3F9FB7FC-68CA-451D-9828-323F20FB3DB7}.Release|x86.Build.0 = Release|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Debug|x64.Build.0 = Debug|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Debug|x86.Build.0 = Debug|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Release|x64.ActiveCfg = Release|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Release|x64.Build.0 = Release|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Release|x86.ActiveCfg = Release|Any CPU
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{21CE6BEA-C0A5-4676-A56A-7574E1373A0E} = {2F50D282-F726-49F8-87B7-5662493EDBCA}
 		{3F9FB7FC-68CA-451D-9828-323F20FB3DB7} = {62742B03-49D2-429F-A928-3E6DCA724943}
+		{2E365BC8-38CB-4FAD-B186-85F053B2D53F} = {2F50D282-F726-49F8-87B7-5662493EDBCA}
 	EndGlobalSection
 EndGlobal

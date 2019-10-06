@@ -1,4 +1,4 @@
-namespace UnitTests.PingPong
+namespace PingPong
 {
     public class PingRequest
     {
