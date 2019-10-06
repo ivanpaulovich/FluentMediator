@@ -80,7 +80,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void BuildPipeline1()
+        public void BuildSendPipeline()
         {
             var services = new ServiceCollection();
             services.AddScoped<IPingHandler, PingHandler>();
@@ -96,6 +96,27 @@ namespace UnitTests
 
             var ping = new PingRequest("Ping");
             var response = mediator.Send<PingRequest, PingResponse>(ping);
+
+            Assert.NotNull(response);
+        }
+
+        [Fact]
+        public async Task BuildSendAsyncPipeline()
+        {
+            var services = new ServiceCollection();
+            services.AddScoped<IPingHandler, PingHandler>();
+            services.AddTransient<GetService>(c => c.GetService);
+            services.AddSingleton<IMediator, Mediator>();
+
+            var provider = services.BuildServiceProvider();
+
+            var mediator = provider.GetRequiredService<IMediator>();
+            mediator.SendAsyncPipeline<PingRequest, PingResponse, IPingHandler>(
+                (handler, req) => handler.MyMethodAsync(req)
+            );
+
+            var ping = new PingRequest("Ping");
+            var response = await mediator.SendAsync<PingRequest, PingResponse>(ping);
 
             Assert.NotNull(response);
         }
