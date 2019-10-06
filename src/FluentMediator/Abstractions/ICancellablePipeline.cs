@@ -1,9 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FluentMediator.CancellableAsyncPipeline
+namespace FluentMediator
 {
-    public interface ICancellableAsyncPipeline
+    public interface ICancellablePipeline
     {
         Task PublishAsync(object request, CancellationToken cancellationToken);
     }

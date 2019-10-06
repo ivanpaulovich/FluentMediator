@@ -4,8 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace FluentMediator
 {
-    public class PipelineCollection<P>
-        where P : class
+    public class PipelineCollection<P> where P : class
     {
         private IDictionary<Type, P> _pipelines;
 
