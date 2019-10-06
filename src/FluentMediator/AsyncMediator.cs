@@ -17,7 +17,7 @@ namespace FluentMediator
         {
             if (_asyncPipelineCollection.Contains<Request>(out var asyncPipeline))
             {
-                await asyncPipeline.PublishAsync(request!);
+                await asyncPipeline?.PublishAsync(request!) !;
             }
         }
     }

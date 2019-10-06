@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using FluentMediator;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,15 +20,15 @@ namespace PingPong
                 .Handler<PingHandler>((handler, req) => handler.MyMethod(req))
                 .Handler<PingHandler>((handler, req) => handler.MyLongMethod(req));
             mediator.AsyncPipeline<PingRequest>()
-                .HandlerAsync<PingHandler>(async (handler, req) => await handler.MyMethodAsync(req));
+                .HandlerAsync<PingHandler>(async(handler, req) => await handler.MyMethodAsync(req));
             mediator.CancellablePipeline<PingRequest>()
-                .HandlerAsync<PingHandler>(async (handler, req, ct) => await handler.MyMethodAsync(req, ct));
+                .HandlerAsync<PingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct));
 
             var ping = new PingRequest("Ping");
             var cts = new CancellationTokenSource();
 
             Console.WriteLine("Publishing Ping. Should Pong Twice.");
-            
+
             mediator.Publish<PingRequest>(ping);
 
             Console.WriteLine("Publishing Ping Async. Should Pong One.");

@@ -18,7 +18,7 @@ namespace FluentMediator
             _pipelines.Add(typeof(Request), pipeline);
         }
 
-        public bool Contains<Request>([NotNullWhen(true)] out P? pipeline)
+        public bool Contains<Request>(out P? pipeline)
         {
             if (!_pipelines.ContainsKey(typeof(Request)))
             {

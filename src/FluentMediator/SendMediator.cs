@@ -16,7 +16,7 @@ namespace FluentMediator
         {
             if (_sendPipelineCollection.Contains<Request>(out var pipeline))
             {
-                return (Response)pipeline.Send(request!);
+                return (Response) pipeline?.Send(request!) !;
             }
 
             throw new Exception("Send Pipeline Not Found.");

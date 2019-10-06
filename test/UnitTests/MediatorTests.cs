@@ -14,7 +14,7 @@ namespace UnitTests
         public void BuildPipeline()
         {
             var pingHandler = new Mock<IPingHandler>();
-            
+
             var services = new ServiceCollection();
             services.AddScoped<IPingHandler>(provider => pingHandler.Object);
             services.AddTransient<GetService>(c => c.GetService);
@@ -38,7 +38,7 @@ namespace UnitTests
         public async Task BuildAsyncPipeline()
         {
             var pingHandler = new Mock<IPingHandler>();
-            
+
             var services = new ServiceCollection();
             services.AddScoped<IPingHandler>(provider => pingHandler.Object);
             services.AddTransient<GetService>(c => c.GetService);
@@ -48,7 +48,7 @@ namespace UnitTests
 
             var mediator = provider.GetRequiredService<IMediator>();
             mediator.AsyncPipeline<PingRequest>()
-                .HandlerAsync<IPingHandler>(async (handler, req) => await handler.MyMethodAsync(req));
+                .HandlerAsync<IPingHandler>(async(handler, req) => await handler.MyMethodAsync(req));
 
             var ping = new PingRequest("Async Ping");
             await mediator.PublishAsync<PingRequest>(ping);
@@ -60,17 +60,17 @@ namespace UnitTests
         public async Task BuildCancellableAsyncPipeline()
         {
             var pingHandler = new Mock<IPingHandler>();
-            
+
             var services = new ServiceCollection();
             services.AddScoped<IPingHandler>(provider => pingHandler.Object);
             services.AddTransient<GetService>(c => c.GetService);
             services.AddSingleton<IMediator, Mediator>();
-            
+
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
             mediator.CancellablePipeline<PingRequest>()
-                .HandlerAsync<IPingHandler>(async (handler, req, ct) => await handler.MyMethodAsync(req, ct));
+                .HandlerAsync<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct));
 
             var cts = new CancellationTokenSource();
             var ping = new PingRequest("Cancellable Async Ping");

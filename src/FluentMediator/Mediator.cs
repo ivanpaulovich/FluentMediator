@@ -26,7 +26,7 @@ namespace FluentMediator
         {
             if (_pipelineCollection.Contains<Request>(out var pipeline))
             {
-                pipeline.Publish(request!);
+                pipeline?.Publish(request!);
             }
         }
     }

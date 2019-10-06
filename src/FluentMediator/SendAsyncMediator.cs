@@ -17,7 +17,7 @@ namespace FluentMediator
         {
             if (_sendAsyncPipelineCollection.Contains<Request>(out var pipeline))
             {
-                return await pipeline.SendAsync<Request, Response>(request!);
+                return await pipeline?.SendAsync<Request, Response>(request!) !;
             }
 
             throw new Exception("Send Pipeline Not Found.");
