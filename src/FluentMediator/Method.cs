@@ -13,4 +13,14 @@ namespace FluentMediator
             Action = action;
         }
     }
+
+    public class Method<Act>
+    {
+        public Act Action { get; }
+
+        public Method(Act action)
+        {
+            Action = action;
+        }
+    }
 }
