@@ -18,7 +18,7 @@ namespace UnitTests
             var services = new ServiceCollection();
             services.AddScoped<IPingHandler>(provider => pingHandler.Object);
             services.AddTransient<GetService>(c => c.GetService);
-            services.AddSingleton<Mediator, Mediator>();
+            services.AddSingleton<IMediator, Mediator>();
 
             var provider = services.BuildServiceProvider();
 
@@ -32,7 +32,6 @@ namespace UnitTests
 
             pingHandler.Verify(e => e.MyMethod(ping), Times.Once);
             pingHandler.Verify(e => e.MyLongMethod(ping), Times.Once);
-
         }
 
         [Fact]
@@ -42,6 +41,9 @@ namespace UnitTests
             
             var services = new ServiceCollection();
             services.AddScoped<IPingHandler>(provider => pingHandler.Object);
+            services.AddTransient<GetService>(c => c.GetService);
+            services.AddSingleton<IMediator, Mediator>();
+
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
@@ -52,7 +54,6 @@ namespace UnitTests
             await mediator.PublishAsync<PingRequest>(ping);
 
             pingHandler.Verify(e => e.MyMethodAsync(ping), Times.Once);
-
         }
 
         [Fact]
@@ -62,6 +63,9 @@ namespace UnitTests
             
             var services = new ServiceCollection();
             services.AddScoped<IPingHandler>(provider => pingHandler.Object);
+            services.AddTransient<GetService>(c => c.GetService);
+            services.AddSingleton<IMediator, Mediator>();
+            
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
@@ -73,6 +77,27 @@ namespace UnitTests
             await mediator.PublishAsync<PingRequest>(ping, cts.Token);
 
             pingHandler.Verify(e => e.MyMethodAsync(ping, It.IsAny<CancellationToken>()), Times.Once);
+        }
+
+        [Fact]
+        public void BuildPipeline1()
+        {
+            var services = new ServiceCollection();
+            services.AddScoped<IPingHandler, PingHandler>();
+            services.AddTransient<GetService>(c => c.GetService);
+            services.AddSingleton<IMediator, Mediator>();
+
+            var provider = services.BuildServiceProvider();
+
+            var mediator = provider.GetRequiredService<IMediator>();
+            mediator.SendPipeline<PingRequest, PingResponse, IPingHandler>(
+                (handler, req) => handler.MyMethod(req)
+            );
+
+            var ping = new PingRequest("Ping");
+            var response = mediator.Send<PingRequest, PingResponse>(ping);
+
+            Assert.NotNull(response);
         }
     }
 }

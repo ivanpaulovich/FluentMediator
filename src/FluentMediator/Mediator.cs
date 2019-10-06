@@ -11,6 +11,7 @@ namespace FluentMediator
             _pipelineCollection = new PipelineCollection<IPipeline>();
             _asyncPipelineCollection = new PipelineCollection<IAsyncPipeline>();
             _cancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
+            _sendPipelineCollection = new PipelineCollection<ISendPipeline>();
         }
 
         public Pipeline<Request> Pipeline<Request>()
