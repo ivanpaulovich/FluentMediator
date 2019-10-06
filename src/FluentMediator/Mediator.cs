@@ -1,22 +1,25 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentMediator.Pipeline;
+using FluentMediator.AsyncPipeline;
+using FluentMediator.CancellableAsyncPipeline;
 
 namespace FluentMediator
 {
     public class Mediator
     {
         private readonly GetService _getService;
-        private PipelineCollection _pipelineCollection;
-        private AsyncPipelineCollection _asyncPipelineCollection;
-        private CancellableAsyncPipelineCollection _cancellableAsyncPipelineCollection;
+        private PipelineCollection<IPipeline> _pipelineCollection;
+        private PipelineCollection<IAsyncPipeline> _asyncPipelineCollection;
+        private PipelineCollection<ICancellableAsyncPipeline> _cancellableAsyncPipelineCollection;
 
         public Mediator(GetService getService)
         {
             _getService = getService;
-            _pipelineCollection = new PipelineCollection();
-            _asyncPipelineCollection = new AsyncPipelineCollection();
-            _cancellableAsyncPipelineCollection = new CancellableAsyncPipelineCollection();
+            _pipelineCollection = new PipelineCollection<IPipeline>();
+            _asyncPipelineCollection = new PipelineCollection<IAsyncPipeline>();
+            _cancellableAsyncPipelineCollection = new PipelineCollection<ICancellableAsyncPipeline>();
         }
 
         public Pipeline<Request> Pipeline<Request>()
@@ -42,8 +45,7 @@ namespace FluentMediator
 
         public void Publish<Request>(Request request)
         {
-            IPipeline pipeline;
-            if (_pipelineCollection.Contains<Request>(out pipeline))
+            if (_pipelineCollection.Contains<Request>(out var pipeline))
             {
                 pipeline.Publish(request!);
             }
@@ -51,8 +53,7 @@ namespace FluentMediator
 
         public async Task PublishAsync<Request>(Request request)
         {
-            IAsyncPipeline asyncPipeline;
-            if (_asyncPipelineCollection.Contains<Request>(out asyncPipeline))
+            if (_asyncPipelineCollection.Contains<Request>(out var asyncPipeline))
             {
                 await asyncPipeline.PublishAsync(request!);
             }
@@ -60,8 +61,7 @@ namespace FluentMediator
 
         public async Task PublishAsync<Request>(Request request, CancellationToken ct)
         {
-            ICancellableAsyncPipeline cancellableAsyncPipeline;
-            if (_cancellableAsyncPipelineCollection.Contains<Request>(out cancellableAsyncPipeline))
+            if (_cancellableAsyncPipelineCollection.Contains<Request>(out var cancellableAsyncPipeline))
             {
                 await cancellableAsyncPipeline.PublishAsync(request!, ct);
             }

@@ -2,12 +2,12 @@ using System;
 
 namespace FluentMediator
 {
-    public class Method<Request>
+    public class Method<Act, Request>
     {
         public Type HandlerType { get; }
-        public Action<object, Request> Action { get; }
+        public Act Action { get; }
 
-        public Method(Type handlerType, Action<object, Request> action)
+        public Method(Type handlerType, Act action)
         {
             HandlerType = handlerType;
             Action = action;

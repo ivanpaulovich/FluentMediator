@@ -1,27 +1,29 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace FluentMediator
 {
-    public class AsyncPipelineCollection
+    public class PipelineCollection<P>
+        where P : class
     {
-        private IDictionary<Type, IAsyncPipeline> _pipelines;
+        private IDictionary<Type, P> _pipelines;
 
-        public AsyncPipelineCollection()
+        public PipelineCollection()
         {
-            _pipelines = new Dictionary<Type, IAsyncPipeline>();
+            _pipelines = new Dictionary<Type, P>();
         }
 
-        public void Add<Request>(IAsyncPipeline pipeline)
+        public void Add<Request>(P pipeline)
         {
             _pipelines.Add(typeof(Request), pipeline);
         }
 
-        public bool Contains<Request>(out IAsyncPipeline pipeline)
+        public bool Contains<Request>([NotNullWhen(true)] out P? pipeline)
         {
             if (!_pipelines.ContainsKey(typeof(Request)))
             {
-                pipeline = null!;
+                pipeline = default(P);
                 return false;
             }
 

@@ -1,4 +1,4 @@
-namespace FluentMediator
+namespace FluentMediator.Pipeline
 {
     public interface IPipeline
     {

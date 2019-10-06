@@ -1,22 +1,22 @@
 using System;
 
-namespace FluentMediator
+namespace FluentMediator.Pipeline
 {
     public class Pipeline<Request> : IPipeline
     {
         private Mediator _mediator;
-        private MethodCollection<Request> _methods;
+        private MethodCollection<Method<Action<object, Request>, Request>, Request> _methods;
 
         public Pipeline(Mediator mediator)
         {
             _mediator = mediator;
-            _methods = new MethodCollection<Request>();          
+            _methods = new MethodCollection<Method<Action<object, Request>, Request>, Request>();          
         }
 
         public Pipeline<Request> Handler<Handler>(Action<Handler, Request> action)
         {
             Action<object, Request> typedHandler = (h, r) => action((Handler)h, (Request)r);
-            var method = new Method<Request>(typeof(Handler), typedHandler);
+            var method = new Method<Action<object, Request>, Request>(typeof(Handler), typedHandler);
             _methods.Add(method);
             return this;
         }
