@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 
 namespace FluentMediator
 {
-    public class SendAsyncPipeline<Request, Response, Handler> : ISendAsyncPipeline
+    public class DirectAsync<Request, Response, Handler> : IDirectAsync
     {
         private readonly Mediator _mediator;
 
         private readonly Method<Func<Handler, Request, Task<Response>>> _method;
 
-        public SendAsyncPipeline(Mediator mediator, Func<Handler, Request, Task<Response>> action)
+        public DirectAsync(Mediator mediator, Func<Handler, Request, Task<Response>> action)
         {
             _mediator = mediator;
             Func<Handler, Request, Task<Response>> typedHandler = (h, req) => action((Handler) h, req);

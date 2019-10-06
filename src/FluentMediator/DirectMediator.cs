@@ -2,12 +2,12 @@ using System;
 
 namespace FluentMediator
 {
-    public partial class Mediator : ISendMediator
+    public partial class Mediator
     {
-        private PipelineCollection<ISendPipeline> _sendPipelineCollection;
-        public IMediator SendPipeline<Request, Response, Handler>(Func<Handler, Request, Response> action)
+        private readonly PipelineCollection<IDirect> _sendPipelineCollection;
+        public IMediator Direct<Request, Response, Handler>(Func<Handler, Request, Response> action)
         {
-            var _sendPipeline = new SendPipeline<Request, Response, Handler>(this, action);
+            var _sendPipeline = new Direct<Request, Response, Handler>(this, action);
             _sendPipelineCollection.Add<Request>(_sendPipeline);
             return this;
         }

@@ -4,8 +4,8 @@ namespace FluentMediator
 {
     public class Pipeline<Request> : IPipeline
     {
-        private Mediator _mediator;
-        private MethodCollection<Method<Action<object, Request>, Request>, Request > _methods;
+        private readonly Mediator _mediator;
+        private readonly MethodCollection<Method<Action<object, Request>, Request>, Request > _methods;
 
         public Pipeline(Mediator mediator)
         {

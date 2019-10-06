@@ -6,8 +6,8 @@ namespace FluentMediator
 {
     public class CancellablePipeline<Request> : ICancellablePipeline
     {
-        private Mediator _mediator;
-        private MethodCollection<Method<Func<object, Request, CancellationToken, Task>, Request>, Request > _methods;
+        private readonly Mediator _mediator;
+        private readonly MethodCollection<Method<Func<object, Request, CancellationToken, Task>, Request>, Request > _methods;
 
         public CancellablePipeline(Mediator mediator)
         {

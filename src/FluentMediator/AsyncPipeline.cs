@@ -5,8 +5,8 @@ namespace FluentMediator
 {
     public class AsyncPipeline<Request> : IAsyncPipeline
     {
-        private Mediator _mediator;
-        private MethodCollection<Method<Func<object, Request, Task>, Request>, Request > _methods;
+        private readonly Mediator _mediator;
+        private readonly MethodCollection<Method<Func<object, Request, Task>, Request>, Request > _methods;
 
         public AsyncPipeline(Mediator mediator)
         {

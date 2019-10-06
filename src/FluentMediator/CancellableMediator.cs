@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace FluentMediator
 {
-    public partial class Mediator : ICancellableMediator
+    public partial class Mediator : ICancellablePipelineMediator
     {
-        private PipelineCollection<ICancellablePipeline> _cancellablePipelineCollection;
+        private readonly PipelineCollection<ICancellablePipeline> _cancellablePipelineCollection;
 
         public CancellablePipeline<Request> CancellablePipeline<Request>()
         {

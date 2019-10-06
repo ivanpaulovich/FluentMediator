@@ -2,13 +2,13 @@ using System;
 
 namespace FluentMediator
 {
-    public class SendPipeline<Request, Response, Handler> : ISendPipeline
+    public class Direct<Request, Response, Handler> : IDirect
     {
         private readonly Mediator _mediator;
 
         private readonly Method<Func<Handler, Request, Response>, Request> _method;
 
-        public SendPipeline(Mediator mediator, Func<Handler, Request, Response> action)
+        public Direct(Mediator mediator, Func<Handler, Request, Response> action)
         {
             _mediator = mediator;
             Func<Handler, Request, Response> typedHandler = (h, req) => action((Handler) h, (Request) req);

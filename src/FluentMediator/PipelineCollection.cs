@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace FluentMediator
 {
     public class PipelineCollection<P> where P : class
     {
-        private IDictionary<Type, P> _pipelines;
+        private readonly IDictionary<Type, P> _pipelines;
 
         public PipelineCollection()
         {

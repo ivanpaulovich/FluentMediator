@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentMediator;
@@ -90,7 +91,7 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.SendPipeline<PingRequest, PingResponse, IPingHandler>(
+            mediator.Direct<PingRequest, PingResponse, IPingHandler>(
                 (handler, req) => handler.MyMethod(req)
             );
 
@@ -111,7 +112,7 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.SendAsyncPipeline<PingRequest, PingResponse, IPingHandler>(
+            mediator.DirectAsync<PingRequest, PingResponse, IPingHandler>(
                 (handler, req) => handler.MyMethodAsync(req)
             );
 
@@ -119,6 +120,27 @@ namespace UnitTests
             var response = await mediator.SendAsync<PingRequest, PingResponse>(ping);
 
             Assert.NotNull(response);
+        }
+
+        [Fact]
+        public void BuildSendAsyncPipeline_ThrowsException()
+        {
+            var services = new ServiceCollection();
+            services.AddScoped<IPingHandler, PingHandler>();
+            services.AddTransient<GetService>(c => c.GetService);
+            services.AddSingleton<IMediator, Mediator>();
+
+            var provider = services.BuildServiceProvider();
+
+            Exception ex = Record.Exception(() =>
+            {
+                var mediator = provider.GetRequiredService<IMediator>();
+                mediator
+                    .DirectAsync<PingRequest, PingResponse, IPingHandler>((handler, req) => handler.MyMethodAsync(req))
+                    .DirectAsync<PingRequest, PingResponse, IPingHandler>((handler, req) => handler.MyMethodAsync(req));
+            });
+
+            Assert.NotNull(ex);
         }
     }
 }

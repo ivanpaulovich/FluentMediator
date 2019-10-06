@@ -2,8 +2,8 @@ namespace FluentMediator
 {
     public partial class Mediator : IMediator
     {
-        public GetService GetService { get; }
-        private PipelineCollection<IPipeline> _pipelineCollection;
+        internal GetService GetService { get; }
+        private readonly PipelineCollection<IPipeline> _pipelineCollection;
 
         public Mediator(GetService getService)
         {
@@ -11,8 +11,8 @@ namespace FluentMediator
             _pipelineCollection = new PipelineCollection<IPipeline>();
             _asyncPipelineCollection = new PipelineCollection<IAsyncPipeline>();
             _cancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
-            _sendPipelineCollection = new PipelineCollection<ISendPipeline>();
-            _sendAsyncPipelineCollection = new PipelineCollection<ISendAsyncPipeline>();
+            _sendPipelineCollection = new PipelineCollection<IDirect>();
+            _sendAsyncPipelineCollection = new PipelineCollection<IDirectAsync>();
         }
 
         public Pipeline<Request> Pipeline<Request>()

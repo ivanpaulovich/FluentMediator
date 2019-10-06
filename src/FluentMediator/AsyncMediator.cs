@@ -2,9 +2,9 @@ using System.Threading.Tasks;
 
 namespace FluentMediator
 {
-    public partial class Mediator : IAsyncMediator
+    public partial class Mediator : IAsyncPipelineMediator
     {
-        private PipelineCollection<IAsyncPipeline> _asyncPipelineCollection;
+        private readonly PipelineCollection<IAsyncPipeline> _asyncPipelineCollection;
 
         public AsyncPipeline<Request> AsyncPipeline<Request>()
         {

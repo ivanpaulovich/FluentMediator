@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace FluentMediator
 {
-    public interface ICancellableMediator
+    public interface ICancellablePipelineMediator
     {
         CancellablePipeline<Request> CancellablePipeline<Request>();
         Task PublishAsync<Request>(Request request, CancellationToken ct);

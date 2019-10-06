@@ -1,6 +1,6 @@
 namespace FluentMediator
 {
-    public interface ISendPipeline
+    public interface IDirect
     {
         object Send(object request);
     }
