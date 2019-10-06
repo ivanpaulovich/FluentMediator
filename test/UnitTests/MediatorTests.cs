@@ -16,8 +16,8 @@ namespace UnitTests
 
             var mediator = new Mediator((type) => provider.GetService(type));
             mediator.Pipeline<PingRequest>()
-                .Handler<PingHandler>((h, r) => h.MyHandler(r))
-                .Handler<PingHandler>((h, r) => h.LongHandler(r));
+                .Handler<PingHandler>((handler, req) => handler.MyMethod(req))
+                .Handler<PingHandler>((handler, req) => handler.MyLongMethod(req));
 
             var ping = new PingRequest("Ping");
             mediator.Publish<PingRequest>(ping);

@@ -1,17 +1,18 @@
 using System;
+using System.Diagnostics;
 
 namespace UnitTests.PingPong
 {
     public class PingHandler
     {
-        public void MyHandler(PingRequest request)
+        public void MyMethod(PingRequest request)
         {
-            Console.WriteLine($"MyHandler { request.Message }");
+            Debug.WriteLine($"{ request.Message } .. Pong ");
         }
 
-        public void LongHandler(PingRequest request)
+        public void MyLongMethod(PingRequest request)
         {
-            Console.WriteLine($"LongHandler { request.Message }");
+            Debug.WriteLine($"{ request.Message } ............... Pong");
         }
     }
 }
