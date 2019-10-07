@@ -14,7 +14,7 @@ namespace FluentMediator
             _methods = new MethodCollection<Method<Func<object, Request, Task>, Request>, Request > ();
         }
 
-        public AsyncPipeline<Request> HandlerAsync<Handler>(Func<Handler, Request, Task> action)
+        public AsyncPipeline<Request> With<Handler>(Func<Handler, Request, Task> action)
         {
             Func<object, Request, Task> typedHandler = async(h, r) => await action((Handler) h, (Request) r);
             var method = new Method<Func<object, Request, Task>, Request>(typeof(Handler), typedHandler);
@@ -29,6 +29,11 @@ namespace FluentMediator
                 var concreteHandler = _mediator.GetService(handler.HandlerType);
                 await handler.Action(concreteHandler, (Request) request);
             }
+        }
+
+        public IMediator Build()
+        {
+            return _mediator;
         }
     }
 }

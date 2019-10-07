@@ -24,34 +24,10 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.For<PingRequest>().BuildPipeline()
+            mediator.For<PingRequest>().Pipeline()
                 .With<IPingHandler>((handler, req) => handler.MyMethod(req))
-                .With<IPingHandler>((handler, req) => handler.MyLongMethod(req));
-
-            var ping = new PingRequest("Ping");
-            mediator.Publish(ping);
-
-            pingHandler.Verify(e => e.MyMethod(ping), Times.Once);
-            pingHandler.Verify(e => e.MyLongMethod(ping), Times.Once);
-        }
-
-
-        [Fact]
-        public void BuildPipeline()
-        {
-            var pingHandler = new Mock<IPingHandler>();
-
-            var services = new ServiceCollection();
-            services.AddScoped<IPingHandler>(provider => pingHandler.Object);
-            services.AddTransient<GetService>(c => c.GetService);
-            services.AddSingleton<IMediator, Mediator>();
-
-            var provider = services.BuildServiceProvider();
-
-            var mediator = provider.GetRequiredService<IMediator>();
-            mediator.Pipeline<PingRequest>()
-                .With<IPingHandler>((handler, req) => handler.MyMethod(req))
-                .With<IPingHandler>((handler, req) => handler.MyLongMethod(req));
+                .With<IPingHandler>((handler, req) => handler.MyLongMethod(req))
+                .Build();
 
             var ping = new PingRequest("Ping");
             mediator.Publish(ping);
@@ -73,8 +49,9 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.AsyncPipeline<PingRequest>()
-                .HandlerAsync<IPingHandler>(async(handler, req) => await handler.MyMethodAsync(req));
+            mediator.For<PingRequest>().AsyncPipeline()
+                .With<IPingHandler>(async(handler, req) => await handler.MyMethodAsync(req))
+                .Build();
 
             var ping = new PingRequest("Async Ping");
             await mediator.PublishAsync(ping);
@@ -95,8 +72,8 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.CancellablePipeline<PingRequest>()
-                .HandlerAsync<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct));
+            mediator.For<PingRequest>().CancellablePipeline()
+                .With<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct));
 
             var cts = new CancellationTokenSource();
             var ping = new PingRequest("Cancellable Async Ping");

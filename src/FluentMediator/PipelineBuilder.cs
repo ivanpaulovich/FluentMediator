@@ -9,16 +9,25 @@ namespace FluentMediator
             _mediator = mediator;
         }
 
-        public Pipeline<Request> BuildPipeline()
+        public Pipeline<Request> Pipeline()
         {
             var pipeline = new Pipeline<Request>(_mediator);
             _mediator.PipelineCollection.Add<Request>(pipeline);
             return pipeline;
         }
 
-        public AsyncPipeline<Request> BuildAsyncPipeline()
+        public AsyncPipeline<Request> AsyncPipeline()
         {
-            return new AsyncPipeline<Request>(_mediator);
+            var asyncPipeline = new AsyncPipeline<Request>(_mediator);
+            _mediator.AsyncPipelineCollection.Add<Request>(asyncPipeline);
+            return asyncPipeline;
+        }
+
+        public CancellablePipeline<Request> CancellablePipeline()
+        {
+            var cancellableAsyncPipeline = new CancellablePipeline<Request>(_mediator);
+            _mediator.CancellablePipelineCollection.Add<Request>(cancellableAsyncPipeline);
+            return cancellableAsyncPipeline;
         }
     }
 }

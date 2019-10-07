@@ -8,8 +8,8 @@ namespace FluentMediator
         {
             GetService = getService;
             PipelineCollection = new PipelineCollection<IPipeline>();
-            _asyncPipelineCollection = new PipelineCollection<IAsyncPipeline>();
-            _cancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
+            AsyncPipelineCollection = new PipelineCollection<IAsyncPipeline>();
+            CancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
             _sendPipelineCollection = new PipelineCollection<IDirect>();
             _sendAsyncPipelineCollection = new PipelineCollection<IDirectAsync>();
         }

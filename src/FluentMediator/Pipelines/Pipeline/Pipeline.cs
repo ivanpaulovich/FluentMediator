@@ -29,5 +29,10 @@ namespace FluentMediator
                 handler.Action(concreteHandler, (Request) request);
             }
         }
+
+        public IMediator Build()
+        {
+            return _mediator;
+        }
     }
 }

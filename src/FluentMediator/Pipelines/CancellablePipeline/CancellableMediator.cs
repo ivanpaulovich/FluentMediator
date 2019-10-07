@@ -5,18 +5,11 @@ namespace FluentMediator
 {
     public partial class Mediator : ICancellablePipelineMediator
     {
-        private readonly PipelineCollection<ICancellablePipeline> _cancellablePipelineCollection;
-
-        public CancellablePipeline<Request> CancellablePipeline<Request>()
-        {
-            var cancellableAsyncPipeline = new CancellablePipeline<Request>(this);
-            _cancellablePipelineCollection.Add<Request>(cancellableAsyncPipeline);
-            return cancellableAsyncPipeline;
-        }
+        public PipelineCollection<ICancellablePipeline> CancellablePipelineCollection { get; }
 
         public async Task PublishAsync<Request>(Request request, CancellationToken ct)
         {
-            if (_cancellablePipelineCollection.Contains<Request>(out var cancellableAsyncPipeline))
+            if (CancellablePipelineCollection.Contains<Request>(out var cancellableAsyncPipeline))
             {
                 await cancellableAsyncPipeline?.PublishAsync(request!, ct) !;
             }
