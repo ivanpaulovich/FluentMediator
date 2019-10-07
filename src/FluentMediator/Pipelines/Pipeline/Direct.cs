@@ -4,11 +4,11 @@ namespace FluentMediator
 {
     public class Direct<Request, Response, Handler> : IDirect
     {
-        private readonly Mediator _mediator;
+        private readonly IMediator _mediator;
 
         private readonly Method<Func<Handler, Request, Response>, Request> _method;
 
-        public Direct(Mediator mediator, Func<Handler, Request, Response> action)
+        public Direct(IMediator mediator, Func<Handler, Request, Response> action)
         {
             _mediator = mediator;
             Func<Handler, Request, Response> typedHandler = (h, req) => action((Handler) h, (Request) req);
@@ -19,6 +19,12 @@ namespace FluentMediator
         {
             var concreteHandler = _mediator.GetService(_method.HandlerType);
             return _method.Action((Handler) concreteHandler, (Request) request) !;
+        }
+
+        public Response1 Send<Response1>(object request)
+        {
+            var concreteHandler = _mediator.GetService(_method.HandlerType);
+            return (Response1)(object)_method.Action((Handler) concreteHandler, (Request) request) !;
         }
     }
 }

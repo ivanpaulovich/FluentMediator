@@ -1,3 +1,5 @@
+using System;
+
 namespace FluentMediator
 {
     public partial class Mediator
@@ -10,6 +12,19 @@ namespace FluentMediator
             {
                 pipeline?.Publish(request!);
             }
+        }
+
+        public Response Send<Response>(object request)
+        {
+            if (PipelineCollection.Contains(request.GetType(), out var pipeline))
+            {
+                if (!(pipeline is null))
+                {
+                    return pipeline.Send<Response>(request!);
+                }
+            }
+
+            throw new Exception("Send Pipeline Not Found.");
         }
     }
 }

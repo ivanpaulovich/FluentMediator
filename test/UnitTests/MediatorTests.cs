@@ -25,8 +25,8 @@ namespace UnitTests
 
             var mediator = provider.GetRequiredService<IMediator>();
             mediator.For<PingRequest>().Pipeline()
-                .With<IPingHandler>((handler, req) => handler.MyMethod(req))
-                .With<IPingHandler>((handler, req) => handler.MyLongMethod(req))
+                .Call<IPingHandler>((handler, req) => handler.MyMethod(req))
+                .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req))
                 .Build();
 
             var ping = new PingRequest("Ping");
@@ -50,7 +50,7 @@ namespace UnitTests
 
             var mediator = provider.GetRequiredService<IMediator>();
             mediator.For<PingRequest>().AsyncPipeline()
-                .With<IPingHandler>(async(handler, req) => await handler.MyMethodAsync(req))
+                .Call<IPingHandler>(async(handler, req) => await handler.MyMethodAsync(req))
                 .Build();
 
             var ping = new PingRequest("Async Ping");
@@ -73,7 +73,8 @@ namespace UnitTests
 
             var mediator = provider.GetRequiredService<IMediator>();
             mediator.For<PingRequest>().CancellablePipeline()
-                .With<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct));
+                .Call<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct))
+                .Build();
 
             var cts = new CancellationTokenSource();
             var ping = new PingRequest("Cancellable Async Ping");
@@ -83,7 +84,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void BuildSendPipeline()
+        public void SendPipelineBuilder()
         {
             var services = new ServiceCollection();
             services.AddScoped<IPingHandler, PingHandler>();
@@ -93,9 +94,10 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.Direct<PingRequest, PingResponse, IPingHandler>(
-                (handler, req) => handler.MyMethod(req)
-            );
+            mediator.For<PingRequest>().Pipeline()
+                .Return<PingResponse, IPingHandler>(
+                    (handler, req) => handler.MyMethod(req)
+                );
 
             var ping = new PingRequest("Ping");
             var response = mediator.Send<PingResponse>(ping);
@@ -114,9 +116,10 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.DirectAsync<PingRequest, PingResponse, IPingHandler>(
-                (handler, req) => handler.MyMethodAsync(req)
-            );
+            mediator.For<PingRequest>().AsyncPipeline()
+                .Return<PingResponse, IPingHandler>(
+                    (handler, req) => handler.MyMethodAsync(req)
+                );
 
             var ping = new PingRequest("Ping");
             var response = await mediator.SendAsync<PingResponse>(ping);
@@ -134,12 +137,18 @@ namespace UnitTests
 
             var provider = services.BuildServiceProvider();
 
+            var mediator = provider.GetRequiredService<IMediator>();
+            mediator.For<PingRequest>().AsyncPipeline()
+                .Return<PingResponse, IPingHandler>(
+                    (handler, req) => handler.MyMethodAsync(req)
+                );
+
             Exception ex = Record.Exception(() =>
             {
-                var mediator = provider.GetRequiredService<IMediator>();
-                mediator
-                    .DirectAsync<PingRequest, PingResponse, IPingHandler>((handler, req) => handler.MyMethodAsync(req))
-                    .DirectAsync<PingRequest, PingResponse, IPingHandler>((handler, req) => handler.MyMethodAsync(req));
+                mediator.For<PingRequest>().AsyncPipeline()
+                    .Return<PingResponse, IPingHandler>(
+                        (handler, req) => handler.MyMethodAsync(req)
+                    );
             });
 
             Assert.NotNull(ex);

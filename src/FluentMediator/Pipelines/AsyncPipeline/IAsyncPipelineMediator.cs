@@ -6,5 +6,6 @@ namespace FluentMediator
     {
         PipelineCollection<IAsyncPipeline> AsyncPipelineCollection { get; }
         Task PublishAsync<Request>(Request request);
+        Task<Response> SendAsync<Response>(object request);
     }
 }

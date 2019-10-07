@@ -5,11 +5,11 @@ namespace FluentMediator
 {
     public class DirectAsync<Request, Response, Handler> : IDirectAsync
     {
-        private readonly Mediator _mediator;
+        private readonly IMediator _mediator;
 
         private readonly Method<Func<Handler, Request, Task<Response>>> _method;
 
-        public DirectAsync(Mediator mediator, Func<Handler, Request, Task<Response>> action)
+        public DirectAsync(IMediator mediator, Func<Handler, Request, Task<Response>> action)
         {
             _mediator = mediator;
             Func<Handler, Request, Task<Response>> typedHandler = (h, req) => action((Handler) h, req);

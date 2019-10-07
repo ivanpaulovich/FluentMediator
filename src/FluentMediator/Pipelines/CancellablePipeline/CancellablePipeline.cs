@@ -15,7 +15,7 @@ namespace FluentMediator
             _methods = new MethodCollection<Method<Func<object, Request, CancellationToken, Task>, Request>, Request > ();
         }
 
-        public CancellablePipeline<Request> With<Handler>(Func<Handler, Request, CancellationToken, Task> action)
+        public CancellablePipeline<Request> Call<Handler>(Func<Handler, Request, CancellationToken, Task> action)
         {
             Func<object, Request, CancellationToken, Task> typedHandler = async(h, r, c) => await action((Handler) h, (Request) r, c);
             var method = new Method<Func<object, Request, CancellationToken, Task>, Request>(typeof(Handler), typedHandler);
