@@ -84,6 +84,32 @@ namespace UnitTests
         }
 
         [Fact]
+        public async Task BuildCancellableAsyncPipelineDirect()
+        {
+            var pingHandler = new Mock<IPingHandler>();
+
+            var services = new ServiceCollection();
+            services.AddScoped<IPingHandler>(provider => pingHandler.Object);
+            services.AddTransient<GetService>(c => c.GetService);
+            services.AddSingleton<IMediator, Mediator>();
+
+            var provider = services.BuildServiceProvider();
+
+            var mediator = provider.GetRequiredService<IMediator>();
+            mediator.For<PingRequest>().CancellablePipeline()
+                .Call<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct))
+                .Return<PingResponse, IPingHandler>(
+                    async(handler, req, ct) => await handler.MyMethodAsync(req, ct)
+                );
+
+            var cts = new CancellationTokenSource();
+            var ping = new PingRequest("Cancellable Async Ping");
+            await mediator.PublishAsync(ping, cts.Token);
+
+            pingHandler.Verify(e => e.MyMethodAsync(ping, It.IsAny<CancellationToken>()), Times.Once);
+        }
+
+        [Fact]
         public void SendPipelineBuilder()
         {
             var services = new ServiceCollection();
