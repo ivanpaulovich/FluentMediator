@@ -13,11 +13,11 @@ namespace FluentMediator
             return this;
         }
 
-        public async Task<Response> SendAsync<Request, Response>(Request request)
+        public async Task<Response> SendAsync<Response>(object request)
         {
-            if (_sendAsyncPipelineCollection.Contains<Request>(out var pipeline))
+            if (_sendAsyncPipelineCollection.Contains(request.GetType(), out var pipeline))
             {
-                return await pipeline?.SendAsync<Request, Response>(request!) !;
+                return await pipeline?.SendAsync<Response>(request!) !;
             }
 
             throw new Exception("Send Pipeline Not Found.");

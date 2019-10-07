@@ -16,7 +16,7 @@ namespace FluentMediator
             _method = new Method<Func<Handler, Request, Task<Response>>>(action);
         }
 
-        public async Task<Response1> SendAsync<Request1, Response1>(Request1 request)
+        public async Task<Response1> SendAsync<Response1>(object request)
         {
             var concreteHandler = _mediator.GetService(typeof(Handler));
             Func<Handler, Request, Task<Response1>> typedHandler = (h, req) => (Task<Response1>) (object) _method.Action((Handler) concreteHandler, (Request) (object) request!);

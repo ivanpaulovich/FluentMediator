@@ -4,16 +4,16 @@ namespace FluentMediator
 {
     public class Pipeline<Request> : IPipeline
     {
-        private readonly Mediator _mediator;
+        private readonly IMediator _mediator;
         private readonly MethodCollection<Method<Action<object, Request>, Request>, Request > _methods;
 
-        public Pipeline(Mediator mediator)
+        public Pipeline(IMediator mediator)
         {
             _mediator = mediator;
             _methods = new MethodCollection<Method<Action<object, Request>, Request>, Request > ();
         }
 
-        public Pipeline<Request> Handler<Handler>(Action<Handler, Request> action)
+        public Pipeline<Request> With<Handler>(Action<Handler, Request> action)
         {
             Action<object, Request> typedHandler = (h, r) => action((Handler) h, (Request) r);
             var method = new Method<Action<object, Request>, Request>(typeof(Handler), typedHandler);

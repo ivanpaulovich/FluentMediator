@@ -28,5 +28,17 @@ namespace FluentMediator
             pipeline = _pipelines[typeof(Request)];
             return true;
         }
+
+        public bool Contains(Type messageType, out P? pipeline)
+        {
+            if (!_pipelines.ContainsKey(messageType))
+            {
+                pipeline = default(P);
+                return false;
+            }
+
+            pipeline = _pipelines[messageType];
+            return true;
+        }
     }
 }

@@ -12,9 +12,9 @@ namespace FluentMediator
             return this;
         }
 
-        public Response Send<Request, Response>(Request request)
+        public Response Send<Response>(object request)
         {
-            if (_sendPipelineCollection.Contains<Request>(out var pipeline))
+            if (_sendPipelineCollection.Contains(request.GetType(), out var pipeline))
             {
                 return (Response) pipeline?.Send(request!) !;
             }

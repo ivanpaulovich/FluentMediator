@@ -4,6 +4,6 @@ namespace FluentMediator
 {
     public interface IDirectAsync
     {
-        Task<Response> SendAsync<Request, Response>(Request request);
+        Task<Response> SendAsync<Response>(object request);
     }
 }
