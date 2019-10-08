@@ -2,7 +2,7 @@ namespace FluentMediator
 {
     public interface IDirect
     {
-        object Send(object request);
-        Response Send<Response>(object request);
+        object Send(GetService getService, object request);
+        Response Send<Response>(GetService getService, object request);
     }
 }

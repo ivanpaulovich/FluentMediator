@@ -3,18 +3,17 @@ namespace FluentMediator
     public partial class Mediator : IMediator
     {
         public GetService GetService { get; }
+        public PipelinesManager PipelinesManager { get; }
 
-        public Mediator(GetService getService)
+        public Mediator(GetService getService, PipelinesManager pipelinesManager)
         {
             GetService = getService;
-            PipelineCollection = new PipelineCollection<IPipeline>();
-            AsyncPipelineCollection = new PipelineCollection<IAsyncPipeline>();
-            CancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
+            PipelinesManager = pipelinesManager;
         }
 
         public PipelineBuilder<Request> When<Request>()
         {
-            return new PipelineBuilder<Request>(this);
+            return new PipelineBuilder<Request>(PipelinesManager);
         }
     }
 }

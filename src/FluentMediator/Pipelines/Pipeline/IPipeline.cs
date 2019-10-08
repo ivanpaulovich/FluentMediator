@@ -2,8 +2,8 @@ namespace FluentMediator
 {
     public interface IPipeline
     {
-        void Publish(object request);
-        Response Send<Response>(object request);
-        IMediator Build();
+        void Publish(GetService getService, object request);
+        Response Send<Response>(GetService getService, object request);
+        PipelinesManager Build();
     }
 }

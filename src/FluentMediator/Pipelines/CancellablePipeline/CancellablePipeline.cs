@@ -6,13 +6,13 @@ namespace FluentMediator
 {
     public class CancellablePipeline<Request> : ICancellablePipeline
     {
-        private readonly IMediator _mediator;
+        private readonly PipelinesManager _pipelinesManager;
         private readonly MethodCollection<Method<Func<object, Request, CancellationToken, Task>, Request>, Request > _methods;
         private ICancellableAsync _direct;
 
-        public CancellablePipeline(IMediator mediator)
+        public CancellablePipeline(PipelinesManager pipelinesManager)
         {
-            _mediator = mediator;
+            _pipelinesManager = pipelinesManager;
             _methods = new MethodCollection<Method<Func<object, Request, CancellationToken, Task>, Request>, Request > ();
             _direct = null!;
         }
@@ -25,36 +25,36 @@ namespace FluentMediator
             return this;
         }
 
-        public IMediator Return<Response, Handler>(Func<Handler, Request, CancellationToken, Task<Response>> action)
+        public PipelinesManager Return<Response, Handler>(Func<Handler, Request, CancellationToken, Task<Response>> action)
         {
-            var sendPipeline = new CancellableAsync<Request, Response, Handler>(_mediator, action);
+            var sendPipeline = new CancellableAsync<Request, Response, Handler>(action);
             _direct = sendPipeline;
-            return _mediator;
+            return _pipelinesManager;
         }
 
-        public async Task PublishAsync(object request, CancellationToken cancellationToken)
+        public async Task PublishAsync(GetService getService, object request, CancellationToken cancellationToken)
         {
             foreach (var handler in _methods.GetHandlers())
             {
-                var concreteHandler = _mediator.GetService(handler.HandlerType);
+                var concreteHandler = getService(handler.HandlerType);
                 await handler.Action(concreteHandler, (Request) request, cancellationToken);
             }
         }
 
-        public async Task<Response> SendAsync<Response>(object request, CancellationToken cancellationToken)
+        public async Task<Response> SendAsync<Response>(GetService getService, object request, CancellationToken cancellationToken)
         {
             foreach (var handler in _methods.GetHandlers())
             {
-                var concreteHandler = _mediator.GetService(handler.HandlerType);
+                var concreteHandler = getService(handler.HandlerType);
                 await handler.Action(concreteHandler, (Request) request, cancellationToken);
             }
 
-            return await _direct.SendAsync<Response>(request!, cancellationToken) !;
+            return await _direct.SendAsync<Response>(getService, request!, cancellationToken) !;
         }
 
-        public IMediator Build()
+        public PipelinesManager Build()
         {
-            return _mediator;
+            return _pipelinesManager;
         }
     }
 }

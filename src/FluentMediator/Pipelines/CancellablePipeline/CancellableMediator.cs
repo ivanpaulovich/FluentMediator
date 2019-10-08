@@ -6,23 +6,21 @@ namespace FluentMediator
 {
     public partial class Mediator : ICancellablePipelineMediator
     {
-        public PipelineCollection<ICancellablePipeline> CancellablePipelineCollection { get; }
-
         public async Task PublishAsync<Request>(Request request, CancellationToken ct)
         {
-            if (CancellablePipelineCollection.Contains<Request>(out var cancellableAsyncPipeline))
+            if (PipelinesManager.CancellablePipelineCollection.Contains<Request>(out var cancellableAsyncPipeline))
             {
-                await cancellableAsyncPipeline?.PublishAsync(request!, ct) !;
+                await cancellableAsyncPipeline?.PublishAsync(GetService, request!, ct) !;
             }
         }
 
         public async Task<Response> SendAsync<Response>(object request, CancellationToken ct)
         {
-            if (CancellablePipelineCollection.Contains(request.GetType(), out var cancellableAsyncPipeline))
+            if (PipelinesManager.CancellablePipelineCollection.Contains(request.GetType(), out var cancellableAsyncPipeline))
             {
                 if (!(cancellableAsyncPipeline is null))
                 {
-                    return await cancellableAsyncPipeline.SendAsync<Response>(request!, ct) !;
+                    return await cancellableAsyncPipeline.SendAsync<Response>(GetService, request!, ct) !;
                 }
             }
 

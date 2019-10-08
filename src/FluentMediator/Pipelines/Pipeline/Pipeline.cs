@@ -4,13 +4,13 @@ namespace FluentMediator
 {
     public class Pipeline<Request> : IPipeline
     {
-        private readonly IMediator _mediator;
+        private readonly PipelinesManager _pipelinesManager;
         private readonly MethodCollection<Method<Action<object, Request>, Request>, Request > _methods;
         private IDirect _direct;
 
-        public Pipeline(IMediator mediator)
+        public Pipeline(PipelinesManager pipelinesManager)
         {
-            _mediator = mediator;
+            _pipelinesManager = pipelinesManager;
             _methods = new MethodCollection<Method<Action<object, Request>, Request>, Request > ();
             _direct = null!;
         }
@@ -25,36 +25,36 @@ namespace FluentMediator
 
         public IDirect Return<Response, Handler>(Func<Handler, Request, Response> func)
         {
-            _direct = new Direct<Request, Response, Handler>(_mediator, func);
+            _direct = new Direct<Request, Response, Handler>(func);
             return _direct;
         }
 
-        public void Publish(object request)
+        public void Publish(GetService getService, object request)
         {
             foreach (var handler in _methods.GetHandlers())
             {
-                var concreteHandler = _mediator.GetService(handler.HandlerType);
+                var concreteHandler = getService(handler.HandlerType);
                 handler.Action(concreteHandler, (Request) request);
             }
         }
 
-        public Response Send<Response>(object request)
+        public Response Send<Response>(GetService getService, object request)
         {
             foreach (var handler in _methods.GetHandlers())
             {
-                var concreteHandler = _mediator.GetService(handler.HandlerType);
+                var concreteHandler = getService(handler.HandlerType);
                 handler.Action(concreteHandler, (Request) request);
             }
 
             if (_direct is null)
                 throw new Exception("Send not configured.");
 
-            return _direct.Send<Response>(request!) !;
+            return _direct.Send<Response>(getService, request!) !;
         }
 
-        public IMediator Build()
+        public PipelinesManager Build()
         {
-            return _mediator;
+            return _pipelinesManager;
         }
     }
 }

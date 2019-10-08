@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\FluentMediator\FluentMediator.csproj" />
+    <ProjectReference Include="..\..\src\FluentMediator.Microsoft.Extensions.DependencyInjection\FluentMediator.Microsoft.Extensions.DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>

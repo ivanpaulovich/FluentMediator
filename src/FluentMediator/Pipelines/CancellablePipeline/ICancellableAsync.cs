@@ -5,6 +5,6 @@ namespace FluentMediator
 {
     public interface ICancellableAsync
     {
-        Task<Response> SendAsync<Response>(object request, CancellationToken cancellationToken);
+        Task<Response> SendAsync<Response>(GetService getService, object request, CancellationToken cancellationToken);
     }
 }

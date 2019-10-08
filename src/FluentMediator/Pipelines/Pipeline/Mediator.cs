@@ -4,23 +4,21 @@ namespace FluentMediator
 {
     public partial class Mediator
     {
-        public PipelineCollection<IPipeline> PipelineCollection { get; }
-
         public void Publish<Request>(Request request)
         {
-            if (PipelineCollection.Contains<Request>(out var pipeline))
+            if (PipelinesManager.PipelineCollection.Contains<Request>(out var pipeline))
             {
-                pipeline?.Publish(request!);
+                pipeline?.Publish(GetService, request!);
             }
         }
 
         public Response Send<Response>(object request)
         {
-            if (PipelineCollection.Contains(request.GetType(), out var pipeline))
+            if (PipelinesManager.PipelineCollection.Contains(request.GetType(), out var pipeline))
             {
-                if (!(pipeline is null))
+                if (pipeline is IPipeline)
                 {
-                    return pipeline.Send<Response>(request!);
+                    return pipeline.Send<Response>(GetService, request!);
                 }
             }
 
