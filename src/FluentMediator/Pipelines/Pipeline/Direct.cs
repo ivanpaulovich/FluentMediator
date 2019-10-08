@@ -24,7 +24,7 @@ namespace FluentMediator
         public Response1 Send<Response1>(object request)
         {
             var concreteHandler = _mediator.GetService(_method.HandlerType);
-            return (Response1)(object)_method.Action((Handler) concreteHandler, (Request) request) !;
+            return (Response1) (object) _method.Action((Handler) concreteHandler, (Request) request) !;
         }
     }
 }

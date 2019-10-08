@@ -25,7 +25,6 @@ namespace FluentMediator
             return this;
         }
 
-
         public IMediator Return<Response, Handler>(Func<Handler, Request, CancellationToken, Task<Response>> action)
         {
             var sendPipeline = new CancellableAsync<Request, Response, Handler>(_mediator, action);
