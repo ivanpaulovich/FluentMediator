@@ -24,7 +24,7 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.For<PingRequest>().Pipeline()
+            mediator.When<PingRequest>().Pipeline()
                 .Call<IPingHandler>((handler, req) => handler.MyMethod(req))
                 .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req))
                 .Build();
@@ -49,7 +49,7 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.For<PingRequest>().AsyncPipeline()
+            mediator.When<PingRequest>().AsyncPipeline()
                 .Call<IPingHandler>(async(handler, req) => await handler.MyMethodAsync(req))
                 .Build();
 
@@ -72,7 +72,7 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.For<PingRequest>().CancellablePipeline()
+            mediator.When<PingRequest>().CancellablePipeline()
                 .Call<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct))
                 .Build();
 
@@ -96,7 +96,7 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.For<PingRequest>().CancellablePipeline()
+            mediator.When<PingRequest>().CancellablePipeline()
                 .Call<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct))
                 .Return<PingResponse, IPingHandler>(
                     async(handler, req, ct) => await handler.MyMethodAsync(req, ct)
@@ -120,7 +120,7 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.For<PingRequest>().Pipeline()
+            mediator.When<PingRequest>().Pipeline()
                 .Return<PingResponse, IPingHandler>(
                     (handler, req) => handler.MyMethod(req)
                 );
@@ -142,7 +142,7 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.For<PingRequest>().AsyncPipeline()
+            mediator.When<PingRequest>().AsyncPipeline()
                 .Return<PingResponse, IPingHandler>(
                     (handler, req) => handler.MyMethodAsync(req)
                 );
@@ -164,14 +164,14 @@ namespace UnitTests
             var provider = services.BuildServiceProvider();
 
             var mediator = provider.GetRequiredService<IMediator>();
-            mediator.For<PingRequest>().AsyncPipeline()
+            mediator.When<PingRequest>().AsyncPipeline()
                 .Return<PingResponse, IPingHandler>(
                     (handler, req) => handler.MyMethodAsync(req)
                 );
 
             Exception ex = Record.Exception(() =>
             {
-                mediator.For<PingRequest>().AsyncPipeline()
+                mediator.When<PingRequest>().AsyncPipeline()
                     .Return<PingResponse, IPingHandler>(
                         (handler, req) => handler.MyMethodAsync(req)
                     );

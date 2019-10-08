@@ -12,7 +12,7 @@ namespace FluentMediator
             CancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
         }
 
-        public PipelineBuilder<Request> For<Request>()
+        public PipelineBuilder<Request> When<Request>()
         {
             return new PipelineBuilder<Request>(this);
         }
