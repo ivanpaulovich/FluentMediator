@@ -5,11 +5,11 @@ namespace FluentMediator
 {
     public class AsyncPipeline<Request> : IAsyncPipeline
     {
-        private readonly PipelinesManager _pipelinesManager;
+        private readonly MediatorBuilder _pipelinesManager;
         private readonly MethodCollection<Method<Func<object, Request, Task>, Request>, Request > _methods;
         private IDirectAsync _direct;
 
-        public AsyncPipeline(PipelinesManager pipelinesManager)
+        public AsyncPipeline(MediatorBuilder pipelinesManager)
         {
             _pipelinesManager = pipelinesManager;
             _methods = new MethodCollection<Method<Func<object, Request, Task>, Request>, Request > ();
@@ -24,7 +24,7 @@ namespace FluentMediator
             return this;
         }
 
-        public PipelinesManager Return<Response, Handler>(Func<Handler, Request, Task<Response>> action)
+        public MediatorBuilder Return<Response, Handler>(Func<Handler, Request, Task<Response>> action)
         {
             var sendPipeline = new DirectAsync<Request, Response, Handler>(action);
             _direct = sendPipeline;
@@ -51,7 +51,7 @@ namespace FluentMediator
             return await _direct.SendAsync<Response>(getService, request!) !;
         }
 
-        public PipelinesManager Build()
+        public MediatorBuilder Build()
         {
             return _pipelinesManager;
         }

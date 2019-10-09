@@ -7,6 +7,6 @@ namespace FluentMediator
     {
         Task PublishAsync(GetService getService, object request, CancellationToken cancellationToken);
         Task<Response> SendAsync<Response>(GetService getService, object request, CancellationToken cancellationToken);
-        PipelinesManager Build();
+        MediatorBuilder Build();
     }
 }

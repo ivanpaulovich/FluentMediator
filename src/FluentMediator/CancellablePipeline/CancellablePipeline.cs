@@ -6,11 +6,11 @@ namespace FluentMediator
 {
     public class CancellablePipeline<Request> : ICancellablePipeline
     {
-        private readonly PipelinesManager _pipelinesManager;
+        private readonly MediatorBuilder _pipelinesManager;
         private readonly MethodCollection<Method<Func<object, Request, CancellationToken, Task>, Request>, Request > _methods;
         private ICancellableAsync _direct;
 
-        public CancellablePipeline(PipelinesManager pipelinesManager)
+        public CancellablePipeline(MediatorBuilder pipelinesManager)
         {
             _pipelinesManager = pipelinesManager;
             _methods = new MethodCollection<Method<Func<object, Request, CancellationToken, Task>, Request>, Request > ();
@@ -25,7 +25,7 @@ namespace FluentMediator
             return this;
         }
 
-        public PipelinesManager Return<Response, Handler>(Func<Handler, Request, CancellationToken, Task<Response>> action)
+        public MediatorBuilder Return<Response, Handler>(Func<Handler, Request, CancellationToken, Task<Response>> action)
         {
             var sendPipeline = new CancellableAsync<Request, Response, Handler>(action);
             _direct = sendPipeline;
@@ -52,7 +52,7 @@ namespace FluentMediator
             return await _direct.SendAsync<Response>(getService, request!, cancellationToken) !;
         }
 
-        public PipelinesManager Build()
+        public MediatorBuilder Build()
         {
             return _pipelinesManager;
         }

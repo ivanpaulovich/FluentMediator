@@ -16,7 +16,7 @@ namespace UnitTests
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m => {
-                m.When<PingRequest>().Pipeline()
+                m.On<PingRequest>().Pipeline()
                 .Call<IPingHandler>((handler, req) => handler.MyMethod(req))
                 .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req));
             });
@@ -38,7 +38,7 @@ namespace UnitTests
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m => {
-                m.When<PingRequest>().AsyncPipeline()
+                m.On<PingRequest>().AsyncPipeline()
                 .Call<IPingHandler>(async(handler, req) => await handler.MyMethodAsync(req))
                 .Build();
             });
@@ -60,7 +60,7 @@ namespace UnitTests
             
             var services = new ServiceCollection();
             services.AddFluentMediator(m => {
-                m.When<PingRequest>().CancellablePipeline()
+                m.On<PingRequest>().CancellablePipeline()
                 .Call<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct))
                 .Build();
             });
@@ -82,7 +82,7 @@ namespace UnitTests
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m => {
-                m.When<PingRequest>().CancellablePipeline()
+                m.On<PingRequest>().CancellablePipeline()
                 .Call<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct))
                 .Return<PingResponse, IPingHandler>(
                     async(handler, req, ct) => await handler.MyMethodAsync(req, ct)
@@ -106,7 +106,7 @@ namespace UnitTests
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m => {
-                m.When<PingRequest>()
+                m.On<PingRequest>()
                 .Pipeline()
                 .Return<PingResponse, IPingHandler>(
                     (handler, req) => handler.MyMethod(req)
@@ -128,7 +128,7 @@ namespace UnitTests
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m => {
-                m.When<PingRequest>().AsyncPipeline()
+                m.On<PingRequest>().AsyncPipeline()
                 .Return<PingResponse, IPingHandler>(
                     (handler, req) => handler.MyMethodAsync(req)
                 );
@@ -148,14 +148,14 @@ namespace UnitTests
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m => {
-                m.When<PingRequest>().AsyncPipeline()
+                m.On<PingRequest>().AsyncPipeline()
                 .Return<PingResponse, IPingHandler>(
                     (handler, req) => handler.MyMethodAsync(req)
                 );
 
                 Exception ex = Record.Exception(() =>
                 {
-                    m.When<PingRequest>().AsyncPipeline()
+                    m.On<PingRequest>().AsyncPipeline()
                         .Return<PingResponse, IPingHandler>(
                             (handler, req) => handler.MyMethodAsync(req)
                         );

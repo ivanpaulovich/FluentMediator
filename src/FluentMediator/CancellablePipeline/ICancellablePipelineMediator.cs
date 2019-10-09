@@ -5,6 +5,6 @@ namespace FluentMediator
 {
     public interface ICancellablePipelineMediator
     {
-        Task PublishAsync<Request>(Request request, CancellationToken ct);
+        Task PublishAsync(object request, CancellationToken ct);
     }
 }

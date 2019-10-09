@@ -4,11 +4,11 @@ namespace FluentMediator
 {
     public class Pipeline<Request> : IPipeline
     {
-        private readonly PipelinesManager _pipelinesManager;
+        private readonly MediatorBuilder _pipelinesManager;
         private readonly MethodCollection<Method<Action<object, Request>, Request>, Request > _methods;
         private IDirect _direct;
 
-        public Pipeline(PipelinesManager pipelinesManager)
+        public Pipeline(MediatorBuilder pipelinesManager)
         {
             _pipelinesManager = pipelinesManager;
             _methods = new MethodCollection<Method<Action<object, Request>, Request>, Request > ();
@@ -52,7 +52,7 @@ namespace FluentMediator
             return _direct.Send<Response>(getService, request!) !;
         }
 
-        public PipelinesManager Build()
+        public MediatorBuilder Build()
         {
             return _pipelinesManager;
         }
