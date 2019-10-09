@@ -17,16 +17,14 @@ namespace FluentMediator
             _pipelines.Add(typeof(Request), pipeline);
         }
 
-        public bool Contains<Request>(out P? pipeline)
+        public P Get(object request)
         {
-            if (!_pipelines.ContainsKey(typeof(Request)))
+            if (_pipelines.TryGetValue(request.GetType(), out var p))
             {
-                pipeline = default(P);
-                return false;
+                return p;
             }
-
-            pipeline = _pipelines[typeof(Request)];
-            return true;
+            
+            throw new Exception("Pipeline Not Found.");
         }
 
         public bool Contains(Type messageType, out P? pipeline)

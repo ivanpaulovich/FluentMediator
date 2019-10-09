@@ -9,10 +9,7 @@ namespace FluentMediator
         {
             var pipelinesManager = new MediatorBuilder();
             setupAction(pipelinesManager);
-
-            services.AddTransient<GetService>(c => c.GetService);
-            services.AddSingleton<IMediator, Mediator>();
-            services.AddTransient<MediatorBuilder>(c => pipelinesManager);
+            services.AddSingleton<IMediator>(c => pipelinesManager.Build(c.GetService));
             
             return services;
         }

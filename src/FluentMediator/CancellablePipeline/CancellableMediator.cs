@@ -8,13 +8,13 @@ namespace FluentMediator
     {
         public async Task PublishAsync(object request, CancellationToken ct)
         {
-            var pipeline = MediatorBuilder.GetCancellablePipeline(request);
+            var pipeline = CancellablePipelineCollection.Get(request);
             await pipeline.PublishAsync(GetService, request!, ct);
         }
 
         public async Task<Response> SendAsync<Response>(object request, CancellationToken ct)
         {
-            var pipeline = MediatorBuilder.GetCancellablePipeline(request);
+            var pipeline = CancellablePipelineCollection.Get(request);
             return await pipeline.SendAsync<Response>(GetService, request!, ct);
         }
     }

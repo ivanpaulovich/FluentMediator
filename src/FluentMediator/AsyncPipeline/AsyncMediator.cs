@@ -7,13 +7,13 @@ namespace FluentMediator
     {
         public async Task PublishAsync(object request)
         {
-            var pipeline = MediatorBuilder.GetAsyncPipeline(request);
+            var pipeline = AsyncPipelineCollection.Get(request);
             await pipeline.PublishAsync(GetService, request!);
         }
 
         public async Task<Response> SendAsync<Response>(object request)
         {
-            var pipeline = MediatorBuilder.GetAsyncPipeline(request);
+            var pipeline = AsyncPipelineCollection.Get(request);
             return await pipeline.SendAsync<Response>(GetService, request!);
         }
     }
