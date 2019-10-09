@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FluentMediator
+namespace FluentMediator.Pipelines.CancellablePipeline
 {
     public interface ICancellablePipeline
     {

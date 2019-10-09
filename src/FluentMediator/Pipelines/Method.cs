@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentMediator
+namespace FluentMediator.Pipelines
 {
     public class Method<Act, Request>
     {

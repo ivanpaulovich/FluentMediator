@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace FluentMediator
+namespace FluentMediator.Pipelines
 {
     public class MethodCollection<Method, Request>
     {

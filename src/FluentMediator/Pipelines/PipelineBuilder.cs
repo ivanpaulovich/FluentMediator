@@ -1,6 +1,10 @@
-namespace FluentMediator
+using FluentMediator.Pipelines.AsyncPipeline;
+using FluentMediator.Pipelines.CancellablePipeline;
+using FluentMediator.Pipelines.Pipeline;
+
+namespace FluentMediator.Pipelines
 {
-    public class PipelineBuilder<Request>
+    public class PipelineBuilder<Request> : IPipelineBuilder
     {
         private readonly MediatorBuilder _mediatorBuilder;
 

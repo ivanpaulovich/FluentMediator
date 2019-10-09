@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace FluentMediator
+namespace FluentMediator.Pipelines
 {
     public class PipelineCollection<P> where P : class
     {

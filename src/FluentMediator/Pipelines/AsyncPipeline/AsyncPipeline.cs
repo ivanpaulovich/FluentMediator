@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace FluentMediator
+namespace FluentMediator.Pipelines.AsyncPipeline
 {
     public class AsyncPipeline<Request> : IAsyncPipeline
     {

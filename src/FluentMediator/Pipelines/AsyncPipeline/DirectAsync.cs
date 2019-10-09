@@ -1,7 +1,8 @@
 using System;
 using System.Threading.Tasks;
+using FluentMediator.Pipelines;
 
-namespace FluentMediator
+namespace FluentMediator.Pipelines.AsyncPipeline
 {
     public class DirectAsync<Request, Response, Handler> : IDirectAsync
     {

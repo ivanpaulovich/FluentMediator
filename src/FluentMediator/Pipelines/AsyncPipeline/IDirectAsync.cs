@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace FluentMediator
+namespace FluentMediator.Pipelines.AsyncPipeline
 {
     public interface IDirectAsync
     {

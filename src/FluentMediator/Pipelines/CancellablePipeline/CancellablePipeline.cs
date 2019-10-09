@@ -1,8 +1,9 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentMediator.Pipelines;
 
-namespace FluentMediator
+namespace FluentMediator.Pipelines.CancellablePipeline
 {
     public class CancellablePipeline<Request> : ICancellablePipeline
     {

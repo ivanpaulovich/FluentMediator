@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentMediator
+namespace FluentMediator.Pipelines.Pipeline
 {
     public class Direct<Request, Response, Handler> : IDirect
     {
@@ -10,12 +10,6 @@ namespace FluentMediator
         {
             Func<Handler, Request, Response> typedHandler = (h, req) => action((Handler) h, (Request) req);
             _method = new Method<Func<Handler, Request, Response>, Request>(typeof(Handler), action);
-        }
-
-        public object Send(GetService getService, object request)
-        {
-            var concreteHandler = getService(_method.HandlerType);
-            return _method.Action((Handler) concreteHandler, (Request) request) !;
         }
 
         public Response1 Send<Response1>(GetService getService, object request)
