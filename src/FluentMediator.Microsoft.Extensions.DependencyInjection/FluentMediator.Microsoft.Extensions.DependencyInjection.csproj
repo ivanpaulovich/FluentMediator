@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    
+    <PackageId>FluentMediator.Microsoft.Extensions.DependencyInjection</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Ivan Paulovich</Authors>
+    <Description>FluentMediator.Microsoft.Extensions.DependencyInjection</Description>
+    <IsPackable>true</IsPackable>
+    
   </PropertyGroup>
 
   <ItemGroup>
