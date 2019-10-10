@@ -1,70 +1,38 @@
-### Install 
+## Install
 
-### Get Started
-
-```c#
-public class PingHandler
-{
-    public void MyMethod(PingRequest request)
-    {
-        Console.WriteLine($"{ request.Message } .. Pong ");
-    }
-
-    public void MyLongMethod(PingRequest request)
-    {
-        Console.WriteLine($"{ request.Message } ............... Pong");
-    }
-
-    public async Task MyMethodAsync(PingRequest request)
-    {
-        Console.WriteLine($"{ request.Message } > > > > Pong ");
-        await Task.CompletedTask;
-    }
-
-    public async Task MyMethodAsync(PingRequest request, CancellationToken cancelationToken)
-    {
-        Console.WriteLine($"{ request.Message } - - - - - Pong ");
-        await Task.CompletedTask;
-    }
-}
+```
+dotnet add FluentMediator
 ```
 
-### Sample
+or 
+
+```
+Install-Package FluentMediator
+```
+
+### Setup
 
 ```c#
-var serviceCollection = new ServiceCollection();
-serviceCollection.AddFluentMediator();
-serviceCollection.AddScoped<PingHandler>();
+services.AddFluentMediator(m => {
+    m.On<PingRequest>().Pipeline()
+        .Call<IPingHandler>((handler, req) => handler.MyMethod(req))
+        .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req));
+});
+```
 
-var provider = serviceCollection.BuildServiceProvider();
-var mediator = provider.GetService<Mediator>();
+### Publish
 
-mediator.Pipeline<PingRequest>()
-    .Handler<PingHandler>((handler, req) => handler.MyMethod(req))
-    .Handler<PingHandler>((handler, req) => handler.MyLongMethod(req));
-mediator.AsyncPipeline<PingRequest>()
-    .HandlerAsync<PingHandler>(async (handler, req) => await handler.MyMethodAsync(req));
-mediator.CancellablePipeline<PingRequest>()
-    .HandlerAsync<PingHandler>(async (handler, req, ct) => await handler.MyMethodAsync(req, ct));
-
-var ping = new PingRequest("Ping");
-var cts = new CancellationTokenSource();
-
-Console.WriteLine("Publishing Ping. Should Pong Twice.");
-
+```c#
 mediator.Publish<PingRequest>(ping);
-
-Console.WriteLine("Publishing Ping Async. Should Pong One.");
-
-mediator.PublishAsync<PingRequest>(ping)
-    .GetAwaiter()
-    .GetResult();
-
-Console.WriteLine("Publishing Cancellable Ping. Should Pong One.");
-
-mediator.PublishAsync<PingRequest>(ping, cts.Token)
-    .GetAwaiter()
-    .GetResult();
-
-Console.ReadLine();
 ```
+
+### Send
+
+```c#
+PingResponse response = mediator.Send<PingResponse>(new PingRequest("Ping"));
+Console.WriteLine(response.Message); // Prints "Pong"
+```
+
+## Why
+
+## Contributors
