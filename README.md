@@ -1,4 +1,4 @@
-# Fluent Mediator
+# FluentMediator
 [![Build Status](https://ivanpaulovich.visualstudio.com/FluentMediator/_apis/build/status/ivanpaulovich.FluentMediator?branchName=master)](https://ivanpaulovich.visualstudio.com/FluentMediator/_build/latest?definitionId=24&branchName=master) [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors) ![GitHub issues](https://img.shields.io/github/issues/ivanpaulovich/FluentMediator) ![GitHub pull requests](https://img.shields.io/github/issues-pr/ivanpaulovich/FluentMediator)
 
 :twisted_rightwards_arrows: We will not require you to implement framework interfaces or to add dependencies to your domain events and handlers. Finally a really loosely coupled mediator library was born.
