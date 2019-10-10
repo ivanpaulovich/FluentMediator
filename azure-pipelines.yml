@@ -1,34 +1,54 @@
-# ASP.NET
-# Build and test ASP.NET projects.
-# Add steps that publish symbols, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
+# the build will trigger on any changes to the master branch
 trigger:
 - master
 
+# the build will run on a Microsoft hosted agent, using the lastest Windows VM Image
 pool:
   vmImage: 'windows-latest'
 
+# these variables are available throughout the build file
+# just the build configuration is defined, in this case we are building Release packages
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+#The build has 3 seperate tasks run under 1 step
 steps:
-- task: NuGetToolInstaller@1
 
+# The first task is the dotnet command build, pointing to our csproj file
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    command: 'build'
+    arguments: '--configuration $(buildConfiguration)'
+    projects: 'CommonLib/CommonLib.csproj'
+
+# The second task is dotnet pack command again pointing to the csproj file
+# The nobuild means the project will not be compiled before running pack, because its already built in above step
+- task: DotNetCoreCLI@2
+  displayName: "dotnet pack"
+  inputs:
+    command: 'pack'
+    arguments: '--configuration $(buildConfiguration)'
+    packagesToPack: 'CommonLib/CommonLib.csproj'
+    nobuild: true
+    versioningScheme: 'off'
+
+# The last task is a nuget command, nuget push
+# This will push any .nupkg files to the 'TestFeed' artifact feed
+# allowPackageConflicts allows us to build the same version and not throw an error when trying to push
+# instead it just ingores the latest package unless the version changes
 - task: NuGetCommand@2
+  displayName: 'nuget push'
   inputs:
-    restoreSolution: '$(solution)'
-
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'push'
+    feedsToUse: 'select'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'TestFeed'
+    versioningScheme: 'off'
+    allowPackageConflicts: true
