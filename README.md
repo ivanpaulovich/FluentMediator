@@ -15,9 +15,9 @@ For seameless .NET Core integration:
 Install-Package FluentMediator.Microsoft.Extensions.DependencyInjection
 ```
 
-## Setup
+## How
 
-The syntax to add Pipelines is like the following:
+Setup your events and pipelines using depedency injection. You can be very creative here! You could use sync, async and cancellable tokens, you could append multiple steps and return messages. An example:
 
 ```c#
 services.AddFluentMediator(m => {
@@ -27,7 +27,7 @@ services.AddFluentMediator(m => {
 });
 ```
 
-## Publishing Events
+### Publishing Events
 
 ```c#
 mediator.Publish<PingRequest>(ping);
