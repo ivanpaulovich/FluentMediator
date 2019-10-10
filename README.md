@@ -1,4 +1,5 @@
 ## Install
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 ```
 dotnet add FluentMediator
@@ -36,3 +37,13 @@ Console.WriteLine(response.Message); // Prints "Pong"
 ## Why
 
 ## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://paulovich.net"><img src="https://avatars3.githubusercontent.com/u/7133698?v=4" width="100px;" alt="Ivan Paulovich"/><br /><sub><b>Ivan Paulovich</b></sub></a><br /><a href="https://github.com/ivanpaulovich/FluentMediator/commits?author=ivanpaulovich" title="Code">💻</a> <a href="#design-ivanpaulovich" title="Design">🎨</a> <a href="https://github.com/ivanpaulovich/FluentMediator/commits?author=ivanpaulovich" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
