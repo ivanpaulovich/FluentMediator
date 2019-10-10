@@ -25,8 +25,8 @@ services.AddFluentMediator(m => {
         .Call<IPingHandler>((handler, req) => handler.MyMethod(req))
         .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req))
         .Return<PingResponse, IPingHandler>(
-                    async(handler, req) => await handler.MyOtherMethod(req)
-                );
+            async(handler, req) => await handler.MyOtherMethod(req)
+        );
 });
 ```
 
