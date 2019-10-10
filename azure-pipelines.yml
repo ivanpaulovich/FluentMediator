@@ -65,4 +65,4 @@ steps:
   inputs:
     command: 'push'
     feedsToUse: 'config'
-    includeNugetOrg: 'true'
+    includeNugetOrg: true
