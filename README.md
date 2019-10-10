@@ -1,17 +1,23 @@
+# Fluent Mediator
+[![Build Status](https://ivanpaulovich.visualstudio.com/FluentMediator/_apis/build/status/ivanpaulovich.FluentMediator?branchName=master)](https://ivanpaulovich.visualstudio.com/FluentMediator/_build/latest?definitionId=24&branchName=master) [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors) ![GitHub pull requests](https://img.shields.io/github/issues-pr/ivanpaulovich/FluentMediator)
+
+:twisted_rightwards_arrows: We will not require you to implement framework interfaces and add dependencies to your domain events and handlers. Finally a really loosely coupled mediator library.
+
 ## Install
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
-
-```
-dotnet add FluentMediator
-```
-
-or 
 
 ```
 Install-Package FluentMediator
 ```
 
-### Setup
+For seameless .NET Core integration:
+
+```
+Install-Package FluentMediator.Microsoft.Extensions.DependencyInjection
+```
+
+## Setup
+
+The syntax to add Pipelines is like the following:
 
 ```c#
 services.AddFluentMediator(m => {
@@ -21,13 +27,13 @@ services.AddFluentMediator(m => {
 });
 ```
 
-### Publish
+## Publishing Events
 
 ```c#
 mediator.Publish<PingRequest>(ping);
 ```
 
-### Send
+### Sending Commands and Queries
 
 ```c#
 PingResponse response = mediator.Send<PingResponse>(new PingRequest("Ping"));
@@ -35,6 +41,8 @@ Console.WriteLine(response.Message); // Prints "Pong"
 ```
 
 ## Why
+
+When designing Event-Driven applications we often need to publish events from the infrastructure layer into your domain event handlers. We do not want frameworks dependencies to leak into our model then FluentMediator was born. 
 
 ## Contributors
 
@@ -48,3 +56,5 @@ Console.WriteLine(response.Message); // Prints "Pong"
 </table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+Please contribute with [Issues](https://github.com/ivanpaulovich/FluentMediator/issues), [Wiki](https://github.com/ivanpaulovich/FluentMediator/wiki) and [Samples](https://github.com/ivanpaulovich/FluentMediator/tree/master/samples).
