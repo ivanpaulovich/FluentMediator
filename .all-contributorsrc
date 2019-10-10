@@ -15,6 +15,16 @@
         "design",
         "test"
       ]
+    },
+    {
+      "login": "joacar",
+      "name": "Joakim Carselind",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/439028?v=4",
+      "profile": "http://www.carselind.se",
+      "contributions": [
+        "review",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
