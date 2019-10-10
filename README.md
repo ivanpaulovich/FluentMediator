@@ -40,7 +40,7 @@ mediator.Publish<PingRequest>(ping);
 ### Sending Commands and Queries
 
 ```c#
-// Calls the three handlers and get the response from `MyOtherMethod(PingRequest)`.
+// Calls the three handlers then get the response from `MyOtherMethod(PingRequest)`.
 PingResponse response = mediator.Send<PingResponse>(new PingRequest("Ping"));
 Console.WriteLine(response.Message); // Prints "Pong"
 ```
