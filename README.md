@@ -20,12 +20,12 @@ Install-Package FluentMediator.Microsoft.Extensions.DependencyInjection
 Setup your events and pipelines using depedency injection. You can be very creative here! You could use sync, async and cancellable tokens, you could append multiple steps and return messages. An example:
 
 ```c#
-services.AddFluentMediator(m => {
-    m.On<PingRequest>().Pipeline()
-        .Call<IPingHandler>((handler, req) => handler.MyMethod(req))
-        .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req))
+services.AddFluentMediator(builder => {
+    builder.On<PingRequest>().Pipeline()
+        .Call<IPingHandler>((handler, request) => handler.MyMethod(request))
+        .Call<IPingHandler>((handler, request) => handler.MyLongMethod(request))
         .Return<PingResponse, IPingHandler>(
-            async(handler, req) => await handler.MyOtherMethod(req)
+            (handler, request) => await handler.MyOtherMethod(request)
         );
 });
 ```
@@ -33,12 +33,14 @@ services.AddFluentMediator(m => {
 ### Publishing Events
 
 ```c#
+// Puts the message in the pipeline, calls three handlers.
 mediator.Publish<PingRequest>(ping);
 ```
 
 ### Sending Commands and Queries
 
 ```c#
+// Calls the three handlers and get the response from `MyOtherMethod`.
 PingResponse response = mediator.Send<PingResponse>(new PingRequest("Ping"));
 Console.WriteLine(response.Message); // Prints "Pong"
 ```
