@@ -1,5 +1,5 @@
 # Fluent Mediator
-[![Build Status](https://ivanpaulovich.visualstudio.com/FluentMediator/_apis/build/status/ivanpaulovich.FluentMediator?branchName=master)](https://ivanpaulovich.visualstudio.com/FluentMediator/_build/latest?definitionId=24&branchName=master) [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors) ![GitHub pull requests](https://img.shields.io/github/issues-pr/ivanpaulovich/FluentMediator)
+[![Build Status](https://ivanpaulovich.visualstudio.com/FluentMediator/_apis/build/status/ivanpaulovich.FluentMediator?branchName=master)](https://ivanpaulovich.visualstudio.com/FluentMediator/_build/latest?definitionId=24&branchName=master) [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors) ![GitHub issues](https://img.shields.io/github/issues/ivanpaulovich/FluentMediator) ![GitHub pull requests](https://img.shields.io/github/issues-pr/ivanpaulovich/FluentMediator)
 
 :twisted_rightwards_arrows: We will not require you to implement framework interfaces and add dependencies to your domain events and handlers. Finally a really loosely coupled mediator library.
 
@@ -23,7 +23,10 @@ Setup your events and pipelines using depedency injection. You can be very creat
 services.AddFluentMediator(m => {
     m.On<PingRequest>().Pipeline()
         .Call<IPingHandler>((handler, req) => handler.MyMethod(req))
-        .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req));
+        .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req))
+        .Return<PingResponse, IPingHandler>(
+                    async(handler, req) => await handler.MyOtherMethod(req)
+                );
 });
 ```
 
