@@ -6,6 +6,13 @@
     <NullableReferenceTypes>true</NullableReferenceTypes>
     <LangVersion>8.0</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    
+    <PackageId>FluentMediator</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Ivan Paulovich</Authors>
+    <Description>FluentMediator</Description>
+    <IsPackable>true</IsPackable>
+    
   </PropertyGroup>
 
 </Project>
