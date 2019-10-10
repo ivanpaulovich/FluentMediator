@@ -27,6 +27,13 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     projects: 'src/FluentMediator/FluentMediator.csproj'
 
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    command: 'build'
+    arguments: '--configuration $(buildConfiguration)'
+    projects: 'src/FluentMediator.Microsoft.Extensions.DependencyInjection/FluentMediator.Microsoft.Extensions.DependencyInjection.csproj'
+
 # The second task is dotnet pack command again pointing to the csproj file
 # The nobuild means the project will not be compiled before running pack, because its already built in above step
 - task: DotNetCoreCLI@2
@@ -35,6 +42,17 @@ steps:
     command: 'pack'
     arguments: '--configuration $(buildConfiguration)'
     packagesToPack: 'src/FluentMediator/FluentMediator.csproj'
+    nobuild: true
+    versioningScheme: 'off'
+
+# The second task is dotnet pack command again pointing to the csproj file
+# The nobuild means the project will not be compiled before running pack, because its already built in above step
+- task: DotNetCoreCLI@2
+  displayName: "dotnet pack"
+  inputs:
+    command: 'pack'
+    arguments: '--configuration $(buildConfiguration)'
+    packagesToPack: 'src/FluentMediator.Microsoft.Extensions.DependencyInjection/FluentMediator.Microsoft.Extensions.DependencyInjection.csproj'
     nobuild: true
     versioningScheme: 'off'
 
