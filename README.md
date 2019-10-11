@@ -30,6 +30,8 @@ services.AddFluentMediator(builder => {
 });
 ```
 
+Then you are able to use the injected `IMediator` interface.
+
 ### Publishing Events
 
 ```c#
