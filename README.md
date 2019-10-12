@@ -49,7 +49,7 @@ Console.WriteLine(response.Message); // Prints "Pong"
 
 ## Why
 
-When designing Event-Driven applications we often need to publish events from the infrastructure layer into your domain event handlers. We do not want frameworks dependencies to leak into our model then FluentMediator was born. 
+When designing *CQRS* or *Event-Driven* applications we need to publish events from the infrastructure layer into the *domain event handlers*. We do not want framework dependencies leaking out to the Model then **FluentMediator** was born. 
 
 ## Contributors
 
