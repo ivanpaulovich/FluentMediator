@@ -10,7 +10,7 @@ namespace FluentMediator
             var mediatorBuilder = new MediatorBuilder();
             setupAction(mediatorBuilder);
             services.AddSingleton<IMediator>(c => mediatorBuilder.Build(c.GetService));
-            
+
             return services;
         }
     }

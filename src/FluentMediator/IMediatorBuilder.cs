@@ -7,12 +7,10 @@ namespace FluentMediator
 {
     public interface IMediatorBuilder
     {
-        IPipelineBuilder<TRequest> On<TRequest>();
-
-        Pipeline<TRequest> AddPipeline<TRequest>(Pipeline<TRequest> pipeline);
-        AsyncPipeline<TRequest> AddAsyncPipeline<TRequest>(AsyncPipeline<TRequest> asyncPipeline);
-        CancellablePipeline<TRequest> AddCancellablePipeline<TRequest>(CancellablePipeline<TRequest> cancellablePipeline);
-
+        IPipelineBehavior<TRequest> On<TRequest>();
+        IPipelineBuilder<TRequest> AddPipeline<TRequest>(Pipeline<TRequest> pipeline);
+        IAsyncPipelineBuilder<TRequest> AddAsyncPipeline<TRequest>(AsyncPipeline<TRequest> asyncPipeline);
+        ICancellablePipelineBuilder<TRequest> AddCancellablePipeline<TRequest>(CancellablePipeline<TRequest> cancellablePipeline);
         IMediator Build(GetService getService);
     }
 }

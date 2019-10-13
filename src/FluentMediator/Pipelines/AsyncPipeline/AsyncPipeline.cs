@@ -3,31 +3,30 @@ using System.Threading.Tasks;
 
 namespace FluentMediator.Pipelines.AsyncPipeline
 {
-    public class AsyncPipeline<TRequest> : IAsyncPipeline
+    public class AsyncPipeline<TRequest> : IAsyncPipeline, IAsyncPipelineBuilder<TRequest>
     {
         private readonly IMediatorBuilder _mediatorBuilder;
-        private readonly IMethodCollection<Method<Func<object, TRequest, Task>, TRequest>, TRequest > _methods;
+        private readonly IMethodCollection<Method<Func<object, object, Task>>> _methods;
         private IDirectAsync _direct;
 
         public AsyncPipeline(IMediatorBuilder mediatorBuilder)
         {
             _mediatorBuilder = mediatorBuilder;
-            _methods = new MethodCollection<Method<Func<object, TRequest, Task>, TRequest>, TRequest > ();
+            _methods = new MethodCollection<Method<Func<object, object, Task>>> ();
             _direct = null!;
         }
 
-        public AsyncPipeline<TRequest> Call<THandler>(Func<THandler, TRequest, Task> func)
+        public IAsyncPipelineBuilder<TRequest> Call<THandler>(Func<THandler, TRequest, Task> func)
         {
-            Func<object, TRequest, Task> typedHandler = async(h, r) => await func((THandler) h, (TRequest) r);
-            var method = new Method<Func<object, TRequest, Task>, TRequest>(typeof(THandler), typedHandler);
+            Func<object, object, Task> typedHandler = async(h, r) => await func((THandler) h, (TRequest) r);
+            var method = new Method<Func<object, object, Task>>(typeof(THandler), typedHandler);
             _methods.Add(method);
             return this;
         }
 
         public IMediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, Task<TResult>> func)
         {
-            var sendPipeline = new DirectAsync<TRequest, TResult, THandler>(func);
-            _direct = sendPipeline;
+            _direct = new DirectAsync<TRequest, TResult, THandler>(func);
             return _mediatorBuilder;
         }
 

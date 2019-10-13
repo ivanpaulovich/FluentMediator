@@ -6,12 +6,12 @@ namespace FluentMediator.Pipelines.AsyncPipeline
 {
     public class DirectAsync<TRequest, TResult, THandler> : IDirectAsync
     {
-        private readonly Method<Func<THandler, TRequest, Task<TResult>>> _method;
+        private readonly Method<Func<object, object, Task<TResult>>> _method;
 
         public DirectAsync(Func<THandler, TRequest, Task<TResult>> action)
         {
-            Func<THandler, TRequest, Task<TResult>> typedHandler = (h, req) => action((THandler) h, req);
-            _method = new Method<Func<THandler, TRequest, Task<TResult>>>(action);
+            Func<object, object, Task<TResult>> typedHandler = (h, req) => action((THandler) h, (TRequest)req);
+            _method = new Method<Func<object, object, Task<TResult>>>(typeof(THandler), typedHandler);
         }
 
         public async Task<Response1> SendAsync<Response1>(GetService getService, object request)

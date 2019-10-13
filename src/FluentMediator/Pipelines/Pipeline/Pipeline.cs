@@ -2,31 +2,31 @@ using System;
 
 namespace FluentMediator.Pipelines.Pipeline
 {
-    public class Pipeline<TRequest> : IPipeline
+    public class Pipeline<TRequest> : IPipeline, IPipelineBuilder<TRequest>
     {
-        private readonly IMediatorBuilder _pipelinesManager;
-        private readonly IMethodCollection<Method<Action<object, TRequest>, TRequest>, TRequest > _methods;
+        private readonly IMediatorBuilder _mediatorBuilder;
+        private readonly IMethodCollection<Method<Action<object, object>>> _methods;
         private IDirect _direct;
 
-        public Pipeline(IMediatorBuilder pipelinesManager)
+        public Pipeline(IMediatorBuilder mediatorBuilder)
         {
-            _pipelinesManager = pipelinesManager;
-            _methods = new MethodCollection<Method<Action<object, TRequest>, TRequest>, TRequest > ();
+            _mediatorBuilder = mediatorBuilder;
+            _methods = new MethodCollection<Method<Action<object, object>>> ();
             _direct = null!;
         }
 
-        public Pipeline<TRequest> Call<THandler>(Action<THandler, TRequest> action)
+        public IPipelineBuilder<TRequest> Call<THandler>(Action<THandler, TRequest> action)
         {
-            Action<object, TRequest> typedHandler = (h, r) => action((THandler) h, (TRequest) r);
-            var method = new Method<Action<object, TRequest>, TRequest>(typeof(THandler), typedHandler);
+            Action<object, object> typedHandler = (h, r) => action((THandler) h, (TRequest) r);
+            var method = new Method<Action<object, object>>(typeof(THandler), typedHandler);
             _methods.Add(method);
             return this;
         }
 
-        public IDirect Return<TResult, THandler>(Func<THandler, TRequest, TResult> func)
+        public IMediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, TResult> func)
         {
             _direct = new Direct<TRequest, TResult, THandler>(func);
-            return _direct;
+            return _mediatorBuilder;
         }
 
         public void Publish(GetService getService, object request)
@@ -56,7 +56,7 @@ namespace FluentMediator.Pipelines.Pipeline
 
         public IMediatorBuilder Build()
         {
-            return _pipelinesManager;
+            return _mediatorBuilder;
         }
     }
 }

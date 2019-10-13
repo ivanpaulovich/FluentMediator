@@ -4,7 +4,7 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator.Pipelines
 {
-    public sealed class PipelineBuilder<TRequest> : IPipelineBuilder<TRequest>
+    public sealed class PipelineBuilder<TRequest> : IPipelineBehavior<TRequest>
     {
         private readonly IMediatorBuilder _mediatorBuilder;
 
@@ -13,21 +13,21 @@ namespace FluentMediator.Pipelines
             _mediatorBuilder = mediatorBuilder;
         }
 
-        public Pipeline<TRequest> Pipeline()
+        public IPipelineBuilder<TRequest> Pipeline()
         {
             var pipeline = new Pipeline<TRequest>(_mediatorBuilder);
             _mediatorBuilder.AddPipeline<TRequest>(pipeline);
             return pipeline;
         }
 
-        public AsyncPipeline<TRequest> AsyncPipeline()
+        public IAsyncPipelineBuilder<TRequest> AsyncPipeline()
         {
             var asyncPipeline = new AsyncPipeline<TRequest>(_mediatorBuilder);
             _mediatorBuilder.AddAsyncPipeline<TRequest>(asyncPipeline);
             return asyncPipeline;
         }
 
-        public CancellablePipeline<TRequest> CancellablePipeline()
+        public ICancellablePipelineBuilder<TRequest> CancellablePipeline()
         {
             var cancellableAsyncPipeline = new CancellablePipeline<TRequest>(_mediatorBuilder);
             _mediatorBuilder.AddCancellablePipeline<TRequest>(cancellableAsyncPipeline);

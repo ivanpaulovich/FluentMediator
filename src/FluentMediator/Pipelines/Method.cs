@@ -2,24 +2,14 @@ using System;
 
 namespace FluentMediator.Pipelines
 {
-    public class Method<Act, TRequest>
+    public class Method<TAction>
     {
         public Type HandlerType { get; }
-        public Act Action { get; }
+        public TAction Action { get; }
 
-        public Method(Type handlerType, Act action)
+        public Method(Type handlerType, TAction action)
         {
             HandlerType = handlerType;
-            Action = action;
-        }
-    }
-
-    public class Method<Act>
-    {
-        public Act Action { get; }
-
-        public Method(Act action)
-        {
             Action = action;
         }
     }

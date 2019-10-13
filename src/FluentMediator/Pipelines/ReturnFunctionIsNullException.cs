@@ -1,4 +1,4 @@
-namespace FluentMediator
+namespace FluentMediator.Pipelines
 {
     public class ReturnFunctionIsNullException : MediatorException
     {

@@ -1,18 +1,17 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using FluentMediator.Pipelines;
 
 namespace FluentMediator.Pipelines.CancellablePipeline
 {
-    public class CancellableAsync<TRequest, TResult, THandler> : ICancellableAsync
+    public class CancellableAsyncDirect<TRequest, TResult, THandler> : ICancellableAsync
     {
-        private readonly Method<Func<THandler, TRequest, CancellationToken, Task<TResult>>> _method;
+        private readonly Method<Func<object, object, CancellationToken, Task<TResult>>> _method;
 
-        public CancellableAsync(Func<THandler, TRequest, CancellationToken, Task<TResult>> action)
+        public CancellableAsyncDirect(Func<THandler, TRequest, CancellationToken, Task<TResult>> action)
         {
-            Func<THandler, TRequest, CancellationToken, Task<TResult>> typedHandler = (h, req, ct) => action((THandler) h, req, ct);
-            _method = new Method<Func<THandler, TRequest, CancellationToken, Task<TResult>>>(action);
+            Func<object, object, CancellationToken, Task<TResult>> typedHandler = (h, req, ct) => action((THandler) h, (TRequest)req, ct);
+            _method = new Method<Func<object, object, CancellationToken, Task<TResult>>>(typeof(THandler), typedHandler);
         }
 
         public async Task<Response1> SendAsync<Response1>(GetService getService, object request, CancellationToken cancellationToken)

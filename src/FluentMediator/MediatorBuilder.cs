@@ -19,24 +19,24 @@ namespace FluentMediator
             _cancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
         }
 
-        public IPipelineBuilder<TRequest> On<TRequest>()
+        public IPipelineBehavior<TRequest> On<TRequest>()
         {
             return new PipelineBuilder<TRequest>(this);
         }
 
-        public Pipeline<TRequest> AddPipeline<TRequest>(Pipeline<TRequest> pipeline)
+        public IPipelineBuilder<TRequest> AddPipeline<TRequest>(Pipeline<TRequest> pipeline)
         {
             _pipelineCollection.Add<TRequest>(pipeline);
             return pipeline;
         }
 
-        public AsyncPipeline<TRequest> AddAsyncPipeline<TRequest>(AsyncPipeline<TRequest> asyncPipeline)
+        public IAsyncPipelineBuilder<TRequest> AddAsyncPipeline<TRequest>(AsyncPipeline<TRequest> asyncPipeline)
         {
             _asyncPipelineCollection.Add<TRequest>(asyncPipeline);
             return asyncPipeline;
         }
 
-        public CancellablePipeline<TRequest> AddCancellablePipeline<TRequest>(CancellablePipeline<TRequest> cancellablePipeline)
+        public ICancellablePipelineBuilder<TRequest> AddCancellablePipeline<TRequest>(CancellablePipeline<TRequest> cancellablePipeline)
         {
             _cancellablePipelineCollection.Add<TRequest>(cancellablePipeline);
             return cancellablePipeline;
