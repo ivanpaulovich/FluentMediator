@@ -4,6 +4,6 @@ namespace FluentMediator.Pipelines.Pipeline
     {
         void Publish(GetService getService, object request);
         TResult Send<TResult>(GetService getService, object request);
-        MediatorBuilder Build();
+        IMediatorBuilder Build();
     }
 }

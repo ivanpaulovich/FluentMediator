@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentMediator;
+using FluentMediator.Pipelines;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using UnitTests.PingPong;
@@ -94,7 +95,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public async Task BuildSendAsyncPipeline()
+        public async Task SendAsync_Returns_Response()
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m => {
@@ -114,7 +115,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void SendPipelineBuilder()
+        public void Send_Returns_Response()
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m => {
@@ -133,6 +134,24 @@ namespace UnitTests
             var response = mediator.Send<PingResponse>(ping);
 
             Assert.NotNull(response);
+        }
+
+        [Fact]
+        public void Send_Throws_PipelineNotFoundException()
+        {
+            var services = new ServiceCollection();
+            services.AddFluentMediator(m => {
+            });
+
+            services.AddScoped<IPingHandler, PingHandler>();
+            var provider = services.BuildServiceProvider();
+            var mediator = provider.GetRequiredService<IMediator>();
+
+            var ping = new PingRequest("Ping");
+            var actualEx = Record.Exception(() =>  mediator.Send<PingResponse>(ping));
+
+            Assert.NotNull(actualEx);
+            Assert.IsType<PipelineNotFoundException>(actualEx);
         }
     }
 }

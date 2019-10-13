@@ -10,15 +10,15 @@ namespace FluentMediator
     public sealed class Mediator : IMediator
     {
         public GetService GetService { get; }
-        private PipelineCollection<IPipeline> _pipelineCollection { get; }
-        private PipelineCollection<IAsyncPipeline> _asyncPipelineCollection { get; }
-        private PipelineCollection<ICancellablePipeline> _cancellablePipelineCollection { get; }
+        private IPipelineCollection<IPipeline> _pipelineCollection { get; }
+        private IPipelineCollection<IAsyncPipeline> _asyncPipelineCollection { get; }
+        private IPipelineCollection<ICancellablePipeline> _cancellablePipelineCollection { get; }
 
         public Mediator(
             GetService getService,
-            PipelineCollection<IPipeline> pipelineCollection,
-            PipelineCollection<IAsyncPipeline> asyncPipelineCollection,
-            PipelineCollection<ICancellablePipeline> cancellablePipelineCollection)
+            IPipelineCollection<IPipeline> pipelineCollection,
+            IPipelineCollection<IAsyncPipeline> asyncPipelineCollection,
+            IPipelineCollection<ICancellablePipeline> cancellablePipelineCollection)
         {
             GetService = getService;
             _pipelineCollection = pipelineCollection;

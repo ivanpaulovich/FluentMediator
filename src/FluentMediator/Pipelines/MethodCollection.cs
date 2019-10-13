@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace FluentMediator.Pipelines
 {
-    public class MethodCollection<Method, TRequest>
+    public sealed class MethodCollection<Method, TRequest> : IMethodCollection<Method, TRequest>
     {
         private readonly IList<Method> _asyncMethods;
 
@@ -12,7 +12,7 @@ namespace FluentMediator.Pipelines
             _asyncMethods = new List<Method>();
         }
 
-        public ReadOnlyCollection<Method> GetHandlers()
+        public ReadOnlyCollection<Method> GetMethods()
         {
             return new ReadOnlyCollection<Method>(_asyncMethods);
         }

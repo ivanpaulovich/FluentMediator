@@ -1,41 +1,40 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using FluentMediator.Pipelines;
 
 namespace FluentMediator.Pipelines.CancellablePipeline
 {
     public class CancellablePipeline<TRequest> : ICancellablePipeline
     {
-        private readonly MediatorBuilder _pipelinesManager;
-        private readonly MethodCollection<Method<Func<object, TRequest, CancellationToken, Task>, TRequest>, TRequest > _methods;
+        private readonly IMediatorBuilder _mediatorBuilder;
+        private readonly IMethodCollection<Method<Func<object, TRequest, CancellationToken, Task>, TRequest>, TRequest > _methods;
         private ICancellableAsync _direct;
 
-        public CancellablePipeline(MediatorBuilder pipelinesManager)
+        public CancellablePipeline(IMediatorBuilder mediatorBuilder)
         {
-            _pipelinesManager = pipelinesManager;
+            _mediatorBuilder = mediatorBuilder;
             _methods = new MethodCollection<Method<Func<object, TRequest, CancellationToken, Task>, TRequest>, TRequest > ();
             _direct = null!;
         }
 
-        public CancellablePipeline<TRequest> Call<THandler>(Func<THandler, TRequest, CancellationToken, Task> action)
+        public CancellablePipeline<TRequest> Call<THandler>(Func<THandler, TRequest, CancellationToken, Task> func)
         {
-            Func<object, TRequest, CancellationToken, Task> typedHandler = async(h, r, c) => await action((THandler) h, (TRequest) r, c);
+            Func<object, TRequest, CancellationToken, Task> typedHandler = async(h, r, c) => await func((THandler) h, (TRequest) r, c);
             var method = new Method<Func<object, TRequest, CancellationToken, Task>, TRequest>(typeof(THandler), typedHandler);
             _methods.Add(method);
             return this;
         }
 
-        public MediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>> action)
+        public IMediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>> func)
         {
-            var sendPipeline = new CancellableAsync<TRequest, TResult, THandler>(action);
+            var sendPipeline = new CancellableAsync<TRequest, TResult, THandler>(func);
             _direct = sendPipeline;
-            return _pipelinesManager;
+            return _mediatorBuilder;
         }
 
         public async Task PublishAsync(GetService getService, object request, CancellationToken cancellationToken)
         {
-            foreach (var handler in _methods.GetHandlers())
+            foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
                 await handler.Action(concreteHandler, (TRequest) request, cancellationToken);
@@ -49,7 +48,7 @@ namespace FluentMediator.Pipelines.CancellablePipeline
                 throw new ReturnFunctionIsNullException("The return function is null. SendAsync<TResult> method not executed.");
             }
 
-            foreach (var handler in _methods.GetHandlers())
+            foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
                 await handler.Action(concreteHandler, (TRequest) request, cancellationToken);
@@ -58,9 +57,9 @@ namespace FluentMediator.Pipelines.CancellablePipeline
             return await _direct.SendAsync<TResult>(getService, request!, cancellationToken) !;
         }
 
-        public MediatorBuilder Build()
+        public IMediatorBuilder Build()
         {
-            return _pipelinesManager;
+            return _mediatorBuilder;
         }
     }
 }

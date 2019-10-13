@@ -7,6 +7,6 @@ namespace FluentMediator.Pipelines.CancellablePipeline
     {
         Task PublishAsync(GetService getService, object request, CancellationToken cancellationToken);
         Task<TResult> SendAsync<TResult>(GetService getService, object request, CancellationToken cancellationToken);
-        MediatorBuilder Build();
+        IMediatorBuilder Build();
     }
 }

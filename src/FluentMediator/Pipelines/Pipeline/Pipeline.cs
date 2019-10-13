@@ -4,11 +4,11 @@ namespace FluentMediator.Pipelines.Pipeline
 {
     public class Pipeline<TRequest> : IPipeline
     {
-        private readonly MediatorBuilder _pipelinesManager;
-        private readonly MethodCollection<Method<Action<object, TRequest>, TRequest>, TRequest > _methods;
+        private readonly IMediatorBuilder _pipelinesManager;
+        private readonly IMethodCollection<Method<Action<object, TRequest>, TRequest>, TRequest > _methods;
         private IDirect _direct;
 
-        public Pipeline(MediatorBuilder pipelinesManager)
+        public Pipeline(IMediatorBuilder pipelinesManager)
         {
             _pipelinesManager = pipelinesManager;
             _methods = new MethodCollection<Method<Action<object, TRequest>, TRequest>, TRequest > ();
@@ -31,7 +31,7 @@ namespace FluentMediator.Pipelines.Pipeline
 
         public void Publish(GetService getService, object request)
         {
-            foreach (var handler in _methods.GetHandlers())
+            foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
                 handler.Action(concreteHandler, (TRequest) request);
@@ -45,7 +45,7 @@ namespace FluentMediator.Pipelines.Pipeline
                 throw new ReturnFunctionIsNullException("The return function is null. Send<TResult> method not executed.");
             }
 
-            foreach (var handler in _methods.GetHandlers())
+            foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
                 handler.Action(concreteHandler, (TRequest) request);
@@ -54,7 +54,7 @@ namespace FluentMediator.Pipelines.Pipeline
             return _direct.Send<TResult>(getService, request!) !;
         }
 
-        public MediatorBuilder Build()
+        public IMediatorBuilder Build()
         {
             return _pipelinesManager;
         }

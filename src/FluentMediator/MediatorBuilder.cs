@@ -6,11 +6,11 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator
 {
-    public class MediatorBuilder
+    public sealed class MediatorBuilder : IMediatorBuilder
     {
-        private PipelineCollection<IPipeline> _pipelineCollection { get; }
-        private PipelineCollection<IAsyncPipeline> _asyncPipelineCollection { get; }
-        private PipelineCollection<ICancellablePipeline> _cancellablePipelineCollection { get; }
+        private IPipelineCollection<IPipeline> _pipelineCollection { get; }
+        private IPipelineCollection<IAsyncPipeline> _asyncPipelineCollection { get; }
+        private IPipelineCollection<ICancellablePipeline> _cancellablePipelineCollection { get; }
 
         public MediatorBuilder()
         {
@@ -19,7 +19,7 @@ namespace FluentMediator
             _cancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
         }
 
-        public PipelineBuilder<TRequest> On<TRequest>()
+        public IPipelineBuilder<TRequest> On<TRequest>()
         {
             return new PipelineBuilder<TRequest>(this);
         }
@@ -40,36 +40,6 @@ namespace FluentMediator
         {
             _cancellablePipelineCollection.Add<TRequest>(cancellablePipeline);
             return cancellablePipeline;
-        }
-
-        public IPipeline GetPipeline(object request)
-        {
-            if (_pipelineCollection.Contains(request.GetType(), out var pipeline))
-            {
-                return pipeline!;
-            }
-
-            throw new Exception("IPipeline not found");
-        }
-
-        public IAsyncPipeline GetAsyncPipeline(object request)
-        {
-            if (_asyncPipelineCollection.Contains(request.GetType(), out var pipeline))
-            {
-                return pipeline!;
-            }
-
-            throw new Exception("IAsyncPipeline not found");
-        }
-
-        public ICancellablePipeline GetCancellablePipeline(object request)
-        {
-            if (_cancellablePipelineCollection.Contains(request.GetType(), out var pipeline))
-            {
-                return pipeline!;
-            }
-
-            throw new Exception("ICancellablePipeline not found");
         }
 
         public IMediator Build(GetService getService)

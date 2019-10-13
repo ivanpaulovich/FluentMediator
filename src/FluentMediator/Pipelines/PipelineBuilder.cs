@@ -4,11 +4,11 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator.Pipelines
 {
-    public class PipelineBuilder<TRequest> : IPipelineBuilder
+    public sealed class PipelineBuilder<TRequest> : IPipelineBuilder<TRequest>
     {
-        private readonly MediatorBuilder _mediatorBuilder;
+        private readonly IMediatorBuilder _mediatorBuilder;
 
-        public PipelineBuilder(MediatorBuilder mediatorBuilder)
+        public PipelineBuilder(IMediatorBuilder mediatorBuilder)
         {
             _mediatorBuilder = mediatorBuilder;
         }

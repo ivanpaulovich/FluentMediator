@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentMediator;
+using FluentMediator.Pipelines;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using UnitTests.PingPong;
@@ -30,6 +31,7 @@ namespace UnitTests
                 });
 
                 Assert.NotNull(ex);
+                Assert.IsType<PipelineAlreadyExistsException>(ex);
             });
             var pingHandler = new Mock<IPingHandler>();
             services.AddScoped<IPingHandler>(provider => pingHandler.Object);

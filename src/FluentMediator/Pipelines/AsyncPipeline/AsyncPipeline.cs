@@ -5,35 +5,35 @@ namespace FluentMediator.Pipelines.AsyncPipeline
 {
     public class AsyncPipeline<TRequest> : IAsyncPipeline
     {
-        private readonly MediatorBuilder _pipelinesManager;
-        private readonly MethodCollection<Method<Func<object, TRequest, Task>, TRequest>, TRequest > _methods;
+        private readonly IMediatorBuilder _mediatorBuilder;
+        private readonly IMethodCollection<Method<Func<object, TRequest, Task>, TRequest>, TRequest > _methods;
         private IDirectAsync _direct;
 
-        public AsyncPipeline(MediatorBuilder pipelinesManager)
+        public AsyncPipeline(IMediatorBuilder mediatorBuilder)
         {
-            _pipelinesManager = pipelinesManager;
+            _mediatorBuilder = mediatorBuilder;
             _methods = new MethodCollection<Method<Func<object, TRequest, Task>, TRequest>, TRequest > ();
             _direct = null!;
         }
 
-        public AsyncPipeline<TRequest> Call<THandler>(Func<THandler, TRequest, Task> action)
+        public AsyncPipeline<TRequest> Call<THandler>(Func<THandler, TRequest, Task> func)
         {
-            Func<object, TRequest, Task> typedHandler = async(h, r) => await action((THandler) h, (TRequest) r);
+            Func<object, TRequest, Task> typedHandler = async(h, r) => await func((THandler) h, (TRequest) r);
             var method = new Method<Func<object, TRequest, Task>, TRequest>(typeof(THandler), typedHandler);
             _methods.Add(method);
             return this;
         }
 
-        public MediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, Task<TResult>> action)
+        public IMediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, Task<TResult>> func)
         {
-            var sendPipeline = new DirectAsync<TRequest, TResult, THandler>(action);
+            var sendPipeline = new DirectAsync<TRequest, TResult, THandler>(func);
             _direct = sendPipeline;
-            return _pipelinesManager;
+            return _mediatorBuilder;
         }
 
         public async Task PublishAsync(GetService getService, object request)
         {
-            foreach (var handler in _methods.GetHandlers())
+            foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
                 await handler.Action(concreteHandler, (TRequest) request);
@@ -47,7 +47,7 @@ namespace FluentMediator.Pipelines.AsyncPipeline
                 throw new ReturnFunctionIsNullException("The return function is null. SendAsync<TResult> method not executed.");
             }
 
-            foreach (var handler in _methods.GetHandlers())
+            foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
                 await handler.Action(concreteHandler, (TRequest) request);
@@ -56,9 +56,9 @@ namespace FluentMediator.Pipelines.AsyncPipeline
             return await _direct.SendAsync<TResult>(getService, request!) !;
         }
 
-        public MediatorBuilder Build()
+        public IMediatorBuilder Build()
         {
-            return _pipelinesManager;
+            return _mediatorBuilder;
         }
     }
 }
