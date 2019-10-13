@@ -2,30 +2,30 @@ using System;
 
 namespace FluentMediator.Pipelines.Pipeline
 {
-    public class Pipeline<Request> : IPipeline
+    public class Pipeline<TRequest> : IPipeline
     {
         private readonly MediatorBuilder _pipelinesManager;
-        private readonly MethodCollection<Method<Action<object, Request>, Request>, Request > _methods;
+        private readonly MethodCollection<Method<Action<object, TRequest>, TRequest>, TRequest > _methods;
         private IDirect _direct;
 
         public Pipeline(MediatorBuilder pipelinesManager)
         {
             _pipelinesManager = pipelinesManager;
-            _methods = new MethodCollection<Method<Action<object, Request>, Request>, Request > ();
+            _methods = new MethodCollection<Method<Action<object, TRequest>, TRequest>, TRequest > ();
             _direct = null!;
         }
 
-        public Pipeline<Request> Call<Handler>(Action<Handler, Request> action)
+        public Pipeline<TRequest> Call<THandler>(Action<THandler, TRequest> action)
         {
-            Action<object, Request> typedHandler = (h, r) => action((Handler) h, (Request) r);
-            var method = new Method<Action<object, Request>, Request>(typeof(Handler), typedHandler);
+            Action<object, TRequest> typedHandler = (h, r) => action((THandler) h, (TRequest) r);
+            var method = new Method<Action<object, TRequest>, TRequest>(typeof(THandler), typedHandler);
             _methods.Add(method);
             return this;
         }
 
-        public IDirect Return<Response, Handler>(Func<Handler, Request, Response> func)
+        public IDirect Return<TResult, THandler>(Func<THandler, TRequest, TResult> func)
         {
-            _direct = new Direct<Request, Response, Handler>(func);
+            _direct = new Direct<TRequest, TResult, THandler>(func);
             return _direct;
         }
 
@@ -34,22 +34,24 @@ namespace FluentMediator.Pipelines.Pipeline
             foreach (var handler in _methods.GetHandlers())
             {
                 var concreteHandler = getService(handler.HandlerType);
-                handler.Action(concreteHandler, (Request) request);
+                handler.Action(concreteHandler, (TRequest) request);
             }
         }
 
-        public Response Send<Response>(GetService getService, object request)
+        public TResult Send<TResult>(GetService getService, object request)
         {
+            if (_direct is null)
+            {
+                throw new ReturnFunctionIsNullException("The return function is null. Send<TResult> method not executed.");
+            }
+
             foreach (var handler in _methods.GetHandlers())
             {
                 var concreteHandler = getService(handler.HandlerType);
-                handler.Action(concreteHandler, (Request) request);
+                handler.Action(concreteHandler, (TRequest) request);
             }
 
-            if (_direct is null)
-                throw new Exception("Send not configured.");
-
-            return _direct.Send<Response>(getService, request!) !;
+            return _direct.Send<TResult>(getService, request!) !;
         }
 
         public MediatorBuilder Build()

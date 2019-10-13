@@ -5,21 +5,21 @@ using FluentMediator.Pipelines;
 
 namespace FluentMediator.Pipelines.CancellablePipeline
 {
-    public class CancellableAsync<Request, Response, Handler> : ICancellableAsync
+    public class CancellableAsync<TRequest, TResult, THandler> : ICancellableAsync
     {
-        private readonly Method<Func<Handler, Request, CancellationToken, Task<Response>>> _method;
+        private readonly Method<Func<THandler, TRequest, CancellationToken, Task<TResult>>> _method;
 
-        public CancellableAsync(Func<Handler, Request, CancellationToken, Task<Response>> action)
+        public CancellableAsync(Func<THandler, TRequest, CancellationToken, Task<TResult>> action)
         {
-            Func<Handler, Request, CancellationToken, Task<Response>> typedHandler = (h, req, ct) => action((Handler) h, req, ct);
-            _method = new Method<Func<Handler, Request, CancellationToken, Task<Response>>>(action);
+            Func<THandler, TRequest, CancellationToken, Task<TResult>> typedHandler = (h, req, ct) => action((THandler) h, req, ct);
+            _method = new Method<Func<THandler, TRequest, CancellationToken, Task<TResult>>>(action);
         }
 
         public async Task<Response1> SendAsync<Response1>(GetService getService, object request, CancellationToken cancellationToken)
         {
-            var concreteHandler = getService(typeof(Handler));
-            Func<Handler, Request, CancellationToken, Task<Response1>> typedHandler = (h, req, ct) => (Task<Response1>) (object) _method.Action((Handler) concreteHandler, (Request) (object) request!, ct);
-            return await typedHandler((Handler) concreteHandler, (Request) (object) request!, cancellationToken);
+            var concreteHandler = getService(typeof(THandler));
+            Func<THandler, TRequest, CancellationToken, Task<Response1>> typedHandler = (h, req, ct) => (Task<Response1>) (object) _method.Action((THandler) concreteHandler, (TRequest) (object) request!, ct);
+            return await typedHandler((THandler) concreteHandler, (TRequest) (object) request!, cancellationToken);
         }
     }
 }

@@ -102,48 +102,6 @@ namespace UnitTests
         }
 
         [Fact]
-        public void SendPipelineBuilder()
-        {
-            var services = new ServiceCollection();
-            services.AddFluentMediator(m => {
-                m.On<PingRequest>()
-                .Pipeline()
-                .Return<PingResponse, IPingHandler>(
-                    (handler, req) => handler.MyMethod(req)
-                );
-            });
-
-            services.AddScoped<IPingHandler, PingHandler>();
-            var provider = services.BuildServiceProvider();
-            var mediator = provider.GetRequiredService<IMediator>();
-
-            var ping = new PingRequest("Ping");
-            var response = mediator.Send<PingResponse>(ping);
-
-            Assert.NotNull(response);
-        }
-
-        [Fact]
-        public async Task BuildSendAsyncPipeline()
-        {
-            var services = new ServiceCollection();
-            services.AddFluentMediator(m => {
-                m.On<PingRequest>().AsyncPipeline()
-                .Return<PingResponse, IPingHandler>(
-                    (handler, req) => handler.MyMethodAsync(req)
-                );
-            });
-            services.AddScoped<IPingHandler, PingHandler>();
-            var provider = services.BuildServiceProvider();
-            var mediator = provider.GetRequiredService<IMediator>();
-            
-            var ping = new PingRequest("Ping");
-            var response = await mediator.SendAsync<PingResponse>(ping);
-
-            Assert.NotNull(response);
-        }
-
-        [Fact]
         public void BuildSendAsyncPipeline_ThrowsException()
         {
             var services = new ServiceCollection();

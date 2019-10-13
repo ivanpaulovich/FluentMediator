@@ -5,6 +5,6 @@ namespace FluentMediator.Pipelines.AsyncPipeline
     public interface IAsyncPipelineMediator
     {
         Task PublishAsync(object request);
-        Task<Response> SendAsync<Response>(object request);
+        Task<TResult> SendAsync<TResult>(object request);
     }
 }

@@ -12,9 +12,9 @@ namespace FluentMediator.Pipelines
             _pipelines = new Dictionary<Type, P>();
         }
 
-        public void Add<Request>(P pipeline)
+        public void Add<TRequest>(P pipeline)
         {
-            _pipelines.Add(typeof(Request), pipeline);
+            _pipelines.Add(typeof(TRequest), pipeline);
         }
 
         public P Get(object request)

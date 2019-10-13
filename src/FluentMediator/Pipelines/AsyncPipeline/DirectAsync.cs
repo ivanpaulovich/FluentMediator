@@ -4,21 +4,21 @@ using FluentMediator.Pipelines;
 
 namespace FluentMediator.Pipelines.AsyncPipeline
 {
-    public class DirectAsync<Request, Response, Handler> : IDirectAsync
+    public class DirectAsync<TRequest, TResult, THandler> : IDirectAsync
     {
-        private readonly Method<Func<Handler, Request, Task<Response>>> _method;
+        private readonly Method<Func<THandler, TRequest, Task<TResult>>> _method;
 
-        public DirectAsync(Func<Handler, Request, Task<Response>> action)
+        public DirectAsync(Func<THandler, TRequest, Task<TResult>> action)
         {
-            Func<Handler, Request, Task<Response>> typedHandler = (h, req) => action((Handler) h, req);
-            _method = new Method<Func<Handler, Request, Task<Response>>>(action);
+            Func<THandler, TRequest, Task<TResult>> typedHandler = (h, req) => action((THandler) h, req);
+            _method = new Method<Func<THandler, TRequest, Task<TResult>>>(action);
         }
 
         public async Task<Response1> SendAsync<Response1>(GetService getService, object request)
         {
-            var concreteHandler = getService(typeof(Handler));
-            Func<Handler, Request, Task<Response1>> typedHandler = (h, req) => (Task<Response1>) (object) _method.Action((Handler) concreteHandler, (Request) (object) request!);
-            return await typedHandler((Handler) concreteHandler, (Request) (object) request!);
+            var concreteHandler = getService(typeof(THandler));
+            Func<THandler, TRequest, Task<Response1>> typedHandler = (h, req) => (Task<Response1>) (object) _method.Action((THandler) concreteHandler, (TRequest) (object) request!);
+            return await typedHandler((THandler) concreteHandler, (TRequest) (object) request!);
         }
     }
 }

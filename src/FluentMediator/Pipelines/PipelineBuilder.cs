@@ -4,7 +4,7 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator.Pipelines
 {
-    public class PipelineBuilder<Request> : IPipelineBuilder
+    public class PipelineBuilder<TRequest> : IPipelineBuilder
     {
         private readonly MediatorBuilder _mediatorBuilder;
 
@@ -13,24 +13,24 @@ namespace FluentMediator.Pipelines
             _mediatorBuilder = mediatorBuilder;
         }
 
-        public Pipeline<Request> Pipeline()
+        public Pipeline<TRequest> Pipeline()
         {
-            var pipeline = new Pipeline<Request>(_mediatorBuilder);
-            _mediatorBuilder.AddPipeline<Request>(pipeline);
+            var pipeline = new Pipeline<TRequest>(_mediatorBuilder);
+            _mediatorBuilder.AddPipeline<TRequest>(pipeline);
             return pipeline;
         }
 
-        public AsyncPipeline<Request> AsyncPipeline()
+        public AsyncPipeline<TRequest> AsyncPipeline()
         {
-            var asyncPipeline = new AsyncPipeline<Request>(_mediatorBuilder);
-            _mediatorBuilder.AddAsyncPipeline<Request>(asyncPipeline);
+            var asyncPipeline = new AsyncPipeline<TRequest>(_mediatorBuilder);
+            _mediatorBuilder.AddAsyncPipeline<TRequest>(asyncPipeline);
             return asyncPipeline;
         }
 
-        public CancellablePipeline<Request> CancellablePipeline()
+        public CancellablePipeline<TRequest> CancellablePipeline()
         {
-            var cancellableAsyncPipeline = new CancellablePipeline<Request>(_mediatorBuilder);
-            _mediatorBuilder.AddCancellablePipeline<Request>(cancellableAsyncPipeline);
+            var cancellableAsyncPipeline = new CancellablePipeline<TRequest>(_mediatorBuilder);
+            _mediatorBuilder.AddCancellablePipeline<TRequest>(cancellableAsyncPipeline);
             return cancellableAsyncPipeline;
         }
     }

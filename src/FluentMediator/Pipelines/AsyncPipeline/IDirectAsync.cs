@@ -4,6 +4,6 @@ namespace FluentMediator.Pipelines.AsyncPipeline
 {
     public interface IDirectAsync
     {
-        Task<Response> SendAsync<Response>(GetService getService, object request);
+        Task<TResult> SendAsync<TResult>(GetService getService, object request);
     }
 }
