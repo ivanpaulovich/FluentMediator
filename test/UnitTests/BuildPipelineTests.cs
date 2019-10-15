@@ -16,28 +16,25 @@ namespace UnitTests
         public void BuildSendAsyncPipeline_ThrowsException()
         {
             var services = new ServiceCollection();
-            services.AddFluentMediator(m => {
-                m.On<PingRequest>().AsyncPipeline()
-                .Return<PingResponse, IPingHandler>(
-                    (handler, req) => handler.MyMethodAsync(req)
-                );
-
-                Exception ex = Record.Exception(() =>
+            Exception ex = Record.Exception(() =>
+            {
+                services.AddFluentMediator(m =>
                 {
                     m.On<PingRequest>().AsyncPipeline()
                         .Return<PingResponse, IPingHandler>(
                             (handler, req) => handler.MyMethodAsync(req)
                         );
+
+                    m.On<PingRequest>().AsyncPipeline()
+                        .Return<PingResponse, IPingHandler>(
+                            (handler, req) => handler.MyMethodAsync(req)
+                        );
+
                 });
-
-                Assert.NotNull(ex);
-                Assert.IsType<PipelineAlreadyExistsException>(ex);
             });
-            var pingHandler = new Mock<IPingHandler>();
-            services.AddScoped<IPingHandler>(provider => pingHandler.Object);
 
-            var provider = services.BuildServiceProvider();
-            var mediator = provider.GetRequiredService<IMediator>();
+            Assert.NotNull(ex);
+            Assert.IsType<PipelineAlreadyExistsException>(ex);
         }
     }
 }

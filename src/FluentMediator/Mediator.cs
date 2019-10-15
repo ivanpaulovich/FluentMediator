@@ -1,64 +1,54 @@
 using System.Threading;
 using System.Threading.Tasks;
-using FluentMediator.Pipelines;
-using FluentMediator.Pipelines.AsyncPipeline;
-using FluentMediator.Pipelines.CancellablePipeline;
-using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator
 {
     public sealed class Mediator : IMediator
     {
         public GetService GetService { get; }
-        private IPipelineCollection<IPipeline> _pipelineCollection { get; }
-        private IPipelineCollection<IAsyncPipeline> _asyncPipelineCollection { get; }
-        private IPipelineCollection<ICancellablePipeline> _cancellablePipelineCollection { get; }
+        private IPipelines _pipelines;
 
         public Mediator(
             GetService getService,
-            IPipelineCollection<IPipeline> pipelineCollection,
-            IPipelineCollection<IAsyncPipeline> asyncPipelineCollection,
-            IPipelineCollection<ICancellablePipeline> cancellablePipelineCollection)
+            IPipelines pipelines)
         {
             GetService = getService;
-            _pipelineCollection = pipelineCollection;
-            _asyncPipelineCollection = asyncPipelineCollection;
-            _cancellablePipelineCollection = cancellablePipelineCollection;
+            _pipelines = pipelines;
         }
 
         public void Publish(object request)
         {
-            var pipeline = _pipelineCollection.Get(request);
+            var pipeline = _pipelines.GetPipeline(request.GetType());
             pipeline.Publish(GetService, request!);
         }
 
         public TResult Send<TResult>(object request)
         {
-            var pipeline = _pipelineCollection.Get(request);
+            var pipeline = _pipelines.GetPipeline(request.GetType());
             return pipeline.Send<TResult>(GetService, request!);
         }
 
         public async Task PublishAsync(object request)
         {
-            var pipeline = _asyncPipelineCollection.Get(request);
+            var pipeline = _pipelines.GetAsyncPipeline(request.GetType());
             await pipeline.PublishAsync(GetService, request!);
         }
 
         public async Task<TResult> SendAsync<TResult>(object request)
         {
-            var pipeline = _asyncPipelineCollection.Get(request);
+            var pipeline = _pipelines.GetAsyncPipeline(request.GetType());
             return await pipeline.SendAsync<TResult>(GetService, request!);
         }
 
         public async Task PublishAsync(object request, CancellationToken ct)
         {
-            var pipeline = _cancellablePipelineCollection.Get(request);
+            var pipeline = _pipelines.GetCancellablePipeline(request.GetType());
             await pipeline.PublishAsync(GetService, request!, ct);
         }
 
         public async Task<TResult> SendAsync<TResult>(object request, CancellationToken ct)
         {
-            var pipeline = _cancellablePipelineCollection.Get(request);
+            var pipeline = _pipelines.GetCancellablePipeline(request.GetType());
             return await pipeline.SendAsync<TResult>(GetService, request!, ct);
         }
     }

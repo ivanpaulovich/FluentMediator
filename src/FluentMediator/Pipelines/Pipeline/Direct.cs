@@ -12,10 +12,10 @@ namespace FluentMediator.Pipelines.Pipeline
             _method = new Method<Func<object, object, TResult>>(typeof(THandler), typedHandler);
         }
 
-        public Response1 Send<Response1>(GetService getService, object request)
+        public TResponse Send<TResponse>(GetService getService, object request)
         {
             var concreteHandler = getService(_method.HandlerType);
-            return (Response1) (object) _method.Action((THandler) concreteHandler, (TRequest) request) !;
+            return (TResponse) (object) _method.Action((THandler) concreteHandler, (TRequest) request) !;
         }
     }
 }

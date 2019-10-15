@@ -1,6 +1,6 @@
 namespace FluentMediator.Pipelines
 {
-    public class PipelineNotFoundException : MediatorException
+    public sealed class PipelineNotFoundException : MediatorException
     {
         public PipelineNotFoundException() { }
         public PipelineNotFoundException(string message) : base(message) { }

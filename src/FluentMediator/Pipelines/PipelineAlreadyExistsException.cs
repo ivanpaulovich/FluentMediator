@@ -1,6 +1,6 @@
 namespace FluentMediator.Pipelines
 {
-    public class PipelineAlreadyExistsException : MediatorException
+    public sealed class PipelineAlreadyExistsException : MediatorException
     {
         public PipelineAlreadyExistsException() { }
         public PipelineAlreadyExistsException(string message) : base(message) { }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace FluentMediator.Pipelines
@@ -13,6 +14,16 @@ namespace FluentMediator.Pipelines
                 _pipelines = new Dictionary<Type, TPipeline>();
             }
 
+            public void Add(Type requestType, TPipeline pipeline)
+            {
+                if (_pipelines.ContainsKey(requestType))
+                {
+                    throw new PipelineAlreadyExistsException($"A pipeline for `{ requestType }` already exists.");
+                }
+
+                _pipelines.Add(requestType, pipeline);
+            }
+
             public void Add<TRequest>(TPipeline pipeline)
             {
                 if (_pipelines.ContainsKey(typeof(TRequest)))
@@ -23,9 +34,9 @@ namespace FluentMediator.Pipelines
                 _pipelines.Add(typeof(TRequest), pipeline);
             }
 
-            public TPipeline Get(object request)
+            public TPipeline Get(Type request)
             {
-                if (_pipelines.TryGetValue(request.GetType(), out var pipeline))
+                if (_pipelines.TryGetValue(request, out var pipeline))
                 {
                     return pipeline;
                 }
@@ -37,12 +48,22 @@ namespace FluentMediator.Pipelines
             {
                 if (!_pipelines.ContainsKey(requestType))
                 {
-                    pipeline = default(TPipeline);
+                    pipeline = default;
                     return false;
                 }
 
                 pipeline = _pipelines[requestType];
                 return true;
+            }
+
+            public IEnumerator<TPipeline> GetEnumerator()
+            {
+                return _pipelines.Values.GetEnumerator();
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return _pipelines.Values.GetEnumerator();
             }
         }
 }

@@ -5,11 +5,15 @@ namespace FluentMediator
 {
     public static class FluentMediatorExtensions
     {
-        public static IServiceCollection AddFluentMediator(this IServiceCollection services, Action<IMediatorBuilder> setupAction)
+        public static IServiceCollection AddFluentMediator(this IServiceCollection services, Action<IPipelinesBuilder> setupAction)
         {
-            var mediatorBuilder = new MediatorBuilder();
-            setupAction(mediatorBuilder);
-            services.AddSingleton<IMediator>(c => mediatorBuilder.Build(c.GetService));
+            var pipelinesBuilder = new PipelinesBuilder();
+            setupAction(pipelinesBuilder);
+            var pipelines = pipelinesBuilder.Build();
+
+            services.AddTransient<GetService>(c => c.GetService);
+            services.AddTransient(c => pipelines);
+            services.AddTransient<IMediator, Mediator>();
 
             return services;
         }

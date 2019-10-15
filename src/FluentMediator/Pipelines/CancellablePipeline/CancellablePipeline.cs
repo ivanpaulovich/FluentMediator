@@ -4,31 +4,25 @@ using System.Threading.Tasks;
 
 namespace FluentMediator.Pipelines.CancellablePipeline
 {
-    public class CancellablePipeline<TRequest> : ICancellablePipeline, ICancellablePipelineBuilder<TRequest>
+    public sealed class CancellablePipeline : ICancellablePipeline
     {
-        private readonly IMediatorBuilder _mediatorBuilder;
         private readonly IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> _methods;
-        private ICancellableAsync _direct;
+        private readonly Type _requestType;
+        private readonly ICancellableAsync _direct;
 
-        public CancellablePipeline(IMediatorBuilder mediatorBuilder)
+        public CancellablePipeline(IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> methods, ICancellableAsync direct, Type requestType)
         {
-            _mediatorBuilder = mediatorBuilder;
-            _methods = new MethodCollection<Method<Func<object, object, CancellationToken, Task>>> ();
-            _direct = null!;
+            _methods = methods;
+            _direct = direct;
+            _requestType = requestType;
         }
 
-        public ICancellablePipelineBuilder<TRequest> Call<THandler>(Func<THandler, TRequest, CancellationToken, Task> func)
+        public Type RequestType
         {
-            Func<object, object, CancellationToken, Task> typedHandler = async(h, r, c) => await func((THandler) h, (TRequest) r, c);
-            var method = new Method<Func<object, object, CancellationToken, Task>>(typeof(THandler), typedHandler);
-            _methods.Add(method);
-            return this;
-        }
-
-        public IMediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>> func)
-        {
-            _direct = new CancellableAsyncDirect<TRequest, TResult, THandler>(func);
-            return _mediatorBuilder;
+            get
+            {
+                return _requestType;
+            }
         }
 
         public async Task PublishAsync(GetService getService, object request, CancellationToken cancellationToken)
@@ -36,7 +30,7 @@ namespace FluentMediator.Pipelines.CancellablePipeline
             foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
-                await handler.Action(concreteHandler, (TRequest) request, cancellationToken);
+                await handler.Action(concreteHandler, request, cancellationToken);
             }
         }
 
@@ -50,15 +44,10 @@ namespace FluentMediator.Pipelines.CancellablePipeline
             foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
-                await handler.Action(concreteHandler, (TRequest) request, cancellationToken);
+                await handler.Action(concreteHandler, request, cancellationToken);
             }
 
             return await _direct.SendAsync<TResult>(getService, request!, cancellationToken) !;
-        }
-
-        public IMediatorBuilder Build()
-        {
-            return _mediatorBuilder;
         }
     }
 }

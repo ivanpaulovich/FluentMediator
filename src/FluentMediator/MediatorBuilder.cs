@@ -1,4 +1,5 @@
-using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using FluentMediator.Pipelines;
 using FluentMediator.Pipelines.AsyncPipeline;
 using FluentMediator.Pipelines.CancellablePipeline;
@@ -6,45 +7,72 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator
 {
-    public sealed class MediatorBuilder : IMediatorBuilder
+    public sealed class PipelinesBuilder : IPipelinesBuilder
     {
-        private IPipelineCollection<IPipeline> _pipelineCollection { get; }
-        private IPipelineCollection<IAsyncPipeline> _asyncPipelineCollection { get; }
-        private IPipelineCollection<ICancellablePipeline> _cancellablePipelineCollection { get; }
+        private ICollection<IPipelineBuilder> _pipelineBuilderCollection { get; }
+        private ICollection<IAsyncPipelineBuilder> _asyncPipelineBuilderCollection { get; }
+        private ICollection<ICancellablePipelineBuilder> _cancellablePipelineBuilderCollection { get; }
 
-        public MediatorBuilder()
+        public PipelinesBuilder()
         {
-            _pipelineCollection = new PipelineCollection<IPipeline>();
-            _asyncPipelineCollection = new PipelineCollection<IAsyncPipeline>();
-            _cancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
+            _pipelineBuilderCollection = new Collection<IPipelineBuilder>();
+            _asyncPipelineBuilderCollection = new Collection<IAsyncPipelineBuilder>();
+            _cancellablePipelineBuilderCollection = new Collection<ICancellablePipelineBuilder>();
         }
 
         public IPipelineBehavior<TRequest> On<TRequest>()
         {
-            return new PipelineBuilder<TRequest>(this);
+            var behavior = new PipelineBehavior<TRequest>(this);
+            return behavior;
         }
 
-        public IPipelineBuilder<TRequest> AddPipeline<TRequest>(Pipeline<TRequest> pipeline)
+        public IPipelineBuilder Add(IPipelineBuilder pipeline)
         {
-            _pipelineCollection.Add<TRequest>(pipeline);
+            _pipelineBuilderCollection.Add(pipeline);
             return pipeline;
         }
 
-        public IAsyncPipelineBuilder<TRequest> AddAsyncPipeline<TRequest>(AsyncPipeline<TRequest> asyncPipeline)
+        public IAsyncPipelineBuilder Add(IAsyncPipelineBuilder asyncPipeline)
         {
-            _asyncPipelineCollection.Add<TRequest>(asyncPipeline);
+            _asyncPipelineBuilderCollection.Add(asyncPipeline);
             return asyncPipeline;
         }
 
-        public ICancellablePipelineBuilder<TRequest> AddCancellablePipeline<TRequest>(CancellablePipeline<TRequest> cancellablePipeline)
+        public ICancellablePipelineBuilder Add(ICancellablePipelineBuilder cancellablePipeline)
         {
-            _cancellablePipelineCollection.Add<TRequest>(cancellablePipeline);
+            _cancellablePipelineBuilderCollection.Add(cancellablePipeline);
             return cancellablePipeline;
         }
 
-        public IMediator Build(GetService getService)
+        public IPipelines Build()
         {
-            return new Mediator(getService, _pipelineCollection, _asyncPipelineCollection, _cancellablePipelineCollection);
+            var pipelineCollection = new PipelineCollection<IPipeline>();
+            var asyncPipelineCollection = new PipelineCollection<IAsyncPipeline>();
+            var cancellablePipelineCollection = new PipelineCollection<ICancellablePipeline>();
+
+            foreach (var item in _pipelineBuilderCollection)
+            {
+                var pipeline = item.Build();
+                pipelineCollection.Add(pipeline.RequestType, pipeline);
+            }
+
+            foreach (var item in _asyncPipelineBuilderCollection)
+            {
+                var pipeline = item.Build();
+                asyncPipelineCollection.Add(pipeline.RequestType, pipeline);
+            }
+
+            foreach (var item in _cancellablePipelineBuilderCollection)
+            {
+                var pipeline = item.Build();
+                cancellablePipelineCollection.Add(pipeline.RequestType, pipeline);
+            }
+
+            return new PipelinesProvider(
+                pipelineCollection,
+                asyncPipelineCollection,
+                cancellablePipelineCollection
+            );
         }
     }
 }

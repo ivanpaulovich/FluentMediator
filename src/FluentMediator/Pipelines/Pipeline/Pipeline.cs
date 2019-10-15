@@ -2,39 +2,26 @@ using System;
 
 namespace FluentMediator.Pipelines.Pipeline
 {
-    public class Pipeline<TRequest> : IPipeline, IPipelineBuilder<TRequest>
+    public sealed class Pipeline : IPipeline
     {
-        private readonly IMediatorBuilder _mediatorBuilder;
         private readonly IMethodCollection<Method<Action<object, object>>> _methods;
-        private IDirect _direct;
+        private readonly IDirect? _direct;
 
-        public Pipeline(IMediatorBuilder mediatorBuilder)
+        public Pipeline(IMethodCollection<Method<Action<object, object>>> methods, IDirect? direct, Type requestType)
         {
-            _mediatorBuilder = mediatorBuilder;
-            _methods = new MethodCollection<Method<Action<object, object>>> ();
-            _direct = null!;
+            _methods = methods;
+            _direct = direct;
+            RequestType = requestType;
         }
 
-        public IPipelineBuilder<TRequest> Call<THandler>(Action<THandler, TRequest> action)
-        {
-            Action<object, object> typedHandler = (h, r) => action((THandler) h, (TRequest) r);
-            var method = new Method<Action<object, object>>(typeof(THandler), typedHandler);
-            _methods.Add(method);
-            return this;
-        }
-
-        public IMediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, TResult> func)
-        {
-            _direct = new Direct<TRequest, TResult, THandler>(func);
-            return _mediatorBuilder;
-        }
+        public Type RequestType { get; }
 
         public void Publish(GetService getService, object request)
         {
             foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
-                handler.Action(concreteHandler, (TRequest) request);
+                handler.Action(concreteHandler, request);
             }
         }
 
@@ -48,15 +35,10 @@ namespace FluentMediator.Pipelines.Pipeline
             foreach (var handler in _methods.GetMethods())
             {
                 var concreteHandler = getService(handler.HandlerType);
-                handler.Action(concreteHandler, (TRequest) request);
+                handler.Action(concreteHandler, request);
             }
 
             return _direct.Send<TResult>(getService, request!) !;
-        }
-
-        public IMediatorBuilder Build()
-        {
-            return _mediatorBuilder;
         }
     }
 }

@@ -4,10 +4,14 @@ using System.Threading.Tasks;
 
 namespace FluentMediator.Pipelines.CancellablePipeline
 {
-    public interface ICancellablePipelineBuilder<TRequest>
+    public interface ICancellablePipelineBuilder<TRequest> : ICancellablePipelineBuilder
     {
         ICancellablePipelineBuilder<TRequest> Call<THandler>(Func<THandler, TRequest, CancellationToken, Task> func);
-        IMediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>> func);
-        IMediatorBuilder Build();
+        ICancellablePipeline Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>> func);
+    }
+
+    public interface ICancellablePipelineBuilder
+    {
+        ICancellablePipeline Build();
     }
 }

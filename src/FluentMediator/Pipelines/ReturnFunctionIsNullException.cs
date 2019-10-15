@@ -1,6 +1,6 @@
 namespace FluentMediator.Pipelines
 {
-    public class ReturnFunctionIsNullException : MediatorException
+    public sealed class ReturnFunctionIsNullException : MediatorException
     {
         public ReturnFunctionIsNullException() { }
         public ReturnFunctionIsNullException(string message) : base(message) { }

@@ -8,7 +8,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     
     <PackageId>FluentMediator</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.3.0</Version>
     <Authors>Ivan Paulovich</Authors>
     <Description>FluentMediator</Description>
     <IsPackable>true</IsPackable>

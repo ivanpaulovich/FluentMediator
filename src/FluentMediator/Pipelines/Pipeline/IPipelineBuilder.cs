@@ -2,10 +2,14 @@ using System;
 
 namespace FluentMediator.Pipelines.Pipeline
 {
-    public interface IPipelineBuilder<TRequest>
+    public interface IPipelineBuilder<TRequest> : IPipelineBuilder
     {
         IPipelineBuilder<TRequest> Call<THandler>(Action<THandler, TRequest> action);
-        IMediatorBuilder Return<TResult, THandler>(Func<THandler, TRequest, TResult> func);
-        IMediatorBuilder Build();
+        IPipeline Return<TResult, THandler>(Func<THandler, TRequest, TResult> func);
+    }
+
+    public interface IPipelineBuilder
+    {
+        IPipeline Build();
     }
 }
