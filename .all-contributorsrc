@@ -25,6 +25,15 @@
         "review",
         "ideas"
       ]
+    },
+    {
+      "login": "vag1830",
+      "name": "Vaggelis Mparmpas",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1694870?v=4",
+      "profile": "https://github.com/vag1830",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
