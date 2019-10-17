@@ -33,3 +33,13 @@ steps:
     command: 'test'
     projects: 'test/UnitTests/UnitTests.csproj'
     testRunTitle: 'Test'
+    
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'ivanpaulovich'
+    repositoryName: '$(Build.Repository.Name)'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
