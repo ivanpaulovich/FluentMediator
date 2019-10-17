@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace FluentMediator.Pipelines.AsyncPipeline
 {
-    public sealed class AsyncPipeline : IAsyncPipeline
+    internal sealed class AsyncPipeline : IAsyncPipeline
     {
         private readonly IMethodCollection<Method<Func<object, object, Task>>> _methods;
         private readonly IDirectAsync _direct;

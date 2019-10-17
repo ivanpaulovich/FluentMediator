@@ -4,7 +4,7 @@
     <TargetFramework>netstandard1.1</TargetFramework>
     
     <PackageId>FluentMediator.Microsoft.Extensions.DependencyInjection</PackageId>
-    <Version>0.3.0</Version>
+    <Version>0.3.1</Version>
     <Authors>Ivan Paulovich</Authors>
     <Description>FluentMediator.Microsoft.Extensions.DependencyInjection</Description>
     <IsPackable>true</IsPackable>

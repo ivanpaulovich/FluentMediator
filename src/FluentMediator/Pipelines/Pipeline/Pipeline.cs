@@ -2,7 +2,7 @@ using System;
 
 namespace FluentMediator.Pipelines.Pipeline
 {
-    public sealed class Pipeline : IPipeline
+    internal sealed class Pipeline : IPipeline
     {
         private readonly IMethodCollection<Method<Action<object, object>>> _methods;
         private readonly IDirect? _direct;

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace FluentMediator.Pipelines.CancellablePipeline
 {
-    public sealed class CancellableAsyncDirect<TRequest, TResult, THandler> : ICancellableAsync
+    internal sealed class CancellableAsyncDirect<TRequest, TResult, THandler> : ICancellableAsync
     {
         private readonly Method<Func<object, object, CancellationToken, Task<TResult>>> _method;
 

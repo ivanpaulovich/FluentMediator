@@ -4,7 +4,7 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator.Pipelines
 {
-    public sealed class PipelineBehavior<TRequest> : IPipelineBehavior<TRequest>
+    internal sealed class PipelineBehavior<TRequest> : IPipelineBehavior<TRequest>
     {
         private readonly IPipelinesBuilder _mediatorBuilder;
 

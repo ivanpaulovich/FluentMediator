@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FluentMediator.Pipelines
 {
-    public sealed class PipelineCollection<TPipeline> : IPipelineCollection<TPipeline>
+    internal sealed class PipelineCollection<TPipeline> : IPipelineCollection<TPipeline>
         where TPipeline : class
         {
             private readonly IDictionary<Type, TPipeline> _pipelines;

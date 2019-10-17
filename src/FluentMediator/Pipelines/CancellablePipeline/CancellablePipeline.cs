@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace FluentMediator.Pipelines.CancellablePipeline
 {
-    public sealed class CancellablePipeline : ICancellablePipeline
+    internal sealed class CancellablePipeline : ICancellablePipeline
     {
         private readonly IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> _methods;
         private readonly Type _requestType;

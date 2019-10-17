@@ -1,5 +1,8 @@
 # Change Log
 
+## 2019-10-13 - 0.3.1
+# Implementation classes made internal
+
 ## 2019-10-13 - 0.3.0
 * [#32](https://github.com/ivanpaulovich/FluentMediator/issues/32) Segregated Builder and Messaging interfaces.
 * [#31](https://github.com/ivanpaulovich/FluentMediator/issues/31) Support Scoped & Transient Lifetime.

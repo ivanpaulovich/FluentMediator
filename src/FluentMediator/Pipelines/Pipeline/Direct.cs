@@ -2,7 +2,7 @@ using System;
 
 namespace FluentMediator.Pipelines.Pipeline
 {
-    public sealed class Direct<TRequest, TResult, THandler> : IDirect
+    internal sealed class Direct<TRequest, TResult, THandler> : IDirect
     {
         private readonly Method<Func<object, object, TResult>> _method;
 

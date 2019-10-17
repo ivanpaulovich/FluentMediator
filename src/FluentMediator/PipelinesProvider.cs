@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using FluentMediator.Pipelines;
 using FluentMediator.Pipelines.AsyncPipeline;
 using FluentMediator.Pipelines.CancellablePipeline;
@@ -7,7 +6,7 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator
 {
-    public sealed class PipelinesProvider : IPipelines
+    internal sealed class PipelinesProvider : IPipelines
     {
         private readonly IPipelineCollection<IPipeline> _pipelineCollection;
         private readonly IPipelineCollection<IAsyncPipeline> _asyncPipelineCollection;
