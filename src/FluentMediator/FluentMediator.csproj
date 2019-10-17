@@ -15,4 +15,18 @@
     
   </PropertyGroup>
 
+	<PropertyGroup>
+		<IncludeSymbols>true</IncludeSymbols>	
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>	
+	</PropertyGroup>
+
+  <ItemGroup Label="SourceLink">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
+  </ItemGroup>
+
+  <PropertyGroup Label="SourceLink">
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
 </Project>
