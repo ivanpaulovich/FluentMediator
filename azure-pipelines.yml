@@ -33,29 +33,3 @@ steps:
     command: 'test'
     projects: 'test/UnitTests/UnitTests.csproj'
     testRunTitle: 'Test'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'pack'
-    packagesToPack: 'src/**/*.csproj'
-    nobuild: true
-    includesymbols: true
-    includesource: true
-    versioningScheme: 'off'
-    
-- task: GitHubRelease@1
-  inputs:
-    gitHubConnection: 'ivanpaulovich-github'
-    repositoryName: '$(Build.Repository.Name)'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'gitTag'
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
-
-- task: NuGetCommand@2
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'NugetOrg'
