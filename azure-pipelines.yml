@@ -33,6 +33,15 @@ steps:
     command: 'test'
     projects: 'test/UnitTests/UnitTests.csproj'
     testRunTitle: 'Test'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'pack'
+    packagesToPack: 'src/**/*.csproj'
+    nobuild: true
+    includesymbols: true
+    includesource: true
+    versioningScheme: 'off'
     
 - task: GitHubRelease@1
   inputs:
@@ -48,5 +57,5 @@ steps:
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'b7cd81e2-8a4e-477b-9765-1cd4cfd9b5d5'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'NugetOrg'
