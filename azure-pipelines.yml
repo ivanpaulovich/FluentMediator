@@ -36,7 +36,7 @@ steps:
     
 - task: GitHubRelease@1
   inputs:
-    gitHubConnection: 'ivanpaulovich'
+    gitHubConnection: 'ivanpaulovich-github'
     repositoryName: '$(Build.Repository.Name)'
     action: 'create'
     target: '$(Build.SourceVersion)'
