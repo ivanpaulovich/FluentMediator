@@ -1,17 +1,25 @@
 # Change Log
 
+## 2019-10-19 - 0.3.2
+
+* Nuget Package Metadata added.
+
 ## 2019-10-13 - 0.3.1
-# Implementation classes made internal
+
+* Implementation details made internal.
 
 ## 2019-10-13 - 0.3.0
-* [#32](https://github.com/ivanpaulovich/FluentMediator/issues/32) Segregated Builder and Messaging interfaces.
-* [#31](https://github.com/ivanpaulovich/FluentMediator/issues/31) Support Scoped & Transient Lifetime.
+
+* #32 Segregated Builder and Messaging interfaces.
+* #31 Support Scoped & Transient Lifetime.
 
 ## 2019-10-13 - 0.2.0
-* [#27](https://github.com/ivanpaulovich/FluentMediator/issues/27) Added `PipelineAlreadyExistsException`.
-* [#27](https://github.com/ivanpaulovich/FluentMediator/issues/27) Added `PipelineNotFoundException`.
+
+* #27 Added PipelineAlreadyExistsException.
+* #27 Added PipelineNotFoundException.
 
 ## 2019-10-13 - 0.1.0
-* [#24](https://github.com/ivanpaulovich/FluentMediator/issues/24) Added `ReturnFunctionIsNullException` for misconfigured Pipelines.
-* SendAsync<TResult>(request, ct) added to the public interfaces.
+
+* #24 Added ReturnFunctionIsNullException for misconfigured Pipelines.
+* SendAsync(request, ct) added to the public interfaces.
 * Refactoring.

@@ -6,19 +6,27 @@
     <NullableReferenceTypes>true</NullableReferenceTypes>
     <LangVersion>8.0</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    
-    <PackageId>FluentMediator</PackageId>
-    <Version>0.3.1</Version>
-    <Authors>Ivan Paulovich</Authors>
-    <Description>FluentMediator</Description>
-    <IsPackable>true</IsPackable>
-    
   </PropertyGroup>
 
 	<PropertyGroup>
-		<IncludeSymbols>true</IncludeSymbols>	
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>	
+    <PackageId>FluentMediator</PackageId>
+    <Version>0.3.2</Version>
+    <Authors>Ivan Paulovich</Authors>
+    <Copyright>Ivan Paulovich</Copyright>
+    <Description>FluentMediator is an unobtrusive library that allows developers to build custom pipelines for Commands, Queries and Events.</Description>
+    <PackageDescription>We will not require you to add dependencies into your domain or to implement frameworks interfaces in your event handlers. Finally a really loosely coupled mediator library was born.</PackageDescription>
+    <PackageTags>fluent-design;mediator-pattern;ddd-cqrs;message-bus;event-sourcing;event-driven;chain-of-responsibility;chain-methods;pipelines;dotnet-core;craftmanship;tdd;csharp;pipeline-framework;fluent-interface;event-handlers</PackageTags>
+    <IsPackable>true</IsPackable>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/ivanpaulovich/FluentMediator</RepositoryUrl>
 	</PropertyGroup>
+
+  <ItemGroup>
+    <None Include="icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup Label="SourceLink">
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
