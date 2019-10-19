@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentMediator;
@@ -15,9 +14,9 @@ namespace UnitTests
         public void Publish_Calls_Pipeline_Handlers()
         {
             var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
+            services.AddFluentMediator(builder =>
             {
-                m.On<PingRequest>().Pipeline()
+                builder.On<PingRequest>().Pipeline()
                     .Call<IPingHandler>((handler, req) => handler.MyCustomFooMethod(req))
                     .Call<IPingHandler>((handler, req) => handler.MyCustomBarMethod(req));
             });
@@ -42,10 +41,10 @@ namespace UnitTests
         public async Task PublishAsync_Calls_AsyncPipeline_Handlers()
         {
             var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
+            services.AddFluentMediator(builder =>
             {
-                m.On<PingRequest>().AsyncPipeline()
-                    .Call<IPingHandler>(async(handler, req) => await handler.MyCustomFooBarAsync(req))
+                builder.On<PingRequest>().PipelineAsync()
+                    .Call<IPingHandler>(async (handler, req) => await handler.MyCustomFooBarAsync(req))
                     .Build();
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -69,10 +68,10 @@ namespace UnitTests
         {
 
             var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
+            services.AddFluentMediator(builder =>
             {
-                m.On<PingRequest>().CancellablePipeline()
-                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
+                builder.On<PingRequest>().CancellablePipelineAsync()
+                    .Call<IPingHandler>(async (handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Build();
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -96,12 +95,12 @@ namespace UnitTests
         public async Task PublishAsync_Calls_CancellablePipeline_Handlers2()
         {
             var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
+            services.AddFluentMediator(builder =>
             {
-                m.On<PingRequest>().CancellablePipeline()
-                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
+                builder.On<PingRequest>().CancellablePipelineAsync()
+                    .Call<IPingHandler>(async (handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Return<PingResponse, IPingHandler>(
-                        async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct)
+                        async (handler, req, ct) => await handler.MyCancellableForAsync(req, ct)
                     );
             });
             var pingHandler = new Mock<IPingHandler>();

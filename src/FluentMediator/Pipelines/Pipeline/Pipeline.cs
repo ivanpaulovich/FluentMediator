@@ -7,14 +7,16 @@ namespace FluentMediator.Pipelines.Pipeline
         private readonly IMethodCollection<Method<Action<object, object>>> _methods;
         private readonly IDirect? _direct;
 
-        public Pipeline(IMethodCollection<Method<Action<object, object>>> methods, IDirect? direct, Type requestType)
+        public Pipeline(IMethodCollection<Method<Action<object, object>>> methods, IDirect? direct, Type requestType, string? name)
         {
             _methods = methods;
             _direct = direct;
             RequestType = requestType;
+            Name = name;
         }
 
         public Type RequestType { get; }
+        public string? Name { get; }
 
         public void Publish(GetService getService, object request)
         {

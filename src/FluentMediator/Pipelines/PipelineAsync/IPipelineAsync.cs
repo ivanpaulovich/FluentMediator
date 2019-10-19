@@ -1,11 +1,9 @@
-using System;
 using System.Threading.Tasks;
 
-namespace FluentMediator.Pipelines.AsyncPipeline
+namespace FluentMediator.Pipelines.PipelineAsync
 {
-    public interface IAsyncPipeline
+    public interface IPipelineAsync : INamedPipeline, ITypedPipeline
     {
-        Type RequestType { get; }
         Task PublishAsync(GetService getService, object request);
         Task<TResult> SendAsync<TResult>(GetService getService, object request);
     }
