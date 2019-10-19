@@ -1,5 +1,10 @@
 # Change Log
 
+## 2019-10-19 - 0.3.3
+
+* #31 Support Scoped & Transient Lifetime.
+* Refactoring Tests.
+
 ## 2019-10-19 - 0.3.2
 
 * Nuget Package Metadata added.

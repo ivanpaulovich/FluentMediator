@@ -22,12 +22,12 @@ namespace UnitTests
                 {
                     m.On<PingRequest>().AsyncPipeline()
                         .Return<PingResponse, IPingHandler>(
-                            (handler, req) => handler.MyMethodAsync(req)
+                            (handler, req) => handler.MyCustomFooBarAsync(req)
                         );
 
                     m.On<PingRequest>().AsyncPipeline()
                         .Return<PingResponse, IPingHandler>(
-                            (handler, req) => handler.MyMethodAsync(req)
+                            (handler, req) => handler.MyCustomFooBarAsync(req)
                         );
 
                 });

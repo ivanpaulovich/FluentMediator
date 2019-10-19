@@ -5,9 +5,9 @@ namespace UnitTests.PingPong
 {
     public interface IPingHandler
     {
-        PingResponse MyMethod(PingRequest request);
-        PingResponse MyLongMethod(PingRequest request);
-        Task<PingResponse> MyMethodAsync(PingRequest request);
-        Task<PingResponse> MyMethodAsync(PingRequest request, CancellationToken cancelationToken);
+        PingResponse MyCustomFooMethod(PingRequest request);
+        PingResponse MyCustomBarMethod(PingRequest request);
+        Task<PingResponse> MyCustomFooBarAsync(PingRequest request);
+        Task<PingResponse> MyCancellableForAsync(PingRequest request, CancellationToken cancelationToken);
     }
 }

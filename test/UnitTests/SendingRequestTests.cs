@@ -10,17 +10,17 @@ using Xunit;
 
 namespace UnitTests
 {
-    public class SendTests
+    public class SendingRequestTests
     {
         [Fact]
-        public void Send_FailFast_WhenMisconfiguredPipeline()
+        public void Send_Without_Return_Throws_ReturnFunctionIsNullException()
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m =>
             {
                 m.On<PingRequest>().Pipeline()
-                    .Call<IPingHandler>((handler, req) => handler.MyMethod(req))
-                    .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req));
+                    .Call<IPingHandler>((handler, req) => handler.MyCustomFooMethod(req))
+                    .Call<IPingHandler>((handler, req) => handler.MyCustomBarMethod(req));
             });
             var pingHandler = new Mock<IPingHandler>();
             services.AddScoped(provider => pingHandler.Object);
@@ -31,24 +31,24 @@ namespace UnitTests
             var ping = new PingRequest("Ping");
 
             var actualEx = Record.Exception(
+                //
+                // Act
+                //
                 () => mediator.Send<PingResponse>(ping)
             );
 
             Assert.IsType<ReturnFunctionIsNullException>(actualEx);
-
-            pingHandler.Verify(e => e.MyMethod(ping), Times.Never);
-            pingHandler.Verify(e => e.MyLongMethod(ping), Times.Never);
         }
 
         [Fact]
-        public void SendAsync_FailFast_WhenMisconfiguredPipeline()
+        public void SendAsync_Without_Return_Throws_ReturnFunctionIsNullException()
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m =>
             {
                 m.On<PingRequest>().AsyncPipeline()
-                    .Call<IPingHandler>((handler, req) => handler.MyMethodAsync(req))
-                    .Call<IPingHandler>((handler, req) => handler.MyMethodAsync(req));
+                    .Call<IPingHandler>((handler, req) => handler.MyCustomFooBarAsync(req))
+                    .Call<IPingHandler>((handler, req) => handler.MyCustomFooBarAsync(req));
             });
             var pingHandler = new Mock<IPingHandler>();
             services.AddScoped<IPingHandler>(provider => pingHandler.Object);
@@ -59,24 +59,27 @@ namespace UnitTests
             var ping = new PingRequest("Ping");
 
             var actualEx = Record.ExceptionAsync(
+                //
+                // Act
+                //
                 async() => await mediator.SendAsync<PingResponse>(ping)
             );
 
             Assert.IsType<ReturnFunctionIsNullException>(actualEx.Result);
 
-            pingHandler.Verify(e => e.MyMethod(ping), Times.Never);
-            pingHandler.Verify(e => e.MyLongMethod(ping), Times.Never);
+            pingHandler.Verify(e => e.MyCustomFooMethod(ping), Times.Never);
+            pingHandler.Verify(e => e.MyCustomBarMethod(ping), Times.Never);
         }
 
         [Fact]
-        public void SendAsyncCancellable_FailFast_WhenMisconfiguredPipeline()
+        public void CancellableSendAsync_Without_Return_Throws_ReturnFunctionIsNullException()
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m =>
             {
                 m.On<PingRequest>().CancellablePipeline()
-                    .Call<IPingHandler>((handler, req, ct) => handler.MyMethodAsync(req, ct))
-                    .Call<IPingHandler>((handler, req, ct) => handler.MyMethodAsync(req, ct));
+                    .Call<IPingHandler>((handler, req, ct) => handler.MyCancellableForAsync(req, ct))
+                    .Call<IPingHandler>((handler, req, ct) => handler.MyCancellableForAsync(req, ct));
             });
             var pingHandler = new Mock<IPingHandler>();
             services.AddScoped<IPingHandler>(provider => pingHandler.Object);
@@ -88,13 +91,13 @@ namespace UnitTests
             var ping = new PingRequest("Ping");
 
             var actualEx = Record.ExceptionAsync(
+                //
+                // Act
+                //
                 async() => await mediator.SendAsync<PingResponse>(ping, cts.Token)
             );
 
             Assert.IsType<ReturnFunctionIsNullException>(actualEx.Result);
-
-            pingHandler.Verify(e => e.MyMethod(ping), Times.Never);
-            pingHandler.Verify(e => e.MyLongMethod(ping), Times.Never);
         }
 
         [Fact]
@@ -105,7 +108,7 @@ namespace UnitTests
             {
                 m.On<PingRequest>().AsyncPipeline()
                     .Return<PingResponse, IPingHandler>(
-                        (handler, req) => handler.MyMethodAsync(req)
+                        (handler, req) => handler.MyCustomFooBarAsync(req)
                     );
             });
             services.AddScoped<IPingHandler, PingHandler>();
@@ -127,7 +130,7 @@ namespace UnitTests
                 m.On<PingRequest>()
                     .Pipeline()
                     .Return<PingResponse, IPingHandler>(
-                        (handler, req) => handler.MyMethod(req)
+                        (handler, req) => handler.MyCustomFooMethod(req)
                     );
             });
 
@@ -142,7 +145,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Send_Throws_PipelineNotFoundException()
+        public void Send_Not_Configured_Throws_PipelineNotFoundException()
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m =>

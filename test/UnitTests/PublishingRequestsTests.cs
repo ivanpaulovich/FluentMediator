@@ -9,17 +9,17 @@ using Xunit;
 
 namespace UnitTests
 {
-    public sealed class PublishTests
+    public sealed class PublishingRequestsTests
     {
         [Fact]
-        public void PipelineBuilder()
+        public void Publish_Calls_Pipeline_Handlers()
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m =>
             {
                 m.On<PingRequest>().Pipeline()
-                    .Call<IPingHandler>((handler, req) => handler.MyMethod(req))
-                    .Call<IPingHandler>((handler, req) => handler.MyLongMethod(req));
+                    .Call<IPingHandler>((handler, req) => handler.MyCustomFooMethod(req))
+                    .Call<IPingHandler>((handler, req) => handler.MyCustomBarMethod(req));
             });
             var pingHandler = new Mock<IPingHandler>();
             services.AddScoped(provider => pingHandler.Object);
@@ -28,20 +28,24 @@ namespace UnitTests
             var mediator = provider.GetRequiredService<IMediator>();
 
             var ping = new PingRequest("Ping");
+
+            //
+            // Act
+            //
             mediator.Publish(ping);
 
-            pingHandler.Verify(e => e.MyMethod(ping), Times.Once);
-            pingHandler.Verify(e => e.MyLongMethod(ping), Times.Once);
+            pingHandler.Verify(e => e.MyCustomFooMethod(ping), Times.Once);
+            pingHandler.Verify(e => e.MyCustomBarMethod(ping), Times.Once);
         }
 
         [Fact]
-        public async Task BuildAsyncPipeline()
+        public async Task PublishAsync_Calls_AsyncPipeline_Handlers()
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m =>
             {
                 m.On<PingRequest>().AsyncPipeline()
-                    .Call<IPingHandler>(async(handler, req) => await handler.MyMethodAsync(req))
+                    .Call<IPingHandler>(async(handler, req) => await handler.MyCustomFooBarAsync(req))
                     .Build();
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -51,20 +55,24 @@ namespace UnitTests
             var mediator = provider.GetRequiredService<IMediator>();
 
             var ping = new PingRequest("Async Ping");
+
+            //
+            // Act
+            //
             await mediator.PublishAsync(ping);
 
-            pingHandler.Verify(e => e.MyMethodAsync(ping), Times.Once);
+            pingHandler.Verify(e => e.MyCustomFooBarAsync(ping), Times.Once);
         }
 
         [Fact]
-        public async Task BuildCancellableAsyncPipeline()
+        public async Task PublishAsync_Calls_CancellablePipeline_Handlers()
         {
 
             var services = new ServiceCollection();
             services.AddFluentMediator(m =>
             {
                 m.On<PingRequest>().CancellablePipeline()
-                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct))
+                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Build();
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -75,21 +83,25 @@ namespace UnitTests
 
             var cts = new CancellationTokenSource();
             var ping = new PingRequest("Cancellable Async Ping");
+
+            //
+            // Act
+            //
             await mediator.PublishAsync(ping, cts.Token);
 
-            pingHandler.Verify(e => e.MyMethodAsync(ping, It.IsAny<CancellationToken>()), Times.Once);
+            pingHandler.Verify(e => e.MyCancellableForAsync(ping, It.IsAny<CancellationToken>()), Times.Once);
         }
 
         [Fact]
-        public async Task BuildCancellableAsyncPipelineDirect()
+        public async Task PublishAsync_Calls_CancellablePipeline_Handlers2()
         {
             var services = new ServiceCollection();
             services.AddFluentMediator(m =>
             {
                 m.On<PingRequest>().CancellablePipeline()
-                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyMethodAsync(req, ct))
+                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Return<PingResponse, IPingHandler>(
-                        async(handler, req, ct) => await handler.MyMethodAsync(req, ct)
+                        async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct)
                     );
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -100,32 +112,13 @@ namespace UnitTests
 
             var cts = new CancellationTokenSource();
             var ping = new PingRequest("Cancellable Async Ping");
+
+            //
+            // Act
+            //
             await mediator.PublishAsync(ping, cts.Token);
 
-            pingHandler.Verify(e => e.MyMethodAsync(ping, It.IsAny<CancellationToken>()), Times.Once);
-        }
-
-        [Fact]
-        public void BuildSendAsyncPipeline_ThrowsException()
-        {
-            var services = new ServiceCollection();
-
-            Exception ex = Record.Exception(() =>
-            {
-                services.AddFluentMediator(m =>
-                {
-                    m.On<PingRequest>().AsyncPipeline()
-                        .Return<PingResponse, IPingHandler>(
-                            (handler, req) => handler.MyMethodAsync(req)
-                        );
-                    m.On<PingRequest>().AsyncPipeline()
-                        .Return<PingResponse, IPingHandler>(
-                            (handler, req) => handler.MyMethodAsync(req)
-                        );
-                });
-            });
-
-            Assert.NotNull(ex);
+            pingHandler.Verify(e => e.MyCancellableForAsync(ping, It.IsAny<CancellationToken>()), Times.Once);
         }
     }
 }
