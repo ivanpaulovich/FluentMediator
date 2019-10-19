@@ -1,33 +1,33 @@
 using System;
 using FluentMediator.Pipelines;
-using FluentMediator.Pipelines.AsyncPipeline;
-using FluentMediator.Pipelines.CancellablePipeline;
+using FluentMediator.Pipelines.CancellablePipelineAsync;
 using FluentMediator.Pipelines.Pipeline;
+using FluentMediator.Pipelines.PipelineAsync;
 
 namespace FluentMediator
 {
-    internal sealed class PipelinesProvider : IPipelines
+    internal sealed class PipelineProvider : IPipelineProvider
     {
         private readonly IPipelineCollection<IPipeline> _pipelineCollection;
-        private readonly IPipelineCollection<IAsyncPipeline> _asyncPipelineCollection;
-        private readonly IPipelineCollection<ICancellablePipeline> _cancellablePipelineCollection;
+        private readonly IPipelineCollection<IPipelineAsync> _asyncPipelineCollection;
+        private readonly IPipelineCollection<ICancellablePipelineAsync> _cancellablePipelineCollection;
 
-        public PipelinesProvider(
+        public PipelineProvider(
             IPipelineCollection<IPipeline> pipelineCollection,
-            IPipelineCollection<IAsyncPipeline> asyncPipelineCollection,
-            IPipelineCollection<ICancellablePipeline> cancellablePipelineCollection)
+            IPipelineCollection<IPipelineAsync> asyncPipelineCollection,
+            IPipelineCollection<ICancellablePipelineAsync> cancellablePipelineCollection)
         {
             _pipelineCollection = pipelineCollection;
             _asyncPipelineCollection = asyncPipelineCollection;
             _cancellablePipelineCollection = cancellablePipelineCollection;
         }
 
-        public IAsyncPipeline GetAsyncPipeline(Type requestType)
+        public IPipelineAsync GetAsyncPipeline(Type requestType)
         {
             return _asyncPipelineCollection.Get(requestType);
         }
 
-        public ICancellablePipeline GetCancellablePipeline(Type requestType)
+        public ICancellablePipelineAsync GetCancellablePipeline(Type requestType)
         {
             return _cancellablePipelineCollection.Get(requestType);
         }

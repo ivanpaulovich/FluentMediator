@@ -1,37 +1,32 @@
 using System;
-using System.Threading;
-using System.Threading.Tasks;
 using FluentMediator;
 using FluentMediator.Pipelines;
 using Microsoft.Extensions.DependencyInjection;
-using Moq;
 using UnitTests.PingPong;
 using Xunit;
 
 namespace UnitTests
 {
-    public class BuildPipelineTests
+    public class BuildingMediatorTests
     {
         [Fact]
-        public void BuildSendAsyncPipeline_ThrowsException()
+        public void BuildSendAsyncPipeline_ThrowsPipelineAlreadyExistsException()
         {
             var services = new ServiceCollection();
-            Exception ex = Record.Exception(() =>
-            {
-                services.AddFluentMediator(m =>
-                {
-                    m.On<PingRequest>().AsyncPipeline()
-                        .Return<PingResponse, IPingHandler>(
-                            (handler, req) => handler.MyCustomFooBarAsync(req)
-                        );
+            
+            var pipelineProviderBuilder = new PipelineProviderBuilder();
 
-                    m.On<PingRequest>().AsyncPipeline()
-                        .Return<PingResponse, IPingHandler>(
-                            (handler, req) => handler.MyCustomFooBarAsync(req)
-                        );
+            pipelineProviderBuilder.On<PingRequest>().PipelineAsync()
+                .Return<PingResponse, IPingHandler>(
+                    (handler, req) => handler.MyCustomFooBarAsync(req)
+                );
 
-                });
-            });
+            pipelineProviderBuilder.On<PingRequest>().PipelineAsync()
+                .Return<PingResponse, IPingHandler>(
+                    (handler, req) => handler.MyCustomFooBarAsync(req)
+                );
+
+            Exception ex = Record.Exception(() => pipelineProviderBuilder.Build());
 
             Assert.NotNull(ex);
             Assert.IsType<PipelineAlreadyExistsException>(ex);

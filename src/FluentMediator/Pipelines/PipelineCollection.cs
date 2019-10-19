@@ -1,11 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace FluentMediator.Pipelines
 {
     internal sealed class PipelineCollection<TPipeline> : IPipelineCollection<TPipeline>
-        where TPipeline : class
+        where TPipeline : class, ITypedPipeline
         {
             private readonly IDictionary<Type, TPipeline> _pipelines;
 
@@ -14,34 +15,24 @@ namespace FluentMediator.Pipelines
                 _pipelines = new Dictionary<Type, TPipeline>();
             }
 
-            public void Add(Type requestType, TPipeline pipeline)
+            public void Add(TPipeline pipeline)
             {
-                if (_pipelines.ContainsKey(requestType))
+                if (_pipelines.ContainsKey(pipeline.RequestType))
                 {
-                    throw new PipelineAlreadyExistsException($"A pipeline for `{ requestType }` already exists.");
+                    throw new PipelineAlreadyExistsException($"A pipeline for `{ pipeline.RequestType }` already exists.");
                 }
 
-                _pipelines.Add(requestType, pipeline);
+                _pipelines.Add(pipeline.RequestType, pipeline);
             }
 
-            public void Add<TRequest>(TPipeline pipeline)
+            public TPipeline Get(Type requestType)
             {
-                if (_pipelines.ContainsKey(typeof(TRequest)))
-                {
-                    throw new PipelineAlreadyExistsException($"A pipeline for `{ typeof(TRequest) }` already exists.");
-                }
-
-                _pipelines.Add(typeof(TRequest), pipeline);
-            }
-
-            public TPipeline Get(Type request)
-            {
-                if (_pipelines.TryGetValue(request, out var pipeline))
+                if (_pipelines.TryGetValue(requestType, out var pipeline))
                 {
                     return pipeline;
                 }
 
-                throw new PipelineNotFoundException($"There is no pipeline configured for `{ request.GetType() }`.");
+                throw new PipelineNotFoundException($"There is no pipeline configured for `{ requestType.GetType() }`.");
             }
 
             public bool Contains(Type requestType, out TPipeline? pipeline)
@@ -56,14 +47,9 @@ namespace FluentMediator.Pipelines
                 return true;
             }
 
-            public IEnumerator<TPipeline> GetEnumerator()
+            public IEnumerable<TPipeline> ToIEnumerable()
             {
-                return _pipelines.Values.GetEnumerator();
-            }
-
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return _pipelines.Values.GetEnumerator();
+                return new ReadOnlyCollection<TPipeline>(_pipelines.Values.ToList());
             }
         }
 }

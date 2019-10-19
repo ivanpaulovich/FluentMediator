@@ -1,5 +1,9 @@
 # Change Log
 
+## 2019-10-20 - 0.4.0
+
+* Refactoring
+
 ## 2019-10-19 - 0.3.3
 
 * #31 Support Scoped & Transient Lifetime.

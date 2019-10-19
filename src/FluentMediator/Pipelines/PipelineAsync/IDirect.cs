@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 
-namespace FluentMediator.Pipelines.AsyncPipeline
+namespace FluentMediator.Pipelines.PipelineAsync
 {
-    public interface IDirectAsync
+    internal interface IDirect
     {
         Task<TResult> SendAsync<TResult>(GetService getService, object request);
     }

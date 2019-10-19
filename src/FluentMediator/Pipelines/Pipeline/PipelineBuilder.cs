@@ -6,10 +6,12 @@ namespace FluentMediator.Pipelines.Pipeline
     {
         private readonly IMethodCollection<Method<Action<object, object>>> _methods;
         private IDirect? _direct;
+        private string? _name;
 
-        public PipelineBuilder()
+        public PipelineBuilder(string? name)
         {
             _methods = new MethodCollection<Method<Action<object, object>>>();
+            _name = name;
         }
 
         public IPipelineBuilder<TRequest> Call<THandler>(Action<THandler, TRequest> action)
@@ -28,7 +30,7 @@ namespace FluentMediator.Pipelines.Pipeline
 
         public IPipeline Build()
         {
-            return new Pipeline(_methods, _direct, typeof(TRequest));
+            return new Pipeline(_methods, _direct, typeof(TRequest), _name);
         }
     }
 }

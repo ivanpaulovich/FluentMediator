@@ -3,11 +3,12 @@ using System.Collections.Generic;
 
 namespace FluentMediator.Pipelines
 {
-    public interface IPipelineCollection<TPipeline> : IEnumerable<TPipeline>
-        where TPipeline : class
+    public interface IPipelineCollection<TPipeline>
+        where TPipeline : class, ITypedPipeline
         {
-            void Add<TRequest>(TPipeline pipeline);
+            void Add(TPipeline pipeline);
             TPipeline Get(Type requestType);
-            bool Contains(Type messageType, out TPipeline? pipeline);
+            bool Contains(Type requestType, out TPipeline? pipeline);
+            IEnumerable<TPipeline> ToIEnumerable();
         }
 }
