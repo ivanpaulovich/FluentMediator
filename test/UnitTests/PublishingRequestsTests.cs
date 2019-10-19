@@ -15,9 +15,9 @@ namespace UnitTests
         public void Publish_Calls_Pipeline_Handlers()
         {
             var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
+            services.AddFluentMediator(builder =>
             {
-                m.On<PingRequest>().Pipeline()
+                builder.On<PingRequest>().Pipeline()
                     .Call<IPingHandler>((handler, req) => handler.MyCustomFooMethod(req))
                     .Call<IPingHandler>((handler, req) => handler.MyCustomBarMethod(req));
             });
@@ -42,9 +42,9 @@ namespace UnitTests
         public async Task PublishAsync_Calls_AsyncPipeline_Handlers()
         {
             var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
+            services.AddFluentMediator(builder =>
             {
-                m.On<PingRequest>().AsyncPipeline()
+                builder.On<PingRequest>().AsyncPipeline()
                     .Call<IPingHandler>(async(handler, req) => await handler.MyCustomFooBarAsync(req))
                     .Build();
             });
@@ -69,9 +69,9 @@ namespace UnitTests
         {
 
             var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
+            services.AddFluentMediator(builder =>
             {
-                m.On<PingRequest>().CancellablePipeline()
+                builder.On<PingRequest>().CancellablePipeline()
                     .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Build();
             });
@@ -96,9 +96,9 @@ namespace UnitTests
         public async Task PublishAsync_Calls_CancellablePipeline_Handlers2()
         {
             var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
+            services.AddFluentMediator(builder =>
             {
-                m.On<PingRequest>().CancellablePipeline()
+                builder.On<PingRequest>().CancellablePipeline()
                     .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Return<PingResponse, IPingHandler>(
                         async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct)

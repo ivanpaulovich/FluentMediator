@@ -5,7 +5,7 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator
 {
-    public interface IPipelines
+    public interface IPipelineProvider
     {
         IPipeline GetPipeline(Type requestType);
         IAsyncPipeline GetAsyncPipeline(Type requestType);

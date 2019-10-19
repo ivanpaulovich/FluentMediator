@@ -6,12 +6,13 @@ namespace FluentMediator.Pipelines.AsyncPipeline
     internal sealed class AsyncPipelineBuilder<TRequest> : IAsyncPipelineBuilder<TRequest>
     {
         private readonly IMethodCollection<Method<Func<object, object, Task>>> _methods;
-        private IDirectAsync _direct;
+        private IDirectAsync? _direct;
+        private string? _name;
 
-        public AsyncPipelineBuilder()
+        public AsyncPipelineBuilder(string? name)
         {
             _methods = new MethodCollection<Method<Func<object, object, Task>>>();
-            _direct = null!;
+            _name = name;
         }
 
         public IAsyncPipelineBuilder<TRequest> Call<THandler>(Func<THandler, TRequest, Task> func)
@@ -30,7 +31,7 @@ namespace FluentMediator.Pipelines.AsyncPipeline
 
         public IAsyncPipeline Build()
         {
-            return new AsyncPipeline(_methods, _direct, typeof(TRequest));
+            return new AsyncPipeline(_methods, _direct, typeof(TRequest), _name);
         }
     }
 }

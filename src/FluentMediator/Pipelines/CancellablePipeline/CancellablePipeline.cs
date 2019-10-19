@@ -7,23 +7,18 @@ namespace FluentMediator.Pipelines.CancellablePipeline
     internal sealed class CancellablePipeline : ICancellablePipeline
     {
         private readonly IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> _methods;
-        private readonly Type _requestType;
-        private readonly ICancellableAsync _direct;
+        private readonly ICancellableAsync? _direct;
 
-        public CancellablePipeline(IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> methods, ICancellableAsync direct, Type requestType)
+        public CancellablePipeline(IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> methods, ICancellableAsync? direct, Type requestType, string? name)
         {
             _methods = methods;
             _direct = direct;
-            _requestType = requestType;
+            RequestType = requestType;
+            Name = name;
         }
 
-        public Type RequestType
-        {
-            get
-            {
-                return _requestType;
-            }
-        }
+        public Type RequestType { get; }
+        public string? Name { get; }
 
         public async Task PublishAsync(GetService getService, object request, CancellationToken cancellationToken)
         {

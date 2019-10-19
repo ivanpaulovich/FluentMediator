@@ -5,12 +5,12 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator
 {
-    public interface IPipelinesBuilder
+    public interface IPipelineProviderBuilder
     {
         IPipelineBehavior<TRequest> On<TRequest>();
         IPipelineBuilder Add(IPipelineBuilder pipeline);
         IAsyncPipelineBuilder Add(IAsyncPipelineBuilder asyncPipeline);
         ICancellablePipelineBuilder Add(ICancellablePipelineBuilder cancellablePipeline);
-        IPipelines Build();
+        IPipelineProvider Build();
     }
 }

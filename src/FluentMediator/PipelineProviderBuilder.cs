@@ -7,13 +7,13 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator
 {
-    public sealed class PipelinesBuilder : IPipelinesBuilder
+    public sealed class PipelineProviderBuilder : IPipelineProviderBuilder
     {
         private ICollection<IPipelineBuilder> _pipelineBuilderCollection { get; }
         private ICollection<IAsyncPipelineBuilder> _asyncPipelineBuilderCollection { get; }
         private ICollection<ICancellablePipelineBuilder> _cancellablePipelineBuilderCollection { get; }
 
-        public PipelinesBuilder()
+        public PipelineProviderBuilder()
         {
             _pipelineBuilderCollection = new Collection<IPipelineBuilder>();
             _asyncPipelineBuilderCollection = new Collection<IAsyncPipelineBuilder>();
@@ -44,7 +44,7 @@ namespace FluentMediator
             return cancellablePipeline;
         }
 
-        public IPipelines Build()
+        public IPipelineProvider Build()
         {
             var pipelineCollection = new PipelineCollection<IPipeline>();
             var asyncPipelineCollection = new PipelineCollection<IAsyncPipeline>();
@@ -68,7 +68,7 @@ namespace FluentMediator
                 cancellablePipelineCollection.Add(pipeline.RequestType, pipeline);
             }
 
-            return new PipelinesProvider(
+            return new PipelineProvider(
                 pipelineCollection,
                 asyncPipelineCollection,
                 cancellablePipelineCollection

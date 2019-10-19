@@ -6,13 +6,13 @@ using FluentMediator.Pipelines.Pipeline;
 
 namespace FluentMediator
 {
-    internal sealed class PipelinesProvider : IPipelines
+    internal sealed class PipelineProvider : IPipelineProvider
     {
         private readonly IPipelineCollection<IPipeline> _pipelineCollection;
         private readonly IPipelineCollection<IAsyncPipeline> _asyncPipelineCollection;
         private readonly IPipelineCollection<ICancellablePipeline> _cancellablePipelineCollection;
 
-        public PipelinesProvider(
+        public PipelineProvider(
             IPipelineCollection<IPipeline> pipelineCollection,
             IPipelineCollection<IAsyncPipeline> asyncPipelineCollection,
             IPipelineCollection<ICancellablePipeline> cancellablePipelineCollection)

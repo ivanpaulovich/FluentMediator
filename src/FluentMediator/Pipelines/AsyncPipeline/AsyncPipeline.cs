@@ -6,23 +6,18 @@ namespace FluentMediator.Pipelines.AsyncPipeline
     internal sealed class AsyncPipeline : IAsyncPipeline
     {
         private readonly IMethodCollection<Method<Func<object, object, Task>>> _methods;
-        private readonly IDirectAsync _direct;
-        private readonly Type _requestType;
+        private readonly IDirectAsync? _direct;
 
-        public AsyncPipeline(IMethodCollection<Method<Func<object, object, Task>>> methods, IDirectAsync direct, Type requestType)
+        public AsyncPipeline(IMethodCollection<Method<Func<object, object, Task>>> methods, IDirectAsync? direct, Type requestType, string? name)
         {
             _methods = methods;
             _direct = direct;
-            _requestType = requestType;
+            RequestType = requestType;
+            Name = name;
         }
 
-        public Type RequestType
-        {
-            get
-            {
-                return _requestType;
-            }
-        }
+        public Type RequestType { get; }
+        public string? Name { get; }
 
         public async Task PublishAsync(GetService getService, object request)
         {

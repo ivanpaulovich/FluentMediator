@@ -6,11 +6,11 @@ namespace FluentMediator
     public sealed class Mediator : IMediator
     {
         public GetService GetService { get; }
-        private IPipelines _pipelines;
+        private IPipelineProvider _pipelines;
 
         public Mediator(
             GetService getService,
-            IPipelines pipelines)
+            IPipelineProvider pipelines)
         {
             GetService = getService;
             _pipelines = pipelines;

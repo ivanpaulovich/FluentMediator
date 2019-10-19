@@ -1,10 +1,7 @@
-using System;
-
 namespace FluentMediator.Pipelines.Pipeline
 {
-    public interface IPipeline
+    public interface IPipeline : INamedPipeline, ITypedPipeline
     {
-        Type RequestType { get; }
         void Publish(GetService getService, object request);
         TResult Send<TResult>(GetService getService, object request);
     }

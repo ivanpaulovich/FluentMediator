@@ -7,12 +7,13 @@ namespace FluentMediator.Pipelines.CancellablePipeline
     internal class CancellablePipelineBuilder<TRequest> : ICancellablePipelineBuilder<TRequest>
     {
         private readonly IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> _methods;
-        private ICancellableAsync _direct;
+        private ICancellableAsync? _direct;
+        private string? _name;
 
-        public CancellablePipelineBuilder()
+        public CancellablePipelineBuilder(string? name)
         {
             _methods = new MethodCollection<Method<Func<object, object, CancellationToken, Task>>>();
-            _direct = null!;
+            _name = name;
         }
 
         public ICancellablePipelineBuilder<TRequest> Call<THandler>(Func<THandler, TRequest, CancellationToken, Task> func)
@@ -31,7 +32,7 @@ namespace FluentMediator.Pipelines.CancellablePipeline
 
         public ICancellablePipeline Build()
         {
-            return new CancellablePipeline(_methods, _direct, typeof(TRequest));
+            return new CancellablePipeline(_methods, _direct, typeof(TRequest), _name);
         }
     }
 }
