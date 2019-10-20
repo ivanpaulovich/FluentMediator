@@ -1,14 +1,14 @@
 using System;
 using System.Threading.Tasks;
 
-namespace FluentMediator.Pipelines.AsyncPipeline
+namespace FluentMediator.Pipelines.PipelineAsync
 {
-    internal sealed class AsyncPipeline : IAsyncPipeline
+    internal sealed class Pipeline : IPipelineAsync
     {
         private readonly IMethodCollection<Method<Func<object, object, Task>>> _methods;
-        private readonly IDirectAsync? _direct;
+        private readonly IDirect? _direct;
 
-        public AsyncPipeline(IMethodCollection<Method<Func<object, object, Task>>> methods, IDirectAsync? direct, Type requestType, string? name)
+        public Pipeline(IMethodCollection<Method<Func<object, object, Task>>> methods, IDirect? direct, Type requestType, string? name)
         {
             _methods = methods;
             _direct = direct;

@@ -19,14 +19,11 @@
     <IsPackable>true</IsPackable>
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/ivanpaulovich/FluentMediator</RepositoryUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Owners>Ivan Paulovich</Owners>
+    <Summary>FluentMediator is an unobtrusive library that allows developers to build custom pipelines for Commands, Queries and Events.</Summary>
+    <Title>FluentMediator</Title>
 	</PropertyGroup>
-
-  <ItemGroup>
-    <None Include="icon.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
 
   <ItemGroup Label="SourceLink">
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
@@ -37,4 +34,11 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../docs/icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 </Project>

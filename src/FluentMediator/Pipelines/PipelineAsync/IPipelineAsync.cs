@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 
-namespace FluentMediator.Pipelines.AsyncPipeline
+namespace FluentMediator.Pipelines.PipelineAsync
 {
-    public interface IAsyncPipeline : INamedPipeline, ITypedPipeline
+    public interface IPipelineAsync : INamedPipeline, ITypedPipeline
     {
         Task PublishAsync(GetService getService, object request);
         Task<TResult> SendAsync<TResult>(GetService getService, object request);

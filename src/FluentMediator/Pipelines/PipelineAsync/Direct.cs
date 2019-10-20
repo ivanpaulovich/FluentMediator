@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
 
-namespace FluentMediator.Pipelines.AsyncPipeline
+namespace FluentMediator.Pipelines.PipelineAsync
 {
-    internal sealed class DirectAsync<TRequest, TResult, THandler> : IDirectAsync
+    internal sealed class Direct<TRequest, TResult, THandler> : IDirect
     {
         private readonly Method<Func<object, object, Task<TResult>>> _method;
 
-        public DirectAsync(Func<THandler, TRequest, Task<TResult>> action)
+        public Direct(Func<THandler, TRequest, Task<TResult>> action)
         {
             Func<object, object, Task<TResult>> typedHandler = (h, req) => action((THandler) h, (TRequest) req);
             _method = new Method<Func<object, object, Task<TResult>>>(typeof(THandler), typedHandler);

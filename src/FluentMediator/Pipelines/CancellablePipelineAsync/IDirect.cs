@@ -1,9 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FluentMediator.Pipelines.CancellablePipeline
+namespace FluentMediator.Pipelines.CancellablePipelineAsync
 {
-    public interface ICancellableAsync
+    public interface IDirect
     {
         Task<TResult> SendAsync<TResult>(GetService getService, object request, CancellationToken cancellationToken);
     }

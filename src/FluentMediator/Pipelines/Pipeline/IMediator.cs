@@ -1,6 +1,6 @@
 namespace FluentMediator.Pipelines.Pipeline
 {
-    public interface IPipelineMediator
+    public interface IMediator
     {
         void Publish(object request);
         TResult Send<TResult>(object request);

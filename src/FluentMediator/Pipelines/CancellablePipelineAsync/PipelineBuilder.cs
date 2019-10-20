@@ -2,21 +2,21 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FluentMediator.Pipelines.CancellablePipeline
+namespace FluentMediator.Pipelines.CancellablePipelineAsync
 {
-    internal class CancellablePipelineBuilder<TRequest> : ICancellablePipelineBuilder<TRequest>
+    internal class PipelineBuilder<TRequest> : ICancellablePipelineAsyncBuilder<TRequest>
     {
         private readonly IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> _methods;
-        private ICancellableAsync? _direct;
+        private IDirect? _direct;
         private string? _name;
 
-        public CancellablePipelineBuilder(string? name)
+        public PipelineBuilder(string? name)
         {
             _methods = new MethodCollection<Method<Func<object, object, CancellationToken, Task>>>();
             _name = name;
         }
 
-        public ICancellablePipelineBuilder<TRequest> Call<THandler>(Func<THandler, TRequest, CancellationToken, Task> func)
+        public ICancellablePipelineAsyncBuilder<TRequest> Call<THandler>(Func<THandler, TRequest, CancellationToken, Task> func)
         {
             Func<object, object, CancellationToken, Task> typedHandler = async(h, r, c) => await func((THandler) h, (TRequest) r, c);
             var method = new Method<Func<object, object, CancellationToken, Task>>(typeof(THandler), typedHandler);
@@ -24,15 +24,15 @@ namespace FluentMediator.Pipelines.CancellablePipeline
             return this;
         }
 
-        public ICancellablePipeline Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>> func)
+        public ICancellablePipelineAsync Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>> func)
         {
-            _direct = new CancellableAsyncDirect<TRequest, TResult, THandler>(func);
+            _direct = new Direct<TRequest, TResult, THandler>(func);
             return Build();
         }
 
-        public ICancellablePipeline Build()
+        public ICancellablePipelineAsync Build()
         {
-            return new CancellablePipeline(_methods, _direct, typeof(TRequest), _name);
+            return new Pipeline(_methods, _direct, typeof(TRequest), _name);
         }
     }
 }

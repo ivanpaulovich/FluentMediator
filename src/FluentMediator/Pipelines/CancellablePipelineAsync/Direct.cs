@@ -2,13 +2,13 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FluentMediator.Pipelines.CancellablePipeline
+namespace FluentMediator.Pipelines.CancellablePipelineAsync
 {
-    internal sealed class CancellableAsyncDirect<TRequest, TResult, THandler> : ICancellableAsync
+    internal sealed class Direct<TRequest, TResult, THandler> : IDirect
     {
         private readonly Method<Func<object, object, CancellationToken, Task<TResult>>> _method;
 
-        public CancellableAsyncDirect(Func<THandler, TRequest, CancellationToken, Task<TResult>> action)
+        public Direct(Func<THandler, TRequest, CancellationToken, Task<TResult>> action)
         {
             Func<object, object, CancellationToken, Task<TResult>> typedHandler = (h, req, ct) => action((THandler) h, (TRequest) req, ct);
             _method = new Method<Func<object, object, CancellationToken, Task<TResult>>>(typeof(THandler), typedHandler);

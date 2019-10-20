@@ -62,7 +62,7 @@ namespace UnitTests
                 //
                 // Act
                 //
-                async() => await mediator.SendAsync<PingResponse>(ping)
+                async () => await mediator.SendAsync<PingResponse>(ping)
             );
 
             Assert.IsType<ReturnFunctionIsNullException>(actualEx.Result);
@@ -77,7 +77,7 @@ namespace UnitTests
             var services = new ServiceCollection();
             services.AddFluentMediator(m =>
             {
-                m.On<PingRequest>().CancellablePipeline()
+                m.On<PingRequest>().AsyncCancellablePipeline()
                     .Call<IPingHandler>((handler, req, ct) => handler.MyCancellableForAsync(req, ct))
                     .Call<IPingHandler>((handler, req, ct) => handler.MyCancellableForAsync(req, ct));
             });
@@ -94,7 +94,7 @@ namespace UnitTests
                 //
                 // Act
                 //
-                async() => await mediator.SendAsync<PingResponse>(ping, cts.Token)
+                async () => await mediator.SendAsync<PingResponse>(ping, cts.Token)
             );
 
             Assert.IsType<ReturnFunctionIsNullException>(actualEx.Result);

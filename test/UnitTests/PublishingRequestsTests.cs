@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentMediator;
@@ -45,7 +44,7 @@ namespace UnitTests
             services.AddFluentMediator(builder =>
             {
                 builder.On<PingRequest>().AsyncPipeline()
-                    .Call<IPingHandler>(async(handler, req) => await handler.MyCustomFooBarAsync(req))
+                    .Call<IPingHandler>(async (handler, req) => await handler.MyCustomFooBarAsync(req))
                     .Build();
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -71,8 +70,8 @@ namespace UnitTests
             var services = new ServiceCollection();
             services.AddFluentMediator(builder =>
             {
-                builder.On<PingRequest>().CancellablePipeline()
-                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
+                builder.On<PingRequest>().AsyncCancellablePipeline()
+                    .Call<IPingHandler>(async (handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Build();
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -98,10 +97,10 @@ namespace UnitTests
             var services = new ServiceCollection();
             services.AddFluentMediator(builder =>
             {
-                builder.On<PingRequest>().CancellablePipeline()
-                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
+                builder.On<PingRequest>().AsyncCancellablePipeline()
+                    .Call<IPingHandler>(async (handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Return<PingResponse, IPingHandler>(
-                        async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct)
+                        async (handler, req, ct) => await handler.MyCancellableForAsync(req, ct)
                     );
             });
             var pingHandler = new Mock<IPingHandler>();
