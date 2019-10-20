@@ -1,6 +1,6 @@
 # Change Log
 
-## 2019-10-20 - 0.4.1
+## 2019-10-20 - 0.4.2
 
 * #2 Support o Named Pipelines Added.
 

@@ -6,7 +6,7 @@
   
   <PropertyGroup>
     <PackageId>FluentMediator.Microsoft.Extensions.DependencyInjection</PackageId>
-    <Version>0.4.1</Version>
+    <Version>0.4.2</Version>
     <Authors>Ivan Paulovich</Authors>
     <Copyright>Ivan Paulovich</Copyright>
     <Description>Microsoft Extensions for FluentMediator.</Description>
