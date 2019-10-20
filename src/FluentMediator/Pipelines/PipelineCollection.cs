@@ -1,33 +1,39 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace FluentMediator.Pipelines
 {
     internal sealed class PipelineCollection<TPipeline> : IPipelineCollection<TPipeline>
-        where TPipeline : class, ITypedPipeline
+        where TPipeline : class, ITypedPipeline, INamedPipeline
         {
-            private readonly IDictionary<Type, TPipeline> _pipelines;
+            private readonly IDictionary<Type, TPipeline> _typedPipelines;
+            private readonly IDictionary<string, TPipeline> _namedPipelines;
 
             public PipelineCollection()
             {
-                _pipelines = new Dictionary<Type, TPipeline>();
+                _typedPipelines = new Dictionary<Type, TPipeline>();
+                _namedPipelines = new Dictionary<string, TPipeline>();
             }
 
             public void Add(TPipeline pipeline)
             {
-                if (_pipelines.ContainsKey(pipeline.RequestType))
+                if (pipeline.Name is string)
                 {
-                    throw new PipelineAlreadyExistsException($"A pipeline for `{ pipeline.RequestType }` already exists.");
+                    _namedPipelines.Add(pipeline.Name, pipeline);
                 }
-
-                _pipelines.Add(pipeline.RequestType, pipeline);
+                else
+                {
+                    if (_typedPipelines.ContainsKey(pipeline.RequestType))
+                    {
+                        throw new PipelineAlreadyExistsException($"A pipeline for `{ pipeline.RequestType }` already exists.");
+                    }
+                    _typedPipelines.Add(pipeline.RequestType, pipeline);
+                }
             }
 
             public TPipeline Get(Type requestType)
             {
-                if (_pipelines.TryGetValue(requestType, out var pipeline))
+                if (_typedPipelines.TryGetValue(requestType, out var pipeline))
                 {
                     return pipeline;
                 }
@@ -35,21 +41,14 @@ namespace FluentMediator.Pipelines
                 throw new PipelineNotFoundException($"There is no pipeline configured for `{ requestType.GetType() }`.");
             }
 
-            public bool Contains(Type requestType, out TPipeline? pipeline)
+            public TPipeline Get(string pipelineName)
             {
-                if (!_pipelines.ContainsKey(requestType))
+                if (_namedPipelines.TryGetValue(pipelineName, out var pipeline))
                 {
-                    pipeline = default;
-                    return false;
+                    return pipeline;
                 }
 
-                pipeline = _pipelines[requestType];
-                return true;
-            }
-
-            public IEnumerable<TPipeline> ToIEnumerable()
-            {
-                return new ReadOnlyCollection<TPipeline>(_pipelines.Values.ToList());
+                throw new PipelineNotFoundException($"There is no pipeline configured for `{ pipelineName }`.");
             }
         }
 }

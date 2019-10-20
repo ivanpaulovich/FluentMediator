@@ -144,6 +144,91 @@ namespace UnitTests
         }
 
         [Fact]
+        public void Send_Named_PipelineReturns_Response()
+        {
+            var services = new ServiceCollection();
+            services.AddFluentMediator(m =>
+            {
+                m.On<PingRequest>()
+                    .Pipeline()
+                    .Return<PingResponse, IPingHandler>(
+                        (handler, req) => handler.MyCustomFooMethod(req)
+                    );
+                m.On<PingRequest>()
+                    .Pipeline("Foo")
+                    .Return<PingResponse, IPingHandler>(
+                        (handler, req) => handler.MyCustomFooMethod(req)
+                    );
+            });
+
+            services.AddScoped<IPingHandler, PingHandler>();
+            var provider = services.BuildServiceProvider();
+            var mediator = provider.GetRequiredService<IMediator>();
+
+            var ping = new PingRequest("Ping");
+            var response = mediator.Send<PingResponse>(ping, "Foo");
+
+            Assert.NotNull(response);
+        }
+
+        [Fact]
+        public async Task Send_Named_PipelineAsync_Returns_Response()
+        {
+            var services = new ServiceCollection();
+            services.AddFluentMediator(m =>
+            {
+                m.On<PingRequest>()
+                    .PipelineAsync()
+                    .Return<PingResponse, IPingHandler>(
+                        (handler, req) => handler.MyCustomFooBarAsync(req)
+                    );
+                m.On<PingRequest>()
+                    .PipelineAsync("Foo")
+                    .Return<PingResponse, IPingHandler>(
+                        (handler, req) => handler.MyCustomFooBarAsync(req)
+                    );
+            });
+
+            services.AddScoped<IPingHandler, PingHandler>();
+            var provider = services.BuildServiceProvider();
+            var mediator = provider.GetRequiredService<IMediator>();
+
+            var ping = new PingRequest("Ping");
+            var response = await mediator.SendAsync<PingResponse>(ping, "Foo");
+
+            Assert.NotNull(response);
+        }
+
+        [Fact]
+        public async Task SendCancellable_Named_PipelineReturns_Response()
+        {
+            var services = new ServiceCollection();
+            services.AddFluentMediator(m =>
+            {
+                m.On<PingRequest>()
+                    .CancellablePipelineAsync()
+                    .Return<PingResponse, IPingHandler>(
+                        (handler, req, ct) => handler.MyCancellableForAsync(req, ct)
+                    );
+                m.On<PingRequest>()
+                    .CancellablePipelineAsync("Foo")
+                    .Return<PingResponse, IPingHandler>(
+                        (handler, req, ct) => handler.MyCancellableForAsync(req, ct)
+                    );
+            });
+
+            services.AddScoped<IPingHandler, PingHandler>();
+            var provider = services.BuildServiceProvider();
+            var mediator = provider.GetRequiredService<IMediator>();
+            var cts = new CancellationTokenSource();
+
+            var ping = new PingRequest("Ping");
+            var response = await mediator.SendAsync<PingResponse>(ping, cts.Token, "Foo");
+
+            Assert.NotNull(response);
+        }
+
+        [Fact]
         public void Send_Not_Configured_Throws_PipelineNotFoundException()
         {
             var services = new ServiceCollection();

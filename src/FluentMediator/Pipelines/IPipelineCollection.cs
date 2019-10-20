@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace FluentMediator.Pipelines
 {
@@ -8,7 +7,6 @@ namespace FluentMediator.Pipelines
         {
             void Add(TPipeline pipeline);
             TPipeline Get(Type requestType);
-            bool Contains(Type requestType, out TPipeline? pipeline);
-            IEnumerable<TPipeline> ToIEnumerable();
+            TPipeline Get(string pipelineName);
         }
 }

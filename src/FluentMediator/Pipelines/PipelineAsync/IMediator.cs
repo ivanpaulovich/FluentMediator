@@ -4,7 +4,7 @@ namespace FluentMediator.Pipelines.PipelineAsync
 {
     public interface IMediator
     {
-        Task PublishAsync(object request);
-        Task<TResult> SendAsync<TResult>(object request);
+        Task PublishAsync(object request, string? pipelineName = null);
+        Task<TResult> SendAsync<TResult>(object request, string? pipelineName = null);
     }
 }
