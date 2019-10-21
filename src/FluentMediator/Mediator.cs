@@ -18,6 +18,11 @@ namespace FluentMediator
 
         public void Publish(object request, string? pipelineName = null)
         {
+            if (request is null)
+            {
+                throw new NullRequestException("The request is null.");
+            }
+            
             if (pipelineName is string)
             {
                 var pipeline = _pipelines.GetPipeline(pipelineName);
@@ -33,6 +38,11 @@ namespace FluentMediator
 
         public TResult Send<TResult>(object request, string? pipelineName = null)
         {
+            if (request is null)
+            {
+                throw new NullRequestException("The request is null.");
+            }
+
             if (pipelineName is string)
             {
                 var pipeline = _pipelines.GetPipeline(pipelineName);
@@ -47,6 +57,11 @@ namespace FluentMediator
 
         public async Task PublishAsync(object request, string? pipelineName = null)
         {
+            if (request is null)
+            {
+                throw new NullRequestException("The request is null.");
+            }
+
             if (pipelineName is string)
             {
                 var pipeline = _pipelines.GetAsyncPipeline(pipelineName);
@@ -61,6 +76,11 @@ namespace FluentMediator
 
         public async Task<TResult> SendAsync<TResult>(object request, string? pipelineName = null)
         {
+            if (request is null)
+            {
+                throw new NullRequestException("The request is null.");
+            }
+
             if (pipelineName is string)
             {
                 var pipeline = _pipelines.GetAsyncPipeline(pipelineName);
@@ -75,6 +95,11 @@ namespace FluentMediator
 
         public async Task PublishAsync(object request, CancellationToken ct, string? pipelineName = null)
         {
+            if (request is null)
+            {
+                throw new NullRequestException("The request is null.");
+            }
+
             if (pipelineName is string)
             {
                 var pipeline = _pipelines.GetCancellablePipeline(pipelineName);
@@ -89,6 +114,11 @@ namespace FluentMediator
 
         public async Task<TResult> SendAsync<TResult>(object request, CancellationToken ct, string? pipelineName = null)
         {
+            if (request is null)
+            {
+                throw new NullRequestException("The request is null.");
+            }
+
             if (pipelineName is string)
             {
                 var pipeline = _pipelines.GetCancellablePipeline(pipelineName);
