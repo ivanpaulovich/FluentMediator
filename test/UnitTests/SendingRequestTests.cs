@@ -245,5 +245,22 @@ namespace UnitTests
             Assert.NotNull(actualEx);
             Assert.IsType<PipelineNotFoundException>(actualEx);
         }
+
+        [Fact]
+        public void Send_Throws_Exception_Null_Requests()
+        {
+            var services = new ServiceCollection();
+            services.AddFluentMediator(m =>
+            { });
+
+            services.AddScoped<IPingHandler, PingHandler>();
+            var provider = services.BuildServiceProvider();
+            var mediator = provider.GetRequiredService<IMediator>();
+
+            var actualEx = Record.Exception(() => mediator.Send<PingResponse>(null!));
+
+            Assert.NotNull(actualEx);
+            Assert.IsType<NullRequestException>(actualEx);
+        }
     }
 }
