@@ -1,6 +1,6 @@
 # Change Log
 
-## 2019-10-20 - 0.4.4
+## 2019-10-20 - 0.4.5
 
 * #37 Validation for Null Requests added.
 

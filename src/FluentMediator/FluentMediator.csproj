@@ -10,7 +10,7 @@
 
 	<PropertyGroup>
     <PackageId>FluentMediator</PackageId>
-    <Version>0.4.4</Version>
+    <Version>0.4.5</Version>
     <Authors>Ivan Paulovich</Authors>
     <Copyright>Ivan Paulovich</Copyright>
     <Description>FluentMediator is an unobtrusive library that allows developers to build custom pipelines for Commands, Queries and Events.</Description>
