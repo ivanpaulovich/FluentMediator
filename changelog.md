@@ -1,5 +1,9 @@
 # Change Log
 
+## 2019-10-20 - 0.4.4
+
+* #37 Validation for Null Requests added.
+
 ## 2019-10-20 - 0.4.3
 
 * #2 Support o Named Pipelines Added.
