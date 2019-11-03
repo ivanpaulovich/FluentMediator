@@ -3,8 +3,17 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace FluentMediator
 {
+    /// <summary>
+    /// FluentMediatorExtensions
+    /// </summary>
     public static class FluentMediatorExtensions
     {
+        /// <summary>
+        /// Adds the FluentMediator
+        /// </summary>
+        /// <param name="services">The ServiceCollection</param>
+        /// <param name="setupAction">Builder</param>
+        /// <returns>The changed ServiceCollection</returns>
         public static IServiceCollection AddFluentMediator(this IServiceCollection services, Action<IPipelineProviderBuilder> setupAction)
         {
             var pipelineProviderBuilder = new PipelineProviderBuilder();
@@ -18,6 +27,12 @@ namespace FluentMediator
             return services;
         }
 
+        /// <summary>
+        /// Adds the FluentMediator
+        /// </summary>
+        /// <param name="services">The ServiceCollection</param>
+        /// <param name="setupAction">Builder</param>
+        /// <returns>The changed ServiceCollection</returns>
         public static IServiceCollection AddSingletonFluentMediator(
             this IServiceCollection services,
             Action<IPipelineProviderBuilder> setupAction)
@@ -33,6 +48,12 @@ namespace FluentMediator
             return services;;
         }
 
+        /// <summary>
+        /// Adds the FluentMediator
+        /// </summary>
+        /// <param name="services">The ServiceCollection</param>
+        /// <param name="setupAction">Builder</param>
+        /// <returns>The changed ServiceCollection</returns>
         public static IServiceCollection AddScopedFluentMediator(
             this IServiceCollection services,
             Action<IPipelineProviderBuilder> setupAction)

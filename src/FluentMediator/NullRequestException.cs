@@ -1,9 +1,15 @@
 namespace FluentMediator
 {
-    public class NullRequestException: MediatorException
+    /// <summary>
+    /// Occurs when the message is null
+    /// </summary>
+    public class NullRequestException : MediatorException
     {
-        public NullRequestException() { }
+        /// <summary>
+        /// Instantiate an Exception
+        /// </summary>
+        /// <param name="message">The message</param>
+        /// <returns>An Exception instance</returns>
         public NullRequestException(string message) : base(message) { }
-        public NullRequestException(string message, System.Exception inner) : base(message, inner) { }
     }
 }

@@ -1,7 +1,10 @@
 namespace FluentMediator.Pipelines.Pipeline
 {
-    public interface IDirect
+    internal interface IDirect
     {
-        TResult Send<TResult>(GetService getService, object request);
+        TResult Send<TResult>(
+            GetService getService,
+            object request
+        );
     }
 }

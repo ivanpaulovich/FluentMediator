@@ -1,6 +1,14 @@
+using FluentMediator.Pipelines.CancellablePipelineAsync;
+using FluentMediator.Pipelines.Pipeline;
+using FluentMediator.Pipelines.PipelineAsync;
+
 namespace FluentMediator
 {
-    public interface IPipelineProvider : Pipelines.Pipeline.IPipelineProvider,
-        Pipelines.PipelineAsync.IPipelineProvider,
-        Pipelines.CancellablePipelineAsync.IPipelineProvider { }
+    /// <summary>
+    /// Retrieves a Pipeline for a specific Message
+    /// </summary>
+    public interface IPipelineProvider:
+        ISyncPipelineProvider,
+        IAsyncPipelineProvider,
+        ICancellablePipelineProvider { }
 }

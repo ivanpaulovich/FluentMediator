@@ -5,23 +5,23 @@ namespace FluentMediator.Pipelines.PipelineAsync
     /// <summary>
     /// 
     /// </summary>
-    public interface IPipelineAsync : INamedPipeline, ITypedPipeline
+    public interface IAsyncMediator
     {
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="getService"></param>
         /// <param name="request"></param>
+        /// <param name="pipelineName"></param>
         /// <returns></returns>
-        Task PublishAsync(GetService getService, object request);
+        Task PublishAsync(object request, string? pipelineName = null);
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="getService"></param>
         /// <param name="request"></param>
+        /// <param name="pipelineName"></param>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        Task<TResult> SendAsync<TResult>(GetService getService, object request);
+        Task<TResult> SendAsync<TResult>(object request, string? pipelineName = null);
     }
 }

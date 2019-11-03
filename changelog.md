@@ -1,5 +1,10 @@
 # Change Log
 
+## 2019-10-20 - 0.4.6
+
+* #25 Cancellation Token fixed.
+* Added XML docs.
+
 ## 2019-10-20 - 0.4.5
 
 * #37 Validation for Null Requests added.
