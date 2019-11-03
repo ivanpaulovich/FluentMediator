@@ -1,6 +1,14 @@
+using FluentMediator.Pipelines.CancellablePipelineAsync;
+using FluentMediator.Pipelines.Pipeline;
+using FluentMediator.Pipelines.PipelineAsync;
+
 namespace FluentMediator
 {
-    public interface IMediator : Pipelines.Pipeline.IMediator,
-        Pipelines.PipelineAsync.IMediator,
-        Pipelines.CancellablePipelineAsync.IMediator { }
+    /// <summary>
+    /// Publishes/Sends messages through the Pipelines
+    /// </summary>
+    public interface IMediator:
+        ISyncMediator,
+        IAsyncMediator,
+        ICancellableMediator { }
 }

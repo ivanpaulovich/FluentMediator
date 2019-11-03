@@ -3,22 +3,22 @@ namespace FluentMediator.Pipelines.Pipeline
     /// <summary>
     /// 
     /// </summary>
-    public interface IPipeline : INamedPipeline, ITypedPipeline
+    public interface ISyncMediator
     {
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="getService"></param>
         /// <param name="request"></param>
-        void Publish(GetService getService, object request);
-        
+        /// <param name="pipelineName"></param>
+        void Publish(object request, string? pipelineName = null);
+
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="getService"></param>
         /// <param name="request"></param>
+        /// <param name="pipelineName"></param>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        TResult Send<TResult>(GetService getService, object request);
+        TResult Send<TResult>(object request, string? pipelineName = null);
     }
 }

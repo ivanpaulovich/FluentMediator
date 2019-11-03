@@ -9,7 +9,10 @@ namespace FluentMediator.Pipelines.CancellablePipelineAsync
         private readonly IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> _methods;
         private readonly IDirect? _direct;
 
-        public Pipeline(IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> methods, IDirect? direct, Type requestType, string? name)
+        public Pipeline(IMethodCollection<Method<Func<object, object, CancellationToken, Task>>> methods,
+            IDirect? direct,
+            Type requestType,
+            string? name)
         {
             _methods = methods;
             _direct = direct;
@@ -24,6 +27,8 @@ namespace FluentMediator.Pipelines.CancellablePipelineAsync
         {
             foreach (var handler in _methods.GetMethods())
             {
+                cancellationToken.ThrowIfCancellationRequested();
+
                 var concreteHandler = getService(handler.HandlerType);
                 await handler.Action(concreteHandler, request, cancellationToken);
             }
@@ -38,9 +43,13 @@ namespace FluentMediator.Pipelines.CancellablePipelineAsync
 
             foreach (var handler in _methods.GetMethods())
             {
+                cancellationToken.ThrowIfCancellationRequested();
+
                 var concreteHandler = getService(handler.HandlerType);
                 await handler.Action(concreteHandler, request, cancellationToken);
             }
+
+            cancellationToken.ThrowIfCancellationRequested();
 
             return await _direct.SendAsync<TResult>(getService, request!, cancellationToken) !;
         }

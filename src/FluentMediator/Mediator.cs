@@ -3,11 +3,23 @@ using System.Threading.Tasks;
 
 namespace FluentMediator
 {
+    /// <summary>
+    /// Publishes/Sends messages through the Pipelines
+    /// </summary>
     public sealed class Mediator : IMediator
     {
+        /// <summary>
+        /// Returns a service from the Container
+        /// </summary>
+        /// <value></value>
         public GetService GetService { get; }
         private IPipelineProvider _pipelines;
 
+        /// <summary>
+        /// Instantiate a Mediator
+        /// </summary>
+        /// <param name="getService">Service Provider</param>
+        /// <param name="pipelines">Pipeline Provider</param>
         public Mediator(
             GetService getService,
             IPipelineProvider pipelines)
@@ -16,13 +28,18 @@ namespace FluentMediator
             _pipelines = pipelines;
         }
 
+        /// <summary>
+        /// Publishes messages through the Pipeline
+        /// </summary>
+        /// <param name="request">Message</param>
+        /// <param name="pipelineName">An optional pipeline name</param>
         public void Publish(object request, string? pipelineName = null)
         {
             if (request is null)
             {
                 throw new NullRequestException("The request is null.");
             }
-            
+
             if (pipelineName is string)
             {
                 var pipeline = _pipelines.GetPipeline(pipelineName);
@@ -36,6 +53,13 @@ namespace FluentMediator
             }
         }
 
+        /// <summary>
+        /// Publishes messages through the Pipeline
+        /// </summary>
+        /// <param name="request">Message</param>
+        /// <param name="pipelineName">An optional pipeline name</param>
+        /// <typeparam name="TResult">The desired Typed result</typeparam>
+        /// <returns>The result object</returns>
         public TResult Send<TResult>(object request, string? pipelineName = null)
         {
             if (request is null)
@@ -55,6 +79,12 @@ namespace FluentMediator
             }
         }
 
+        /// <summary>
+        /// Publishes messages through the Pipeline
+        /// </summary>
+        /// <param name="request">Message</param>
+        /// <param name="pipelineName">An optional pipeline name</param>
+        /// <returns>Task object</returns>
         public async Task PublishAsync(object request, string? pipelineName = null)
         {
             if (request is null)
@@ -74,6 +104,13 @@ namespace FluentMediator
             }
         }
 
+        /// <summary>
+        /// Publishes messages through the Pipeline
+        /// </summary>
+        /// <param name="request">Message</param>
+        /// <param name="pipelineName">An optional pipeline name</param>
+        /// <typeparam name="TResult">The desired Typed result</typeparam>
+        /// <returns>The result object</returns>
         public async Task<TResult> SendAsync<TResult>(object request, string? pipelineName = null)
         {
             if (request is null)
@@ -93,7 +130,14 @@ namespace FluentMediator
             }
         }
 
-        public async Task PublishAsync(object request, CancellationToken ct, string? pipelineName = null)
+        /// <summary>
+        /// Publishes messages through the Pipeline
+        /// </summary>
+        /// <param name="request">Message</param>
+        /// <param name="cancellationToken">Cancellation Token to gracefully exit in middle of execution</param>
+        /// <param name="pipelineName">Optional Pipeline Name</param>
+        /// <returns>Task object</returns>
+        public async Task PublishAsync(object request, CancellationToken cancellationToken, string? pipelineName = null)
         {
             if (request is null)
             {
@@ -103,16 +147,24 @@ namespace FluentMediator
             if (pipelineName is string)
             {
                 var pipeline = _pipelines.GetCancellablePipeline(pipelineName);
-                await pipeline.PublishAsync(GetService, request, ct);
+                await pipeline.PublishAsync(GetService, request, cancellationToken);
             }
             else
             {
                 var pipeline = _pipelines.GetCancellablePipeline(request.GetType());
-                await pipeline.PublishAsync(GetService, request, ct);
+                await pipeline.PublishAsync(GetService, request, cancellationToken);
             }
         }
 
-        public async Task<TResult> SendAsync<TResult>(object request, CancellationToken ct, string? pipelineName = null)
+        /// <summary>
+        /// Sends messages through the Pipeline
+        /// </summary>
+        /// <param name="request">Message</param>
+        /// <param name="cancellationToken">Cancellation Token to gracefully exit in middle of execution</param>
+        /// <param name="pipelineName">Optional Pipeline Name</param>
+        /// <typeparam name="TResult">Result Type</typeparam>
+        /// <returns>Result object</returns>
+        public async Task<TResult> SendAsync<TResult>(object request, CancellationToken cancellationToken, string? pipelineName = null)
         {
             if (request is null)
             {
@@ -122,12 +174,12 @@ namespace FluentMediator
             if (pipelineName is string)
             {
                 var pipeline = _pipelines.GetCancellablePipeline(pipelineName);
-                return await pipeline.SendAsync<TResult>(GetService, request, ct);
+                return await pipeline.SendAsync<TResult>(GetService, request, cancellationToken);
             }
             else
             {
                 var pipeline = _pipelines.GetCancellablePipeline(request.GetType());
-                return await pipeline.SendAsync<TResult>(GetService, request, ct);
+                return await pipeline.SendAsync<TResult>(GetService, request, cancellationToken);
             }
         }
     }
