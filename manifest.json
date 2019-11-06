@@ -1,0 +1,582 @@
+{
+  "homepages": [],
+  "source_base_path": "/Users/ivanpaulovich/git/FluentMediator/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.FluentMediatorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.FluentMediatorExtensions.html",
+          "hash": "UDBsMaHoWUqyUM/Cwm5UcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.GetService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.GetService.html",
+          "hash": "bqYGdcMRwNPmqRORKQr4Vg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.IMediator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.IMediator.html",
+          "hash": "JFITGqdjMB2+n68WunDP4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.IPipelineProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.IPipelineProvider.html",
+          "hash": "uE0AKDZ61ZJsrw2KRtU+sQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.IPipelineProviderBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.IPipelineProviderBuilder.html",
+          "hash": "GEnLkNr3n0oInWioGezR1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Mediator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Mediator.html",
+          "hash": "PXCm16AykyEVin7ju4yBAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.MediatorException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.MediatorException.html",
+          "hash": "XTHMAMu8ofOgOxA/NFAS7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.NullRequestException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.NullRequestException.html",
+          "hash": "aE5cEN9jExpWqevOrkz4Dg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.PipelineProviderBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.PipelineProviderBuilder.html",
+          "hash": "ZAnOWmZKeRNrAvWdFezUJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.html",
+          "hash": "hqb4Yk0AIL69hgXqPYW9aw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.html",
+          "hash": "alLDKsPcsYz6EUj/38/bOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder-1.html",
+          "hash": "z0k0wzcsAE/rJjvZ5G/UGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.html",
+          "hash": "hDSOCCFtfY7/xnN3uaBC0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.html",
+          "hash": "v1xDZwSYoEVLyU0aDd6gXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.html",
+          "hash": "ffnE1SvgdRCRWyg+teJy6A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.CancellablePipelineAsync.html",
+          "hash": "QKQ2lOwH2xhRqfvoW6Eo2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.INamedPipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.INamedPipeline.html",
+          "hash": "VwqWGNwgoR5++iBrIk7URw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.IPipelineBehavior-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.IPipelineBehavior-1.html",
+          "hash": "3haEha4/uWzU3MKcFWbs3Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.ITypedPipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.ITypedPipeline.html",
+          "hash": "QEhN7Izoq/RvJthFnLiU1A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.Pipeline.IPipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.Pipeline.IPipeline.html",
+          "hash": "3vP7lmzVV8D1k9ze6I0TeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder-1.html",
+          "hash": "Wn0UUz1j1tIPTzee2j4e3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder.html",
+          "hash": "Cqyh8dBSJvuKQtF/eTVVdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.Pipeline.ISyncMediator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.Pipeline.ISyncMediator.html",
+          "hash": "zgDhB+8y3j53vzY9SnbnCQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.html",
+          "hash": "r5O6Eu6wCPJ9VUeLOgbqSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.html",
+          "hash": "mYEwh68SMHgu/X/MTO+bOg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.Pipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.Pipeline.html",
+          "hash": "qOhyy4Ph8NLzwSjBnQki9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.PipelineAlreadyExistsException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.PipelineAlreadyExistsException.html",
+          "hash": "4sScEUql/OWdShmHMPJbWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.html",
+          "hash": "Qx/FD9et704/+37TiazrOA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.html",
+          "hash": "8JcvKW/JwBO54VA6JAG4RA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.html",
+          "hash": "eNuLlDbmEJsHrkzyqObxyQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.html",
+          "hash": "p1dCCHbZgMkSB3Zovjluiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder-1.html",
+          "hash": "hI91kaIW9ojMZkOlirmpYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.html",
+          "hash": "bVWP2IdG2PtzjQrBSK+5GA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.PipelineAsync.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.PipelineAsync.html",
+          "hash": "3vq/ydbG0ZkQqJNNlD70sQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.PipelineNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.PipelineNotFoundException.html",
+          "hash": "feHQsHKHoHCEfkQaEaL3nA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.ReturnFunctionIsNullException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.ReturnFunctionIsNullException.html",
+          "hash": "rVj7ULP7Whl6iinaq4H9tg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.Pipelines.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.Pipelines.html",
+          "hash": "r72G+QEr4nV/ZqqSVD9OkA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentMediator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentMediator.html",
+          "hash": "clC0MfYy5VgKE6wXFPyDbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "fbQ7OKVHwe6KhFU+3h0i8w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "looN0GWkFpz1W/ePVuRE4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "fLJf3ErDfOJMk3CxXb8oVA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "dSy090n297XC4JuDlkDOUA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "+rHUkRZHZRi5gd1aTU6lJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 38,
+          "skipped_file_count": 21
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

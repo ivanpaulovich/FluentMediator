@@ -1,0 +1,1066 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: FluentMediator
+  name: FluentMediator
+  href: api/FluentMediator.html
+  commentId: N:FluentMediator
+  fullName: FluentMediator
+  nameWithType: FluentMediator
+- uid: FluentMediator.FluentMediatorExtensions
+  name: FluentMediatorExtensions
+  href: api/FluentMediator.FluentMediatorExtensions.html
+  commentId: T:FluentMediator.FluentMediatorExtensions
+  fullName: FluentMediator.FluentMediatorExtensions
+  nameWithType: FluentMediatorExtensions
+- uid: FluentMediator.FluentMediatorExtensions.AddFluentMediator(IServiceCollection,Action{FluentMediator.IPipelineProviderBuilder})
+  name: AddFluentMediator(IServiceCollection, Action<IPipelineProviderBuilder>)
+  href: api/FluentMediator.FluentMediatorExtensions.html#FluentMediator_FluentMediatorExtensions_AddFluentMediator_IServiceCollection_Action_FluentMediator_IPipelineProviderBuilder__
+  commentId: M:FluentMediator.FluentMediatorExtensions.AddFluentMediator(IServiceCollection,Action{FluentMediator.IPipelineProviderBuilder})
+  name.vb: AddFluentMediator(IServiceCollection, Action(Of IPipelineProviderBuilder))
+  fullName: FluentMediator.FluentMediatorExtensions.AddFluentMediator(IServiceCollection, Action<FluentMediator.IPipelineProviderBuilder>)
+  fullName.vb: FluentMediator.FluentMediatorExtensions.AddFluentMediator(IServiceCollection, Action(Of FluentMediator.IPipelineProviderBuilder))
+  nameWithType: FluentMediatorExtensions.AddFluentMediator(IServiceCollection, Action<IPipelineProviderBuilder>)
+  nameWithType.vb: FluentMediatorExtensions.AddFluentMediator(IServiceCollection, Action(Of IPipelineProviderBuilder))
+- uid: FluentMediator.FluentMediatorExtensions.AddFluentMediator*
+  name: AddFluentMediator
+  href: api/FluentMediator.FluentMediatorExtensions.html#FluentMediator_FluentMediatorExtensions_AddFluentMediator_
+  commentId: Overload:FluentMediator.FluentMediatorExtensions.AddFluentMediator
+  isSpec: "True"
+  fullName: FluentMediator.FluentMediatorExtensions.AddFluentMediator
+  nameWithType: FluentMediatorExtensions.AddFluentMediator
+- uid: FluentMediator.FluentMediatorExtensions.AddScopedFluentMediator(IServiceCollection,Action{FluentMediator.IPipelineProviderBuilder})
+  name: AddScopedFluentMediator(IServiceCollection, Action<IPipelineProviderBuilder>)
+  href: api/FluentMediator.FluentMediatorExtensions.html#FluentMediator_FluentMediatorExtensions_AddScopedFluentMediator_IServiceCollection_Action_FluentMediator_IPipelineProviderBuilder__
+  commentId: M:FluentMediator.FluentMediatorExtensions.AddScopedFluentMediator(IServiceCollection,Action{FluentMediator.IPipelineProviderBuilder})
+  name.vb: AddScopedFluentMediator(IServiceCollection, Action(Of IPipelineProviderBuilder))
+  fullName: FluentMediator.FluentMediatorExtensions.AddScopedFluentMediator(IServiceCollection, Action<FluentMediator.IPipelineProviderBuilder>)
+  fullName.vb: FluentMediator.FluentMediatorExtensions.AddScopedFluentMediator(IServiceCollection, Action(Of FluentMediator.IPipelineProviderBuilder))
+  nameWithType: FluentMediatorExtensions.AddScopedFluentMediator(IServiceCollection, Action<IPipelineProviderBuilder>)
+  nameWithType.vb: FluentMediatorExtensions.AddScopedFluentMediator(IServiceCollection, Action(Of IPipelineProviderBuilder))
+- uid: FluentMediator.FluentMediatorExtensions.AddScopedFluentMediator*
+  name: AddScopedFluentMediator
+  href: api/FluentMediator.FluentMediatorExtensions.html#FluentMediator_FluentMediatorExtensions_AddScopedFluentMediator_
+  commentId: Overload:FluentMediator.FluentMediatorExtensions.AddScopedFluentMediator
+  isSpec: "True"
+  fullName: FluentMediator.FluentMediatorExtensions.AddScopedFluentMediator
+  nameWithType: FluentMediatorExtensions.AddScopedFluentMediator
+- uid: FluentMediator.FluentMediatorExtensions.AddSingletonFluentMediator(IServiceCollection,Action{FluentMediator.IPipelineProviderBuilder})
+  name: AddSingletonFluentMediator(IServiceCollection, Action<IPipelineProviderBuilder>)
+  href: api/FluentMediator.FluentMediatorExtensions.html#FluentMediator_FluentMediatorExtensions_AddSingletonFluentMediator_IServiceCollection_Action_FluentMediator_IPipelineProviderBuilder__
+  commentId: M:FluentMediator.FluentMediatorExtensions.AddSingletonFluentMediator(IServiceCollection,Action{FluentMediator.IPipelineProviderBuilder})
+  name.vb: AddSingletonFluentMediator(IServiceCollection, Action(Of IPipelineProviderBuilder))
+  fullName: FluentMediator.FluentMediatorExtensions.AddSingletonFluentMediator(IServiceCollection, Action<FluentMediator.IPipelineProviderBuilder>)
+  fullName.vb: FluentMediator.FluentMediatorExtensions.AddSingletonFluentMediator(IServiceCollection, Action(Of FluentMediator.IPipelineProviderBuilder))
+  nameWithType: FluentMediatorExtensions.AddSingletonFluentMediator(IServiceCollection, Action<IPipelineProviderBuilder>)
+  nameWithType.vb: FluentMediatorExtensions.AddSingletonFluentMediator(IServiceCollection, Action(Of IPipelineProviderBuilder))
+- uid: FluentMediator.FluentMediatorExtensions.AddSingletonFluentMediator*
+  name: AddSingletonFluentMediator
+  href: api/FluentMediator.FluentMediatorExtensions.html#FluentMediator_FluentMediatorExtensions_AddSingletonFluentMediator_
+  commentId: Overload:FluentMediator.FluentMediatorExtensions.AddSingletonFluentMediator
+  isSpec: "True"
+  fullName: FluentMediator.FluentMediatorExtensions.AddSingletonFluentMediator
+  nameWithType: FluentMediatorExtensions.AddSingletonFluentMediator
+- uid: FluentMediator.GetService
+  name: GetService
+  href: api/FluentMediator.GetService.html
+  commentId: T:FluentMediator.GetService
+  fullName: FluentMediator.GetService
+  nameWithType: GetService
+- uid: FluentMediator.IMediator
+  name: IMediator
+  href: api/FluentMediator.IMediator.html
+  commentId: T:FluentMediator.IMediator
+  fullName: FluentMediator.IMediator
+  nameWithType: IMediator
+- uid: FluentMediator.IPipelineProvider
+  name: IPipelineProvider
+  href: api/FluentMediator.IPipelineProvider.html
+  commentId: T:FluentMediator.IPipelineProvider
+  fullName: FluentMediator.IPipelineProvider
+  nameWithType: IPipelineProvider
+- uid: FluentMediator.IPipelineProviderBuilder
+  name: IPipelineProviderBuilder
+  href: api/FluentMediator.IPipelineProviderBuilder.html
+  commentId: T:FluentMediator.IPipelineProviderBuilder
+  fullName: FluentMediator.IPipelineProviderBuilder
+  nameWithType: IPipelineProviderBuilder
+- uid: FluentMediator.IPipelineProviderBuilder.Build
+  name: Build()
+  href: api/FluentMediator.IPipelineProviderBuilder.html#FluentMediator_IPipelineProviderBuilder_Build
+  commentId: M:FluentMediator.IPipelineProviderBuilder.Build
+  fullName: FluentMediator.IPipelineProviderBuilder.Build()
+  nameWithType: IPipelineProviderBuilder.Build()
+- uid: FluentMediator.IPipelineProviderBuilder.Build*
+  name: Build
+  href: api/FluentMediator.IPipelineProviderBuilder.html#FluentMediator_IPipelineProviderBuilder_Build_
+  commentId: Overload:FluentMediator.IPipelineProviderBuilder.Build
+  isSpec: "True"
+  fullName: FluentMediator.IPipelineProviderBuilder.Build
+  nameWithType: IPipelineProviderBuilder.Build
+- uid: FluentMediator.IPipelineProviderBuilder.On*
+  name: On
+  href: api/FluentMediator.IPipelineProviderBuilder.html#FluentMediator_IPipelineProviderBuilder_On_
+  commentId: Overload:FluentMediator.IPipelineProviderBuilder.On
+  isSpec: "True"
+  fullName: FluentMediator.IPipelineProviderBuilder.On
+  nameWithType: IPipelineProviderBuilder.On
+- uid: FluentMediator.IPipelineProviderBuilder.On``1
+  name: On<TRequest>()
+  href: api/FluentMediator.IPipelineProviderBuilder.html#FluentMediator_IPipelineProviderBuilder_On__1
+  commentId: M:FluentMediator.IPipelineProviderBuilder.On``1
+  name.vb: On(Of TRequest)()
+  fullName: FluentMediator.IPipelineProviderBuilder.On<TRequest>()
+  fullName.vb: FluentMediator.IPipelineProviderBuilder.On(Of TRequest)()
+  nameWithType: IPipelineProviderBuilder.On<TRequest>()
+  nameWithType.vb: IPipelineProviderBuilder.On(Of TRequest)()
+- uid: FluentMediator.Mediator
+  name: Mediator
+  href: api/FluentMediator.Mediator.html
+  commentId: T:FluentMediator.Mediator
+  fullName: FluentMediator.Mediator
+  nameWithType: Mediator
+- uid: FluentMediator.Mediator.#ctor(FluentMediator.GetService,FluentMediator.IPipelineProvider)
+  name: Mediator(GetService, IPipelineProvider)
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator__ctor_FluentMediator_GetService_FluentMediator_IPipelineProvider_
+  commentId: M:FluentMediator.Mediator.#ctor(FluentMediator.GetService,FluentMediator.IPipelineProvider)
+  fullName: FluentMediator.Mediator.Mediator(FluentMediator.GetService, FluentMediator.IPipelineProvider)
+  nameWithType: Mediator.Mediator(GetService, IPipelineProvider)
+- uid: FluentMediator.Mediator.#ctor*
+  name: Mediator
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator__ctor_
+  commentId: Overload:FluentMediator.Mediator.#ctor
+  isSpec: "True"
+  fullName: FluentMediator.Mediator.Mediator
+  nameWithType: Mediator.Mediator
+- uid: FluentMediator.Mediator.GetService
+  name: GetService
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_GetService
+  commentId: P:FluentMediator.Mediator.GetService
+  fullName: FluentMediator.Mediator.GetService
+  nameWithType: Mediator.GetService
+- uid: FluentMediator.Mediator.GetService*
+  name: GetService
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_GetService_
+  commentId: Overload:FluentMediator.Mediator.GetService
+  isSpec: "True"
+  fullName: FluentMediator.Mediator.GetService
+  nameWithType: Mediator.GetService
+- uid: FluentMediator.Mediator.Publish(System.Object,System.Nullable{System.String})
+  name: Publish(Object, Nullable<String>)
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_Publish_System_Object_System_Nullable_System_String__
+  commentId: M:FluentMediator.Mediator.Publish(System.Object,System.Nullable{System.String})
+  name.vb: Publish(Object, Nullable(Of String))
+  fullName: FluentMediator.Mediator.Publish(System.Object, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Mediator.Publish(System.Object, System.Nullable(Of System.String))
+  nameWithType: Mediator.Publish(Object, Nullable<String>)
+  nameWithType.vb: Mediator.Publish(Object, Nullable(Of String))
+- uid: FluentMediator.Mediator.Publish*
+  name: Publish
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_Publish_
+  commentId: Overload:FluentMediator.Mediator.Publish
+  isSpec: "True"
+  fullName: FluentMediator.Mediator.Publish
+  nameWithType: Mediator.Publish
+- uid: FluentMediator.Mediator.PublishAsync(System.Object,CancellationToken,System.Nullable{System.String})
+  name: PublishAsync(Object, CancellationToken, Nullable<String>)
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_PublishAsync_System_Object_CancellationToken_System_Nullable_System_String__
+  commentId: M:FluentMediator.Mediator.PublishAsync(System.Object,CancellationToken,System.Nullable{System.String})
+  name.vb: PublishAsync(Object, CancellationToken, Nullable(Of String))
+  fullName: FluentMediator.Mediator.PublishAsync(System.Object, CancellationToken, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Mediator.PublishAsync(System.Object, CancellationToken, System.Nullable(Of System.String))
+  nameWithType: Mediator.PublishAsync(Object, CancellationToken, Nullable<String>)
+  nameWithType.vb: Mediator.PublishAsync(Object, CancellationToken, Nullable(Of String))
+- uid: FluentMediator.Mediator.PublishAsync(System.Object,System.Nullable{System.String})
+  name: PublishAsync(Object, Nullable<String>)
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_PublishAsync_System_Object_System_Nullable_System_String__
+  commentId: M:FluentMediator.Mediator.PublishAsync(System.Object,System.Nullable{System.String})
+  name.vb: PublishAsync(Object, Nullable(Of String))
+  fullName: FluentMediator.Mediator.PublishAsync(System.Object, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Mediator.PublishAsync(System.Object, System.Nullable(Of System.String))
+  nameWithType: Mediator.PublishAsync(Object, Nullable<String>)
+  nameWithType.vb: Mediator.PublishAsync(Object, Nullable(Of String))
+- uid: FluentMediator.Mediator.PublishAsync*
+  name: PublishAsync
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_PublishAsync_
+  commentId: Overload:FluentMediator.Mediator.PublishAsync
+  isSpec: "True"
+  fullName: FluentMediator.Mediator.PublishAsync
+  nameWithType: Mediator.PublishAsync
+- uid: FluentMediator.Mediator.Send*
+  name: Send
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_Send_
+  commentId: Overload:FluentMediator.Mediator.Send
+  isSpec: "True"
+  fullName: FluentMediator.Mediator.Send
+  nameWithType: Mediator.Send
+- uid: FluentMediator.Mediator.Send``1(System.Object,System.Nullable{System.String})
+  name: Send<TResult>(Object, Nullable<String>)
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_Send__1_System_Object_System_Nullable_System_String__
+  commentId: M:FluentMediator.Mediator.Send``1(System.Object,System.Nullable{System.String})
+  name.vb: Send(Of TResult)(Object, Nullable(Of String))
+  fullName: FluentMediator.Mediator.Send<TResult>(System.Object, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Mediator.Send(Of TResult)(System.Object, System.Nullable(Of System.String))
+  nameWithType: Mediator.Send<TResult>(Object, Nullable<String>)
+  nameWithType.vb: Mediator.Send(Of TResult)(Object, Nullable(Of String))
+- uid: FluentMediator.Mediator.SendAsync*
+  name: SendAsync
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_SendAsync_
+  commentId: Overload:FluentMediator.Mediator.SendAsync
+  isSpec: "True"
+  fullName: FluentMediator.Mediator.SendAsync
+  nameWithType: Mediator.SendAsync
+- uid: FluentMediator.Mediator.SendAsync``1(System.Object,CancellationToken,System.Nullable{System.String})
+  name: SendAsync<TResult>(Object, CancellationToken, Nullable<String>)
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_SendAsync__1_System_Object_CancellationToken_System_Nullable_System_String__
+  commentId: M:FluentMediator.Mediator.SendAsync``1(System.Object,CancellationToken,System.Nullable{System.String})
+  name.vb: SendAsync(Of TResult)(Object, CancellationToken, Nullable(Of String))
+  fullName: FluentMediator.Mediator.SendAsync<TResult>(System.Object, CancellationToken, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Mediator.SendAsync(Of TResult)(System.Object, CancellationToken, System.Nullable(Of System.String))
+  nameWithType: Mediator.SendAsync<TResult>(Object, CancellationToken, Nullable<String>)
+  nameWithType.vb: Mediator.SendAsync(Of TResult)(Object, CancellationToken, Nullable(Of String))
+- uid: FluentMediator.Mediator.SendAsync``1(System.Object,System.Nullable{System.String})
+  name: SendAsync<TResult>(Object, Nullable<String>)
+  href: api/FluentMediator.Mediator.html#FluentMediator_Mediator_SendAsync__1_System_Object_System_Nullable_System_String__
+  commentId: M:FluentMediator.Mediator.SendAsync``1(System.Object,System.Nullable{System.String})
+  name.vb: SendAsync(Of TResult)(Object, Nullable(Of String))
+  fullName: FluentMediator.Mediator.SendAsync<TResult>(System.Object, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Mediator.SendAsync(Of TResult)(System.Object, System.Nullable(Of System.String))
+  nameWithType: Mediator.SendAsync<TResult>(Object, Nullable<String>)
+  nameWithType.vb: Mediator.SendAsync(Of TResult)(Object, Nullable(Of String))
+- uid: FluentMediator.MediatorException
+  name: MediatorException
+  href: api/FluentMediator.MediatorException.html
+  commentId: T:FluentMediator.MediatorException
+  fullName: FluentMediator.MediatorException
+  nameWithType: MediatorException
+- uid: FluentMediator.MediatorException.#ctor(System.String)
+  name: MediatorException(String)
+  href: api/FluentMediator.MediatorException.html#FluentMediator_MediatorException__ctor_System_String_
+  commentId: M:FluentMediator.MediatorException.#ctor(System.String)
+  fullName: FluentMediator.MediatorException.MediatorException(System.String)
+  nameWithType: MediatorException.MediatorException(String)
+- uid: FluentMediator.MediatorException.#ctor*
+  name: MediatorException
+  href: api/FluentMediator.MediatorException.html#FluentMediator_MediatorException__ctor_
+  commentId: Overload:FluentMediator.MediatorException.#ctor
+  isSpec: "True"
+  fullName: FluentMediator.MediatorException.MediatorException
+  nameWithType: MediatorException.MediatorException
+- uid: FluentMediator.NullRequestException
+  name: NullRequestException
+  href: api/FluentMediator.NullRequestException.html
+  commentId: T:FluentMediator.NullRequestException
+  fullName: FluentMediator.NullRequestException
+  nameWithType: NullRequestException
+- uid: FluentMediator.NullRequestException.#ctor(System.String)
+  name: NullRequestException(String)
+  href: api/FluentMediator.NullRequestException.html#FluentMediator_NullRequestException__ctor_System_String_
+  commentId: M:FluentMediator.NullRequestException.#ctor(System.String)
+  fullName: FluentMediator.NullRequestException.NullRequestException(System.String)
+  nameWithType: NullRequestException.NullRequestException(String)
+- uid: FluentMediator.NullRequestException.#ctor*
+  name: NullRequestException
+  href: api/FluentMediator.NullRequestException.html#FluentMediator_NullRequestException__ctor_
+  commentId: Overload:FluentMediator.NullRequestException.#ctor
+  isSpec: "True"
+  fullName: FluentMediator.NullRequestException.NullRequestException
+  nameWithType: NullRequestException.NullRequestException
+- uid: FluentMediator.PipelineProviderBuilder
+  name: PipelineProviderBuilder
+  href: api/FluentMediator.PipelineProviderBuilder.html
+  commentId: T:FluentMediator.PipelineProviderBuilder
+  fullName: FluentMediator.PipelineProviderBuilder
+  nameWithType: PipelineProviderBuilder
+- uid: FluentMediator.PipelineProviderBuilder.#ctor
+  name: PipelineProviderBuilder()
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder__ctor
+  commentId: M:FluentMediator.PipelineProviderBuilder.#ctor
+  fullName: FluentMediator.PipelineProviderBuilder.PipelineProviderBuilder()
+  nameWithType: PipelineProviderBuilder.PipelineProviderBuilder()
+- uid: FluentMediator.PipelineProviderBuilder.#ctor*
+  name: PipelineProviderBuilder
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder__ctor_
+  commentId: Overload:FluentMediator.PipelineProviderBuilder.#ctor
+  isSpec: "True"
+  fullName: FluentMediator.PipelineProviderBuilder.PipelineProviderBuilder
+  nameWithType: PipelineProviderBuilder.PipelineProviderBuilder
+- uid: FluentMediator.PipelineProviderBuilder.Add(FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder)
+  name: Add(ICancellablePipelineAsyncBuilder)
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder_Add_FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsyncBuilder_
+  commentId: M:FluentMediator.PipelineProviderBuilder.Add(FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder)
+  fullName: FluentMediator.PipelineProviderBuilder.Add(FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder)
+  nameWithType: PipelineProviderBuilder.Add(ICancellablePipelineAsyncBuilder)
+- uid: FluentMediator.PipelineProviderBuilder.Add(FluentMediator.Pipelines.Pipeline.IPipelineBuilder)
+  name: Add(IPipelineBuilder)
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder_Add_FluentMediator_Pipelines_Pipeline_IPipelineBuilder_
+  commentId: M:FluentMediator.PipelineProviderBuilder.Add(FluentMediator.Pipelines.Pipeline.IPipelineBuilder)
+  fullName: FluentMediator.PipelineProviderBuilder.Add(FluentMediator.Pipelines.Pipeline.IPipelineBuilder)
+  nameWithType: PipelineProviderBuilder.Add(IPipelineBuilder)
+- uid: FluentMediator.PipelineProviderBuilder.Add(FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder)
+  name: Add(IPipelineAsyncBuilder)
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder_Add_FluentMediator_Pipelines_PipelineAsync_IPipelineAsyncBuilder_
+  commentId: M:FluentMediator.PipelineProviderBuilder.Add(FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder)
+  fullName: FluentMediator.PipelineProviderBuilder.Add(FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder)
+  nameWithType: PipelineProviderBuilder.Add(IPipelineAsyncBuilder)
+- uid: FluentMediator.PipelineProviderBuilder.Add*
+  name: Add
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder_Add_
+  commentId: Overload:FluentMediator.PipelineProviderBuilder.Add
+  isSpec: "True"
+  fullName: FluentMediator.PipelineProviderBuilder.Add
+  nameWithType: PipelineProviderBuilder.Add
+- uid: FluentMediator.PipelineProviderBuilder.Build
+  name: Build()
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder_Build
+  commentId: M:FluentMediator.PipelineProviderBuilder.Build
+  fullName: FluentMediator.PipelineProviderBuilder.Build()
+  nameWithType: PipelineProviderBuilder.Build()
+- uid: FluentMediator.PipelineProviderBuilder.Build*
+  name: Build
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder_Build_
+  commentId: Overload:FluentMediator.PipelineProviderBuilder.Build
+  isSpec: "True"
+  fullName: FluentMediator.PipelineProviderBuilder.Build
+  nameWithType: PipelineProviderBuilder.Build
+- uid: FluentMediator.PipelineProviderBuilder.On*
+  name: On
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder_On_
+  commentId: Overload:FluentMediator.PipelineProviderBuilder.On
+  isSpec: "True"
+  fullName: FluentMediator.PipelineProviderBuilder.On
+  nameWithType: PipelineProviderBuilder.On
+- uid: FluentMediator.PipelineProviderBuilder.On``1
+  name: On<TRequest>()
+  href: api/FluentMediator.PipelineProviderBuilder.html#FluentMediator_PipelineProviderBuilder_On__1
+  commentId: M:FluentMediator.PipelineProviderBuilder.On``1
+  name.vb: On(Of TRequest)()
+  fullName: FluentMediator.PipelineProviderBuilder.On<TRequest>()
+  fullName.vb: FluentMediator.PipelineProviderBuilder.On(Of TRequest)()
+  nameWithType: PipelineProviderBuilder.On<TRequest>()
+  nameWithType.vb: PipelineProviderBuilder.On(Of TRequest)()
+- uid: FluentMediator.Pipelines
+  name: FluentMediator.Pipelines
+  href: api/FluentMediator.Pipelines.html
+  commentId: N:FluentMediator.Pipelines
+  fullName: FluentMediator.Pipelines
+  nameWithType: FluentMediator.Pipelines
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync
+  name: FluentMediator.Pipelines.CancellablePipelineAsync
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.html
+  commentId: N:FluentMediator.Pipelines.CancellablePipelineAsync
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync
+  nameWithType: FluentMediator.Pipelines.CancellablePipelineAsync
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator
+  name: ICancellableMediator
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.html
+  commentId: T:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator
+  nameWithType: ICancellableMediator
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.PublishAsync(System.Object,CancellationToken,System.Nullable{System.String})
+  name: PublishAsync(Object, CancellationToken, Nullable<String>)
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellableMediator_PublishAsync_System_Object_CancellationToken_System_Nullable_System_String__
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.PublishAsync(System.Object,CancellationToken,System.Nullable{System.String})
+  name.vb: PublishAsync(Object, CancellationToken, Nullable(Of String))
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.PublishAsync(System.Object, CancellationToken, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.PublishAsync(System.Object, CancellationToken, System.Nullable(Of System.String))
+  nameWithType: ICancellableMediator.PublishAsync(Object, CancellationToken, Nullable<String>)
+  nameWithType.vb: ICancellableMediator.PublishAsync(Object, CancellationToken, Nullable(Of String))
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.PublishAsync*
+  name: PublishAsync
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellableMediator_PublishAsync_
+  commentId: Overload:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.PublishAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.PublishAsync
+  nameWithType: ICancellableMediator.PublishAsync
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.SendAsync*
+  name: SendAsync
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellableMediator_SendAsync_
+  commentId: Overload:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.SendAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.SendAsync
+  nameWithType: ICancellableMediator.SendAsync
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.SendAsync``1(System.Object,CancellationToken,System.Nullable{System.String})
+  name: SendAsync<TResult>(Object, CancellationToken, Nullable<String>)
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellableMediator_SendAsync__1_System_Object_CancellationToken_System_Nullable_System_String__
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.SendAsync``1(System.Object,CancellationToken,System.Nullable{System.String})
+  name.vb: SendAsync(Of TResult)(Object, CancellationToken, Nullable(Of String))
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.SendAsync<TResult>(System.Object, CancellationToken, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellableMediator.SendAsync(Of TResult)(System.Object, CancellationToken, System.Nullable(Of System.String))
+  nameWithType: ICancellableMediator.SendAsync<TResult>(Object, CancellationToken, Nullable<String>)
+  nameWithType.vb: ICancellableMediator.SendAsync(Of TResult)(Object, CancellationToken, Nullable(Of String))
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync
+  name: ICancellablePipelineAsync
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.html
+  commentId: T:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync
+  nameWithType: ICancellablePipelineAsync
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.PublishAsync(FluentMediator.GetService,System.Object,CancellationToken)
+  name: PublishAsync(GetService, Object, CancellationToken)
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsync_PublishAsync_FluentMediator_GetService_System_Object_CancellationToken_
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.PublishAsync(FluentMediator.GetService,System.Object,CancellationToken)
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.PublishAsync(FluentMediator.GetService, System.Object, CancellationToken)
+  nameWithType: ICancellablePipelineAsync.PublishAsync(GetService, Object, CancellationToken)
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.PublishAsync*
+  name: PublishAsync
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsync_PublishAsync_
+  commentId: Overload:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.PublishAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.PublishAsync
+  nameWithType: ICancellablePipelineAsync.PublishAsync
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.SendAsync*
+  name: SendAsync
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsync_SendAsync_
+  commentId: Overload:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.SendAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.SendAsync
+  nameWithType: ICancellablePipelineAsync.SendAsync
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.SendAsync``1(FluentMediator.GetService,System.Object,CancellationToken)
+  name: SendAsync<TResult>(GetService, Object, CancellationToken)
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsync_SendAsync__1_FluentMediator_GetService_System_Object_CancellationToken_
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.SendAsync``1(FluentMediator.GetService,System.Object,CancellationToken)
+  name.vb: SendAsync(Of TResult)(GetService, Object, CancellationToken)
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.SendAsync<TResult>(FluentMediator.GetService, System.Object, CancellationToken)
+  fullName.vb: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsync.SendAsync(Of TResult)(FluentMediator.GetService, System.Object, CancellationToken)
+  nameWithType: ICancellablePipelineAsync.SendAsync<TResult>(GetService, Object, CancellationToken)
+  nameWithType.vb: ICancellablePipelineAsync.SendAsync(Of TResult)(GetService, Object, CancellationToken)
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder
+  name: ICancellablePipelineAsyncBuilder
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.html
+  commentId: T:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder
+  nameWithType: ICancellablePipelineAsyncBuilder
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.Build
+  name: Build()
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsyncBuilder_Build
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.Build
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.Build()
+  nameWithType: ICancellablePipelineAsyncBuilder.Build()
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.Build*
+  name: Build
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsyncBuilder_Build_
+  commentId: Overload:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.Build
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder.Build
+  nameWithType: ICancellablePipelineAsyncBuilder.Build
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1
+  name: ICancellablePipelineAsyncBuilder<TRequest>
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder-1.html
+  commentId: T:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1
+  name.vb: ICancellablePipelineAsyncBuilder(Of TRequest)
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder<TRequest>
+  fullName.vb: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder(Of TRequest)
+  nameWithType: ICancellablePipelineAsyncBuilder<TRequest>
+  nameWithType.vb: ICancellablePipelineAsyncBuilder(Of TRequest)
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1.Call*
+  name: Call
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder-1.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsyncBuilder_1_Call_
+  commentId: Overload:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1.Call
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder<TRequest>.Call
+  fullName.vb: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder(Of TRequest).Call
+  nameWithType: ICancellablePipelineAsyncBuilder<TRequest>.Call
+  nameWithType.vb: ICancellablePipelineAsyncBuilder(Of TRequest).Call
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1.Call``1(Func{``0,`0,CancellationToken,Task})
+  name: Call<THandler>(Func<THandler, TRequest, CancellationToken, Task>)
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder-1.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsyncBuilder_1_Call__1_Func___0__0_CancellationToken_Task__
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1.Call``1(Func{``0,`0,CancellationToken,Task})
+  name.vb: Call(Of THandler)(Func(Of THandler, TRequest, CancellationToken, Task))
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder<TRequest>.Call<THandler>(Func<THandler, TRequest, CancellationToken, Task>)
+  fullName.vb: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder(Of TRequest).Call(Of THandler)(Func(Of THandler, TRequest, CancellationToken, Task))
+  nameWithType: ICancellablePipelineAsyncBuilder<TRequest>.Call<THandler>(Func<THandler, TRequest, CancellationToken, Task>)
+  nameWithType.vb: ICancellablePipelineAsyncBuilder(Of TRequest).Call(Of THandler)(Func(Of THandler, TRequest, CancellationToken, Task))
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1.Return*
+  name: Return
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder-1.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsyncBuilder_1_Return_
+  commentId: Overload:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1.Return
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder<TRequest>.Return
+  fullName.vb: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder(Of TRequest).Return
+  nameWithType: ICancellablePipelineAsyncBuilder<TRequest>.Return
+  nameWithType.vb: ICancellablePipelineAsyncBuilder(Of TRequest).Return
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1.Return``2(Func{``1,`0,CancellationToken,Task{``0}})
+  name: Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>>)
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder-1.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsyncBuilder_1_Return__2_Func___1__0_CancellationToken_Task___0___
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder`1.Return``2(Func{``1,`0,CancellationToken,Task{``0}})
+  name.vb: Return(Of TResult, THandler)(Func(Of THandler, TRequest, CancellationToken, Task(Of TResult)))
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder<TRequest>.Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>>)
+  fullName.vb: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder(Of TRequest).Return(Of TResult, THandler)(Func(Of THandler, TRequest, CancellationToken, Task(Of TResult)))
+  nameWithType: ICancellablePipelineAsyncBuilder<TRequest>.Return<TResult, THandler>(Func<THandler, TRequest, CancellationToken, Task<TResult>>)
+  nameWithType.vb: ICancellablePipelineAsyncBuilder(Of TRequest).Return(Of TResult, THandler)(Func(Of THandler, TRequest, CancellationToken, Task(Of TResult)))
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider
+  name: ICancellablePipelineProvider
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.html
+  commentId: T:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider
+  nameWithType: ICancellablePipelineProvider
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.GetCancellablePipeline(System.String)
+  name: GetCancellablePipeline(String)
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineProvider_GetCancellablePipeline_System_String_
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.GetCancellablePipeline(System.String)
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.GetCancellablePipeline(System.String)
+  nameWithType: ICancellablePipelineProvider.GetCancellablePipeline(String)
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.GetCancellablePipeline(Type)
+  name: GetCancellablePipeline(Type)
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineProvider_GetCancellablePipeline_Type_
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.GetCancellablePipeline(Type)
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.GetCancellablePipeline(Type)
+  nameWithType: ICancellablePipelineProvider.GetCancellablePipeline(Type)
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.GetCancellablePipeline*
+  name: GetCancellablePipeline
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineProvider_GetCancellablePipeline_
+  commentId: Overload:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.GetCancellablePipeline
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProvider.GetCancellablePipeline
+  nameWithType: ICancellablePipelineProvider.GetCancellablePipeline
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder
+  name: ICancellablePipelineProviderBuilder
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.html
+  commentId: T:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder
+  nameWithType: ICancellablePipelineProviderBuilder
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.Add(FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder)
+  name: Add(ICancellablePipelineAsyncBuilder)
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineProviderBuilder_Add_FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineAsyncBuilder_
+  commentId: M:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.Add(FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder)
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.Add(FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineAsyncBuilder)
+  nameWithType: ICancellablePipelineProviderBuilder.Add(ICancellablePipelineAsyncBuilder)
+- uid: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.Add*
+  name: Add
+  href: api/FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.html#FluentMediator_Pipelines_CancellablePipelineAsync_ICancellablePipelineProviderBuilder_Add_
+  commentId: Overload:FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.Add
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.CancellablePipelineAsync.ICancellablePipelineProviderBuilder.Add
+  nameWithType: ICancellablePipelineProviderBuilder.Add
+- uid: FluentMediator.Pipelines.INamedPipeline
+  name: INamedPipeline
+  href: api/FluentMediator.Pipelines.INamedPipeline.html
+  commentId: T:FluentMediator.Pipelines.INamedPipeline
+  fullName: FluentMediator.Pipelines.INamedPipeline
+  nameWithType: INamedPipeline
+- uid: FluentMediator.Pipelines.INamedPipeline.Name
+  name: Name
+  href: api/FluentMediator.Pipelines.INamedPipeline.html#FluentMediator_Pipelines_INamedPipeline_Name
+  commentId: P:FluentMediator.Pipelines.INamedPipeline.Name
+  fullName: FluentMediator.Pipelines.INamedPipeline.Name
+  nameWithType: INamedPipeline.Name
+- uid: FluentMediator.Pipelines.INamedPipeline.Name*
+  name: Name
+  href: api/FluentMediator.Pipelines.INamedPipeline.html#FluentMediator_Pipelines_INamedPipeline_Name_
+  commentId: Overload:FluentMediator.Pipelines.INamedPipeline.Name
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.INamedPipeline.Name
+  nameWithType: INamedPipeline.Name
+- uid: FluentMediator.Pipelines.IPipelineBehavior`1
+  name: IPipelineBehavior<TRequest>
+  href: api/FluentMediator.Pipelines.IPipelineBehavior-1.html
+  commentId: T:FluentMediator.Pipelines.IPipelineBehavior`1
+  name.vb: IPipelineBehavior(Of TRequest)
+  fullName: FluentMediator.Pipelines.IPipelineBehavior<TRequest>
+  fullName.vb: FluentMediator.Pipelines.IPipelineBehavior(Of TRequest)
+  nameWithType: IPipelineBehavior<TRequest>
+  nameWithType.vb: IPipelineBehavior(Of TRequest)
+- uid: FluentMediator.Pipelines.IPipelineBehavior`1.CancellablePipelineAsync(System.Nullable{System.String})
+  name: CancellablePipelineAsync(Nullable<String>)
+  href: api/FluentMediator.Pipelines.IPipelineBehavior-1.html#FluentMediator_Pipelines_IPipelineBehavior_1_CancellablePipelineAsync_System_Nullable_System_String__
+  commentId: M:FluentMediator.Pipelines.IPipelineBehavior`1.CancellablePipelineAsync(System.Nullable{System.String})
+  name.vb: CancellablePipelineAsync(Nullable(Of String))
+  fullName: FluentMediator.Pipelines.IPipelineBehavior<TRequest>.CancellablePipelineAsync(System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Pipelines.IPipelineBehavior(Of TRequest).CancellablePipelineAsync(System.Nullable(Of System.String))
+  nameWithType: IPipelineBehavior<TRequest>.CancellablePipelineAsync(Nullable<String>)
+  nameWithType.vb: IPipelineBehavior(Of TRequest).CancellablePipelineAsync(Nullable(Of String))
+- uid: FluentMediator.Pipelines.IPipelineBehavior`1.CancellablePipelineAsync*
+  name: CancellablePipelineAsync
+  href: api/FluentMediator.Pipelines.IPipelineBehavior-1.html#FluentMediator_Pipelines_IPipelineBehavior_1_CancellablePipelineAsync_
+  commentId: Overload:FluentMediator.Pipelines.IPipelineBehavior`1.CancellablePipelineAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.IPipelineBehavior<TRequest>.CancellablePipelineAsync
+  fullName.vb: FluentMediator.Pipelines.IPipelineBehavior(Of TRequest).CancellablePipelineAsync
+  nameWithType: IPipelineBehavior<TRequest>.CancellablePipelineAsync
+  nameWithType.vb: IPipelineBehavior(Of TRequest).CancellablePipelineAsync
+- uid: FluentMediator.Pipelines.IPipelineBehavior`1.Pipeline(System.Nullable{System.String})
+  name: Pipeline(Nullable<String>)
+  href: api/FluentMediator.Pipelines.IPipelineBehavior-1.html#FluentMediator_Pipelines_IPipelineBehavior_1_Pipeline_System_Nullable_System_String__
+  commentId: M:FluentMediator.Pipelines.IPipelineBehavior`1.Pipeline(System.Nullable{System.String})
+  name.vb: Pipeline(Nullable(Of String))
+  fullName: FluentMediator.Pipelines.IPipelineBehavior<TRequest>.Pipeline(System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Pipelines.IPipelineBehavior(Of TRequest).Pipeline(System.Nullable(Of System.String))
+  nameWithType: IPipelineBehavior<TRequest>.Pipeline(Nullable<String>)
+  nameWithType.vb: IPipelineBehavior(Of TRequest).Pipeline(Nullable(Of String))
+- uid: FluentMediator.Pipelines.IPipelineBehavior`1.Pipeline*
+  name: Pipeline
+  href: api/FluentMediator.Pipelines.IPipelineBehavior-1.html#FluentMediator_Pipelines_IPipelineBehavior_1_Pipeline_
+  commentId: Overload:FluentMediator.Pipelines.IPipelineBehavior`1.Pipeline
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.IPipelineBehavior<TRequest>.Pipeline
+  fullName.vb: FluentMediator.Pipelines.IPipelineBehavior(Of TRequest).Pipeline
+  nameWithType: IPipelineBehavior<TRequest>.Pipeline
+  nameWithType.vb: IPipelineBehavior(Of TRequest).Pipeline
+- uid: FluentMediator.Pipelines.IPipelineBehavior`1.PipelineAsync(System.Nullable{System.String})
+  name: PipelineAsync(Nullable<String>)
+  href: api/FluentMediator.Pipelines.IPipelineBehavior-1.html#FluentMediator_Pipelines_IPipelineBehavior_1_PipelineAsync_System_Nullable_System_String__
+  commentId: M:FluentMediator.Pipelines.IPipelineBehavior`1.PipelineAsync(System.Nullable{System.String})
+  name.vb: PipelineAsync(Nullable(Of String))
+  fullName: FluentMediator.Pipelines.IPipelineBehavior<TRequest>.PipelineAsync(System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Pipelines.IPipelineBehavior(Of TRequest).PipelineAsync(System.Nullable(Of System.String))
+  nameWithType: IPipelineBehavior<TRequest>.PipelineAsync(Nullable<String>)
+  nameWithType.vb: IPipelineBehavior(Of TRequest).PipelineAsync(Nullable(Of String))
+- uid: FluentMediator.Pipelines.IPipelineBehavior`1.PipelineAsync*
+  name: PipelineAsync
+  href: api/FluentMediator.Pipelines.IPipelineBehavior-1.html#FluentMediator_Pipelines_IPipelineBehavior_1_PipelineAsync_
+  commentId: Overload:FluentMediator.Pipelines.IPipelineBehavior`1.PipelineAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.IPipelineBehavior<TRequest>.PipelineAsync
+  fullName.vb: FluentMediator.Pipelines.IPipelineBehavior(Of TRequest).PipelineAsync
+  nameWithType: IPipelineBehavior<TRequest>.PipelineAsync
+  nameWithType.vb: IPipelineBehavior(Of TRequest).PipelineAsync
+- uid: FluentMediator.Pipelines.ITypedPipeline
+  name: ITypedPipeline
+  href: api/FluentMediator.Pipelines.ITypedPipeline.html
+  commentId: T:FluentMediator.Pipelines.ITypedPipeline
+  fullName: FluentMediator.Pipelines.ITypedPipeline
+  nameWithType: ITypedPipeline
+- uid: FluentMediator.Pipelines.ITypedPipeline.RequestType
+  name: RequestType
+  href: api/FluentMediator.Pipelines.ITypedPipeline.html#FluentMediator_Pipelines_ITypedPipeline_RequestType
+  commentId: P:FluentMediator.Pipelines.ITypedPipeline.RequestType
+  fullName: FluentMediator.Pipelines.ITypedPipeline.RequestType
+  nameWithType: ITypedPipeline.RequestType
+- uid: FluentMediator.Pipelines.ITypedPipeline.RequestType*
+  name: RequestType
+  href: api/FluentMediator.Pipelines.ITypedPipeline.html#FluentMediator_Pipelines_ITypedPipeline_RequestType_
+  commentId: Overload:FluentMediator.Pipelines.ITypedPipeline.RequestType
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.ITypedPipeline.RequestType
+  nameWithType: ITypedPipeline.RequestType
+- uid: FluentMediator.Pipelines.Pipeline
+  name: FluentMediator.Pipelines.Pipeline
+  href: api/FluentMediator.Pipelines.Pipeline.html
+  commentId: N:FluentMediator.Pipelines.Pipeline
+  fullName: FluentMediator.Pipelines.Pipeline
+  nameWithType: FluentMediator.Pipelines.Pipeline
+- uid: FluentMediator.Pipelines.Pipeline.IPipeline
+  name: IPipeline
+  href: api/FluentMediator.Pipelines.Pipeline.IPipeline.html
+  commentId: T:FluentMediator.Pipelines.Pipeline.IPipeline
+  fullName: FluentMediator.Pipelines.Pipeline.IPipeline
+  nameWithType: IPipeline
+- uid: FluentMediator.Pipelines.Pipeline.IPipeline.Publish(FluentMediator.GetService,System.Object)
+  name: Publish(GetService, Object)
+  href: api/FluentMediator.Pipelines.Pipeline.IPipeline.html#FluentMediator_Pipelines_Pipeline_IPipeline_Publish_FluentMediator_GetService_System_Object_
+  commentId: M:FluentMediator.Pipelines.Pipeline.IPipeline.Publish(FluentMediator.GetService,System.Object)
+  fullName: FluentMediator.Pipelines.Pipeline.IPipeline.Publish(FluentMediator.GetService, System.Object)
+  nameWithType: IPipeline.Publish(GetService, Object)
+- uid: FluentMediator.Pipelines.Pipeline.IPipeline.Publish*
+  name: Publish
+  href: api/FluentMediator.Pipelines.Pipeline.IPipeline.html#FluentMediator_Pipelines_Pipeline_IPipeline_Publish_
+  commentId: Overload:FluentMediator.Pipelines.Pipeline.IPipeline.Publish
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.Pipeline.IPipeline.Publish
+  nameWithType: IPipeline.Publish
+- uid: FluentMediator.Pipelines.Pipeline.IPipeline.Send*
+  name: Send
+  href: api/FluentMediator.Pipelines.Pipeline.IPipeline.html#FluentMediator_Pipelines_Pipeline_IPipeline_Send_
+  commentId: Overload:FluentMediator.Pipelines.Pipeline.IPipeline.Send
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.Pipeline.IPipeline.Send
+  nameWithType: IPipeline.Send
+- uid: FluentMediator.Pipelines.Pipeline.IPipeline.Send``1(FluentMediator.GetService,System.Object)
+  name: Send<TResult>(GetService, Object)
+  href: api/FluentMediator.Pipelines.Pipeline.IPipeline.html#FluentMediator_Pipelines_Pipeline_IPipeline_Send__1_FluentMediator_GetService_System_Object_
+  commentId: M:FluentMediator.Pipelines.Pipeline.IPipeline.Send``1(FluentMediator.GetService,System.Object)
+  name.vb: Send(Of TResult)(GetService, Object)
+  fullName: FluentMediator.Pipelines.Pipeline.IPipeline.Send<TResult>(FluentMediator.GetService, System.Object)
+  fullName.vb: FluentMediator.Pipelines.Pipeline.IPipeline.Send(Of TResult)(FluentMediator.GetService, System.Object)
+  nameWithType: IPipeline.Send<TResult>(GetService, Object)
+  nameWithType.vb: IPipeline.Send(Of TResult)(GetService, Object)
+- uid: FluentMediator.Pipelines.Pipeline.IPipelineBuilder
+  name: IPipelineBuilder
+  href: api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder.html
+  commentId: T:FluentMediator.Pipelines.Pipeline.IPipelineBuilder
+  fullName: FluentMediator.Pipelines.Pipeline.IPipelineBuilder
+  nameWithType: IPipelineBuilder
+- uid: FluentMediator.Pipelines.Pipeline.IPipelineBuilder.Build
+  name: Build()
+  href: api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder.html#FluentMediator_Pipelines_Pipeline_IPipelineBuilder_Build
+  commentId: M:FluentMediator.Pipelines.Pipeline.IPipelineBuilder.Build
+  fullName: FluentMediator.Pipelines.Pipeline.IPipelineBuilder.Build()
+  nameWithType: IPipelineBuilder.Build()
+- uid: FluentMediator.Pipelines.Pipeline.IPipelineBuilder.Build*
+  name: Build
+  href: api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder.html#FluentMediator_Pipelines_Pipeline_IPipelineBuilder_Build_
+  commentId: Overload:FluentMediator.Pipelines.Pipeline.IPipelineBuilder.Build
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.Pipeline.IPipelineBuilder.Build
+  nameWithType: IPipelineBuilder.Build
+- uid: FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1
+  name: IPipelineBuilder<TRequest>
+  href: api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder-1.html
+  commentId: T:FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1
+  name.vb: IPipelineBuilder(Of TRequest)
+  fullName: FluentMediator.Pipelines.Pipeline.IPipelineBuilder<TRequest>
+  fullName.vb: FluentMediator.Pipelines.Pipeline.IPipelineBuilder(Of TRequest)
+  nameWithType: IPipelineBuilder<TRequest>
+  nameWithType.vb: IPipelineBuilder(Of TRequest)
+- uid: FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1.Call*
+  name: Call
+  href: api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder-1.html#FluentMediator_Pipelines_Pipeline_IPipelineBuilder_1_Call_
+  commentId: Overload:FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1.Call
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.Pipeline.IPipelineBuilder<TRequest>.Call
+  fullName.vb: FluentMediator.Pipelines.Pipeline.IPipelineBuilder(Of TRequest).Call
+  nameWithType: IPipelineBuilder<TRequest>.Call
+  nameWithType.vb: IPipelineBuilder(Of TRequest).Call
+- uid: FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1.Call``1(Action{``0,`0})
+  name: Call<THandler>(Action<THandler, TRequest>)
+  href: api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder-1.html#FluentMediator_Pipelines_Pipeline_IPipelineBuilder_1_Call__1_Action___0__0__
+  commentId: M:FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1.Call``1(Action{``0,`0})
+  name.vb: Call(Of THandler)(Action(Of THandler, TRequest))
+  fullName: FluentMediator.Pipelines.Pipeline.IPipelineBuilder<TRequest>.Call<THandler>(Action<THandler, TRequest>)
+  fullName.vb: FluentMediator.Pipelines.Pipeline.IPipelineBuilder(Of TRequest).Call(Of THandler)(Action(Of THandler, TRequest))
+  nameWithType: IPipelineBuilder<TRequest>.Call<THandler>(Action<THandler, TRequest>)
+  nameWithType.vb: IPipelineBuilder(Of TRequest).Call(Of THandler)(Action(Of THandler, TRequest))
+- uid: FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1.Return*
+  name: Return
+  href: api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder-1.html#FluentMediator_Pipelines_Pipeline_IPipelineBuilder_1_Return_
+  commentId: Overload:FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1.Return
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.Pipeline.IPipelineBuilder<TRequest>.Return
+  fullName.vb: FluentMediator.Pipelines.Pipeline.IPipelineBuilder(Of TRequest).Return
+  nameWithType: IPipelineBuilder<TRequest>.Return
+  nameWithType.vb: IPipelineBuilder(Of TRequest).Return
+- uid: FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1.Return``2(Func{``1,`0,``0})
+  name: Return<TResult, THandler>(Func<THandler, TRequest, TResult>)
+  href: api/FluentMediator.Pipelines.Pipeline.IPipelineBuilder-1.html#FluentMediator_Pipelines_Pipeline_IPipelineBuilder_1_Return__2_Func___1__0___0__
+  commentId: M:FluentMediator.Pipelines.Pipeline.IPipelineBuilder`1.Return``2(Func{``1,`0,``0})
+  name.vb: Return(Of TResult, THandler)(Func(Of THandler, TRequest, TResult))
+  fullName: FluentMediator.Pipelines.Pipeline.IPipelineBuilder<TRequest>.Return<TResult, THandler>(Func<THandler, TRequest, TResult>)
+  fullName.vb: FluentMediator.Pipelines.Pipeline.IPipelineBuilder(Of TRequest).Return(Of TResult, THandler)(Func(Of THandler, TRequest, TResult))
+  nameWithType: IPipelineBuilder<TRequest>.Return<TResult, THandler>(Func<THandler, TRequest, TResult>)
+  nameWithType.vb: IPipelineBuilder(Of TRequest).Return(Of TResult, THandler)(Func(Of THandler, TRequest, TResult))
+- uid: FluentMediator.Pipelines.Pipeline.ISyncMediator
+  name: ISyncMediator
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncMediator.html
+  commentId: T:FluentMediator.Pipelines.Pipeline.ISyncMediator
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncMediator
+  nameWithType: ISyncMediator
+- uid: FluentMediator.Pipelines.Pipeline.ISyncMediator.Publish(System.Object,System.Nullable{System.String})
+  name: Publish(Object, Nullable<String>)
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncMediator.html#FluentMediator_Pipelines_Pipeline_ISyncMediator_Publish_System_Object_System_Nullable_System_String__
+  commentId: M:FluentMediator.Pipelines.Pipeline.ISyncMediator.Publish(System.Object,System.Nullable{System.String})
+  name.vb: Publish(Object, Nullable(Of String))
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncMediator.Publish(System.Object, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Pipelines.Pipeline.ISyncMediator.Publish(System.Object, System.Nullable(Of System.String))
+  nameWithType: ISyncMediator.Publish(Object, Nullable<String>)
+  nameWithType.vb: ISyncMediator.Publish(Object, Nullable(Of String))
+- uid: FluentMediator.Pipelines.Pipeline.ISyncMediator.Publish*
+  name: Publish
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncMediator.html#FluentMediator_Pipelines_Pipeline_ISyncMediator_Publish_
+  commentId: Overload:FluentMediator.Pipelines.Pipeline.ISyncMediator.Publish
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncMediator.Publish
+  nameWithType: ISyncMediator.Publish
+- uid: FluentMediator.Pipelines.Pipeline.ISyncMediator.Send*
+  name: Send
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncMediator.html#FluentMediator_Pipelines_Pipeline_ISyncMediator_Send_
+  commentId: Overload:FluentMediator.Pipelines.Pipeline.ISyncMediator.Send
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncMediator.Send
+  nameWithType: ISyncMediator.Send
+- uid: FluentMediator.Pipelines.Pipeline.ISyncMediator.Send``1(System.Object,System.Nullable{System.String})
+  name: Send<TResult>(Object, Nullable<String>)
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncMediator.html#FluentMediator_Pipelines_Pipeline_ISyncMediator_Send__1_System_Object_System_Nullable_System_String__
+  commentId: M:FluentMediator.Pipelines.Pipeline.ISyncMediator.Send``1(System.Object,System.Nullable{System.String})
+  name.vb: Send(Of TResult)(Object, Nullable(Of String))
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncMediator.Send<TResult>(System.Object, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Pipelines.Pipeline.ISyncMediator.Send(Of TResult)(System.Object, System.Nullable(Of System.String))
+  nameWithType: ISyncMediator.Send<TResult>(Object, Nullable<String>)
+  nameWithType.vb: ISyncMediator.Send(Of TResult)(Object, Nullable(Of String))
+- uid: FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider
+  name: ISyncPipelineProvider
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.html
+  commentId: T:FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider
+  nameWithType: ISyncPipelineProvider
+- uid: FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.GetPipeline(System.String)
+  name: GetPipeline(String)
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.html#FluentMediator_Pipelines_Pipeline_ISyncPipelineProvider_GetPipeline_System_String_
+  commentId: M:FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.GetPipeline(System.String)
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.GetPipeline(System.String)
+  nameWithType: ISyncPipelineProvider.GetPipeline(String)
+- uid: FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.GetPipeline(Type)
+  name: GetPipeline(Type)
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.html#FluentMediator_Pipelines_Pipeline_ISyncPipelineProvider_GetPipeline_Type_
+  commentId: M:FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.GetPipeline(Type)
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.GetPipeline(Type)
+  nameWithType: ISyncPipelineProvider.GetPipeline(Type)
+- uid: FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.GetPipeline*
+  name: GetPipeline
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.html#FluentMediator_Pipelines_Pipeline_ISyncPipelineProvider_GetPipeline_
+  commentId: Overload:FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.GetPipeline
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncPipelineProvider.GetPipeline
+  nameWithType: ISyncPipelineProvider.GetPipeline
+- uid: FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder
+  name: ISyncPipelineProviderBuilder
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.html
+  commentId: T:FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder
+  nameWithType: ISyncPipelineProviderBuilder
+- uid: FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.Add(FluentMediator.Pipelines.Pipeline.IPipelineBuilder)
+  name: Add(IPipelineBuilder)
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.html#FluentMediator_Pipelines_Pipeline_ISyncPipelineProviderBuilder_Add_FluentMediator_Pipelines_Pipeline_IPipelineBuilder_
+  commentId: M:FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.Add(FluentMediator.Pipelines.Pipeline.IPipelineBuilder)
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.Add(FluentMediator.Pipelines.Pipeline.IPipelineBuilder)
+  nameWithType: ISyncPipelineProviderBuilder.Add(IPipelineBuilder)
+- uid: FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.Add*
+  name: Add
+  href: api/FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.html#FluentMediator_Pipelines_Pipeline_ISyncPipelineProviderBuilder_Add_
+  commentId: Overload:FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.Add
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.Pipeline.ISyncPipelineProviderBuilder.Add
+  nameWithType: ISyncPipelineProviderBuilder.Add
+- uid: FluentMediator.Pipelines.PipelineAlreadyExistsException
+  name: PipelineAlreadyExistsException
+  href: api/FluentMediator.Pipelines.PipelineAlreadyExistsException.html
+  commentId: T:FluentMediator.Pipelines.PipelineAlreadyExistsException
+  fullName: FluentMediator.Pipelines.PipelineAlreadyExistsException
+  nameWithType: PipelineAlreadyExistsException
+- uid: FluentMediator.Pipelines.PipelineAlreadyExistsException.#ctor(System.String)
+  name: PipelineAlreadyExistsException(String)
+  href: api/FluentMediator.Pipelines.PipelineAlreadyExistsException.html#FluentMediator_Pipelines_PipelineAlreadyExistsException__ctor_System_String_
+  commentId: M:FluentMediator.Pipelines.PipelineAlreadyExistsException.#ctor(System.String)
+  fullName: FluentMediator.Pipelines.PipelineAlreadyExistsException.PipelineAlreadyExistsException(System.String)
+  nameWithType: PipelineAlreadyExistsException.PipelineAlreadyExistsException(String)
+- uid: FluentMediator.Pipelines.PipelineAlreadyExistsException.#ctor*
+  name: PipelineAlreadyExistsException
+  href: api/FluentMediator.Pipelines.PipelineAlreadyExistsException.html#FluentMediator_Pipelines_PipelineAlreadyExistsException__ctor_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAlreadyExistsException.#ctor
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAlreadyExistsException.PipelineAlreadyExistsException
+  nameWithType: PipelineAlreadyExistsException.PipelineAlreadyExistsException
+- uid: FluentMediator.Pipelines.PipelineAsync
+  name: FluentMediator.Pipelines.PipelineAsync
+  href: api/FluentMediator.Pipelines.PipelineAsync.html
+  commentId: N:FluentMediator.Pipelines.PipelineAsync
+  fullName: FluentMediator.Pipelines.PipelineAsync
+  nameWithType: FluentMediator.Pipelines.PipelineAsync
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator
+  name: IAsyncMediator
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.html
+  commentId: T:FluentMediator.Pipelines.PipelineAsync.IAsyncMediator
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator
+  nameWithType: IAsyncMediator
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.PublishAsync(System.Object,System.Nullable{System.String})
+  name: PublishAsync(Object, Nullable<String>)
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.html#FluentMediator_Pipelines_PipelineAsync_IAsyncMediator_PublishAsync_System_Object_System_Nullable_System_String__
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.PublishAsync(System.Object,System.Nullable{System.String})
+  name.vb: PublishAsync(Object, Nullable(Of String))
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.PublishAsync(System.Object, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.PublishAsync(System.Object, System.Nullable(Of System.String))
+  nameWithType: IAsyncMediator.PublishAsync(Object, Nullable<String>)
+  nameWithType.vb: IAsyncMediator.PublishAsync(Object, Nullable(Of String))
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.PublishAsync*
+  name: PublishAsync
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.html#FluentMediator_Pipelines_PipelineAsync_IAsyncMediator_PublishAsync_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.PublishAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.PublishAsync
+  nameWithType: IAsyncMediator.PublishAsync
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.SendAsync*
+  name: SendAsync
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.html#FluentMediator_Pipelines_PipelineAsync_IAsyncMediator_SendAsync_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.SendAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.SendAsync
+  nameWithType: IAsyncMediator.SendAsync
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.SendAsync``1(System.Object,System.Nullable{System.String})
+  name: SendAsync<TResult>(Object, Nullable<String>)
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.html#FluentMediator_Pipelines_PipelineAsync_IAsyncMediator_SendAsync__1_System_Object_System_Nullable_System_String__
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.SendAsync``1(System.Object,System.Nullable{System.String})
+  name.vb: SendAsync(Of TResult)(Object, Nullable(Of String))
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.SendAsync<TResult>(System.Object, System.Nullable<System.String>)
+  fullName.vb: FluentMediator.Pipelines.PipelineAsync.IAsyncMediator.SendAsync(Of TResult)(System.Object, System.Nullable(Of System.String))
+  nameWithType: IAsyncMediator.SendAsync<TResult>(Object, Nullable<String>)
+  nameWithType.vb: IAsyncMediator.SendAsync(Of TResult)(Object, Nullable(Of String))
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider
+  name: IAsyncPipelineProvider
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.html
+  commentId: T:FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider
+  nameWithType: IAsyncPipelineProvider
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.GetAsyncPipeline(System.String)
+  name: GetAsyncPipeline(String)
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.html#FluentMediator_Pipelines_PipelineAsync_IAsyncPipelineProvider_GetAsyncPipeline_System_String_
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.GetAsyncPipeline(System.String)
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.GetAsyncPipeline(System.String)
+  nameWithType: IAsyncPipelineProvider.GetAsyncPipeline(String)
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.GetAsyncPipeline(Type)
+  name: GetAsyncPipeline(Type)
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.html#FluentMediator_Pipelines_PipelineAsync_IAsyncPipelineProvider_GetAsyncPipeline_Type_
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.GetAsyncPipeline(Type)
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.GetAsyncPipeline(Type)
+  nameWithType: IAsyncPipelineProvider.GetAsyncPipeline(Type)
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.GetAsyncPipeline*
+  name: GetAsyncPipeline
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.html#FluentMediator_Pipelines_PipelineAsync_IAsyncPipelineProvider_GetAsyncPipeline_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.GetAsyncPipeline
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProvider.GetAsyncPipeline
+  nameWithType: IAsyncPipelineProvider.GetAsyncPipeline
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder
+  name: IAsyncPipelineProviderBuilder
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.html
+  commentId: T:FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder
+  nameWithType: IAsyncPipelineProviderBuilder
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.Add(FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder)
+  name: Add(IPipelineAsyncBuilder)
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.html#FluentMediator_Pipelines_PipelineAsync_IAsyncPipelineProviderBuilder_Add_FluentMediator_Pipelines_PipelineAsync_IPipelineAsyncBuilder_
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.Add(FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder)
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.Add(FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder)
+  nameWithType: IAsyncPipelineProviderBuilder.Add(IPipelineAsyncBuilder)
+- uid: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.Add*
+  name: Add
+  href: api/FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.html#FluentMediator_Pipelines_PipelineAsync_IAsyncPipelineProviderBuilder_Add_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.Add
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAsync.IAsyncPipelineProviderBuilder.Add
+  nameWithType: IAsyncPipelineProviderBuilder.Add
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync
+  name: IPipelineAsync
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.html
+  commentId: T:FluentMediator.Pipelines.PipelineAsync.IPipelineAsync
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync
+  nameWithType: IPipelineAsync
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.PublishAsync(FluentMediator.GetService,System.Object)
+  name: PublishAsync(GetService, Object)
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsync_PublishAsync_FluentMediator_GetService_System_Object_
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.PublishAsync(FluentMediator.GetService,System.Object)
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.PublishAsync(FluentMediator.GetService, System.Object)
+  nameWithType: IPipelineAsync.PublishAsync(GetService, Object)
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.PublishAsync*
+  name: PublishAsync
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsync_PublishAsync_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.PublishAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.PublishAsync
+  nameWithType: IPipelineAsync.PublishAsync
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.SendAsync*
+  name: SendAsync
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsync_SendAsync_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.SendAsync
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.SendAsync
+  nameWithType: IPipelineAsync.SendAsync
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.SendAsync``1(FluentMediator.GetService,System.Object)
+  name: SendAsync<TResult>(GetService, Object)
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsync_SendAsync__1_FluentMediator_GetService_System_Object_
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.SendAsync``1(FluentMediator.GetService,System.Object)
+  name.vb: SendAsync(Of TResult)(GetService, Object)
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.SendAsync<TResult>(FluentMediator.GetService, System.Object)
+  fullName.vb: FluentMediator.Pipelines.PipelineAsync.IPipelineAsync.SendAsync(Of TResult)(FluentMediator.GetService, System.Object)
+  nameWithType: IPipelineAsync.SendAsync<TResult>(GetService, Object)
+  nameWithType.vb: IPipelineAsync.SendAsync(Of TResult)(GetService, Object)
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder
+  name: IPipelineAsyncBuilder
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.html
+  commentId: T:FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder
+  nameWithType: IPipelineAsyncBuilder
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.Build
+  name: Build()
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsyncBuilder_Build
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.Build
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.Build()
+  nameWithType: IPipelineAsyncBuilder.Build()
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.Build*
+  name: Build
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsyncBuilder_Build_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.Build
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder.Build
+  nameWithType: IPipelineAsyncBuilder.Build
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1
+  name: IPipelineAsyncBuilder<TRequest>
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder-1.html
+  commentId: T:FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1
+  name.vb: IPipelineAsyncBuilder(Of TRequest)
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder<TRequest>
+  fullName.vb: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder(Of TRequest)
+  nameWithType: IPipelineAsyncBuilder<TRequest>
+  nameWithType.vb: IPipelineAsyncBuilder(Of TRequest)
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1.Call*
+  name: Call
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder-1.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsyncBuilder_1_Call_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1.Call
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder<TRequest>.Call
+  fullName.vb: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder(Of TRequest).Call
+  nameWithType: IPipelineAsyncBuilder<TRequest>.Call
+  nameWithType.vb: IPipelineAsyncBuilder(Of TRequest).Call
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1.Call``1(Func{``0,`0,Task})
+  name: Call<THandler>(Func<THandler, TRequest, Task>)
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder-1.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsyncBuilder_1_Call__1_Func___0__0_Task__
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1.Call``1(Func{``0,`0,Task})
+  name.vb: Call(Of THandler)(Func(Of THandler, TRequest, Task))
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder<TRequest>.Call<THandler>(Func<THandler, TRequest, Task>)
+  fullName.vb: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder(Of TRequest).Call(Of THandler)(Func(Of THandler, TRequest, Task))
+  nameWithType: IPipelineAsyncBuilder<TRequest>.Call<THandler>(Func<THandler, TRequest, Task>)
+  nameWithType.vb: IPipelineAsyncBuilder(Of TRequest).Call(Of THandler)(Func(Of THandler, TRequest, Task))
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1.Return*
+  name: Return
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder-1.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsyncBuilder_1_Return_
+  commentId: Overload:FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1.Return
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder<TRequest>.Return
+  fullName.vb: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder(Of TRequest).Return
+  nameWithType: IPipelineAsyncBuilder<TRequest>.Return
+  nameWithType.vb: IPipelineAsyncBuilder(Of TRequest).Return
+- uid: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1.Return``2(Func{``1,`0,Task{``0}})
+  name: Return<TResult, THandler>(Func<THandler, TRequest, Task<TResult>>)
+  href: api/FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder-1.html#FluentMediator_Pipelines_PipelineAsync_IPipelineAsyncBuilder_1_Return__2_Func___1__0_Task___0___
+  commentId: M:FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder`1.Return``2(Func{``1,`0,Task{``0}})
+  name.vb: Return(Of TResult, THandler)(Func(Of THandler, TRequest, Task(Of TResult)))
+  fullName: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder<TRequest>.Return<TResult, THandler>(Func<THandler, TRequest, Task<TResult>>)
+  fullName.vb: FluentMediator.Pipelines.PipelineAsync.IPipelineAsyncBuilder(Of TRequest).Return(Of TResult, THandler)(Func(Of THandler, TRequest, Task(Of TResult)))
+  nameWithType: IPipelineAsyncBuilder<TRequest>.Return<TResult, THandler>(Func<THandler, TRequest, Task<TResult>>)
+  nameWithType.vb: IPipelineAsyncBuilder(Of TRequest).Return(Of TResult, THandler)(Func(Of THandler, TRequest, Task(Of TResult)))
+- uid: FluentMediator.Pipelines.PipelineNotFoundException
+  name: PipelineNotFoundException
+  href: api/FluentMediator.Pipelines.PipelineNotFoundException.html
+  commentId: T:FluentMediator.Pipelines.PipelineNotFoundException
+  fullName: FluentMediator.Pipelines.PipelineNotFoundException
+  nameWithType: PipelineNotFoundException
+- uid: FluentMediator.Pipelines.PipelineNotFoundException.#ctor(System.String)
+  name: PipelineNotFoundException(String)
+  href: api/FluentMediator.Pipelines.PipelineNotFoundException.html#FluentMediator_Pipelines_PipelineNotFoundException__ctor_System_String_
+  commentId: M:FluentMediator.Pipelines.PipelineNotFoundException.#ctor(System.String)
+  fullName: FluentMediator.Pipelines.PipelineNotFoundException.PipelineNotFoundException(System.String)
+  nameWithType: PipelineNotFoundException.PipelineNotFoundException(String)
+- uid: FluentMediator.Pipelines.PipelineNotFoundException.#ctor*
+  name: PipelineNotFoundException
+  href: api/FluentMediator.Pipelines.PipelineNotFoundException.html#FluentMediator_Pipelines_PipelineNotFoundException__ctor_
+  commentId: Overload:FluentMediator.Pipelines.PipelineNotFoundException.#ctor
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.PipelineNotFoundException.PipelineNotFoundException
+  nameWithType: PipelineNotFoundException.PipelineNotFoundException
+- uid: FluentMediator.Pipelines.ReturnFunctionIsNullException
+  name: ReturnFunctionIsNullException
+  href: api/FluentMediator.Pipelines.ReturnFunctionIsNullException.html
+  commentId: T:FluentMediator.Pipelines.ReturnFunctionIsNullException
+  fullName: FluentMediator.Pipelines.ReturnFunctionIsNullException
+  nameWithType: ReturnFunctionIsNullException
+- uid: FluentMediator.Pipelines.ReturnFunctionIsNullException.#ctor(System.String)
+  name: ReturnFunctionIsNullException(String)
+  href: api/FluentMediator.Pipelines.ReturnFunctionIsNullException.html#FluentMediator_Pipelines_ReturnFunctionIsNullException__ctor_System_String_
+  commentId: M:FluentMediator.Pipelines.ReturnFunctionIsNullException.#ctor(System.String)
+  fullName: FluentMediator.Pipelines.ReturnFunctionIsNullException.ReturnFunctionIsNullException(System.String)
+  nameWithType: ReturnFunctionIsNullException.ReturnFunctionIsNullException(String)
+- uid: FluentMediator.Pipelines.ReturnFunctionIsNullException.#ctor*
+  name: ReturnFunctionIsNullException
+  href: api/FluentMediator.Pipelines.ReturnFunctionIsNullException.html#FluentMediator_Pipelines_ReturnFunctionIsNullException__ctor_
+  commentId: Overload:FluentMediator.Pipelines.ReturnFunctionIsNullException.#ctor
+  isSpec: "True"
+  fullName: FluentMediator.Pipelines.ReturnFunctionIsNullException.ReturnFunctionIsNullException
+  nameWithType: ReturnFunctionIsNullException.ReturnFunctionIsNullException
