@@ -1,0 +1,67 @@
+﻿<Properties StartupConfiguration="{3F9FB7FC-68CA-451D-9828-323F20FB3DB7}|Default">
+  <MonoDevelop.Ide.ItemProperties.test.UnitTests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/FluentMediator/Pipelines/IPipelineCollection.cs">
+    <Files>
+      <File FileName="src/FluentMediator/GetService.cs" Line="6" Column="2" />
+      <File FileName="src/FluentMediator/IMediator.cs" Line="11" Column="2" />
+      <File FileName="src/FluentMediator/Pipelines/Pipeline/IMediator.cs" Line="8" Column="2" />
+      <File FileName="src/FluentMediator/Pipelines/CancellablePipelineAsync/IMediator.cs" Line="6" Column="38" />
+      <File FileName="src/FluentMediator/Pipelines/PipelineAsync/IMediator.cs" Line="5" Column="36" />
+      <File FileName="src/FluentMediator/Pipelines/Pipeline/IPipeline.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/Mediator.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/IPipelineProvider.cs" Line="8" Column="9" />
+      <File FileName="src/FluentMediator/Pipelines/CancellablePipelineAsync/IPipelineProvider.cs" Line="9" Column="6" />
+      <File FileName="src/FluentMediator/Pipelines/Pipeline/IPipelineProvider.cs" Line="10" Column="2" />
+      <File FileName="src/FluentMediator/Pipelines/PipelineAsync/IPipelineProvider.cs" Line="10" Column="2" />
+      <File FileName="src/FluentMediator/IPipelineProviderBuilder.cs" Line="13" Column="13" />
+      <File FileName="src/FluentMediator/Pipelines/CancellablePipelineAsync/IPipelineProviderBuilder.cs" Line="7" Column="2" />
+      <File FileName="src/FluentMediator/Pipelines/Pipeline/IPipelineProviderBuilder.cs" Line="7" Column="2" />
+      <File FileName="src/FluentMediator/Pipelines/PipelineAsync/IPipelineProviderBuilder.cs" Line="7" Column="2" />
+      <File FileName="src/FluentMediator/PipelineProviderBuilder.cs" Line="23" Column="16" />
+      <File FileName="src/FluentMediator/PipelineProvider.cs" Line="18" Column="13" />
+      <File FileName="src/FluentMediator/Pipelines/Pipeline/IPipelineBuilder.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/NullRequestException.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/MediatorException.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/Pipelines/CancellablePipelineAsync/IDirect.cs" Line="12" Column="9" />
+      <File FileName="src/FluentMediator/Pipelines/CancellablePipelineAsync/Direct.cs" Line="7" Column="65" />
+      <File FileName="src/FluentMediator/Pipelines/CancellablePipelineAsync/ICancellablePipelineAsync.cs" Line="8" Column="27" />
+      <File FileName="src/FluentMediator/Pipelines/CancellablePipelineAsync/ICancellablePipelineAsyncBuilder.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/Pipelines/CancellablePipelineAsync/Pipeline.cs" Line="13" Column="13" />
+      <File FileName="src/FluentMediator/Pipelines/CancellablePipelineAsync/PipelineBuilder.cs" Line="10" Column="17" />
+      <File FileName="src/FluentMediator/Pipelines/Pipeline/Direct.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/Pipelines/Pipeline/IDirect.cs" Line="8" Column="9" />
+      <File FileName="src/FluentMediator/Pipelines/Pipeline/Pipeline.cs" Line="5" Column="20" />
+      <File FileName="src/FluentMediator/Pipelines/Pipeline/PipelineBuilder.cs" Line="5" Column="20" />
+      <File FileName="src/FluentMediator/Pipelines/PipelineAsync/IDirect.cs" Line="10" Column="9" />
+      <File FileName="src/FluentMediator/Pipelines/PipelineAsync/Direct.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/Pipelines/IMethodCollection.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/Pipelines/INamedPipeline.cs" Line="1" Column="1" />
+      <File FileName="src/FluentMediator/Pipelines/IPipelineBehavior.cs" Line="7" Column="22" />
+      <File FileName="src/FluentMediator/Pipelines/IPipelineCollection.cs" Line="5" Column="55" />
+      <File FileName="src/FluentMediator/Pipelines/PipelineCollection.cs" Line="6" Column="59" />
+      <File FileName="src/FluentMediator/Pipelines/PipelineBehavior.cs" Line="7" Column="56" />
+      <File FileName="src/FluentMediator/Pipelines/ITypedPipeline.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FluentMediator" expanded="True">
+            <Node name="src" expanded="True">
+              <Node name="FluentMediator" expanded="True">
+                <Node name="Pipelines" expanded="True">
+                  <Node name="IPipelineCollection.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
