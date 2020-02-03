@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentMediator;
+using FluentMediator.Pipelines;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using UnitTests.PingPong;
@@ -118,6 +119,40 @@ namespace UnitTests
             await mediator.PublishAsync(ping, cts.Token);
 
             pingHandler.Verify(e => e.MyCancellableForAsync(ping, It.IsAny<CancellationToken>()), Times.Once);
+        }
+
+        [Fact]
+        public async Task PublishAsync_ThrowsPipelineNotFoundException_WhenHandlerIsNotSetup()
+        {
+            var services = new ServiceCollection();
+            // Mediator Without the Handler for PingRequest
+            services.AddFluentMediator(builder => { });
+
+            var provider = services.BuildServiceProvider();
+            var mediator = provider.GetRequiredService<IMediator>();
+
+            var cts = new CancellationTokenSource();
+            var ping = new PingRequest("Cancellable Async Ping");
+
+            var actualEx = await Record.ExceptionAsync(async () => await mediator.PublishAsync(ping, cts.Token));
+            Assert.IsType<PipelineNotFoundException>(actualEx);
+        }
+
+        [Fact]
+        public void Publish_ThrowsPipelineNotFoundException_WhenHandlerIsNotSetup()
+        {
+            var services = new ServiceCollection();
+            // Mediator Without the Handler for PingRequest
+            services.AddFluentMediator(builder => { });
+
+            var provider = services.BuildServiceProvider();
+            var mediator = provider.GetRequiredService<IMediator>();
+
+            var cts = new CancellationTokenSource();
+            var ping = new PingRequest("Cancellable Async Ping");
+
+            var actualEx = Record.Exception(() => mediator.Publish(ping));
+            Assert.IsType<PipelineNotFoundException>(actualEx);
         }
     }
 }
