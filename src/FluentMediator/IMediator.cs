@@ -12,10 +12,10 @@ namespace FluentMediator
         ISyncMediator,
         IAsyncMediator,
         ICancellableMediator
-    {
-        /// <summary>
-        /// On Pipeline Not Found Event Handler.
-        /// </summary>
-        event EventHandler<PipelineNotFoundEventArgs>? PipelineNotFound;
-    }
+        {
+            /// <summary>
+            /// On Pipeline Not Found Event Handler.
+            /// </summary>
+            event EventHandler<PipelineNotFoundEventArgs> ? PipelineNotFound;
+        }
 }

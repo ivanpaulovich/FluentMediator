@@ -61,7 +61,7 @@ namespace UnitTests
                 //
                 // Act
                 //
-                async () => await mediator.SendAsync<PingResponse>(ping)
+                async() => await mediator.SendAsync<PingResponse>(ping)
             );
 
             Assert.IsType<ReturnFunctionIsNullException>(actualEx.Result);
@@ -93,7 +93,7 @@ namespace UnitTests
                 //
                 // Act
                 //
-                async () => await mediator.SendAsync<PingResponse>(ping, cts.Token)
+                async() => await mediator.SendAsync<PingResponse>(ping, cts.Token)
             );
 
             Assert.IsType<ReturnFunctionIsNullException>(actualEx.Result);
@@ -232,8 +232,7 @@ namespace UnitTests
         public void Send_Throws_Exception_Null_Requests()
         {
             var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
-            { });
+            services.AddFluentMediator(m => { });
 
             services.AddScoped<IPingHandler, PingHandler>();
             var provider = services.BuildServiceProvider();

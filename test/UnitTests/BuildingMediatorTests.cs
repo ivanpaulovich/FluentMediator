@@ -13,7 +13,7 @@ namespace UnitTests
         public void BuildSendAsyncPipeline_ThrowsPipelineAlreadyExistsException()
         {
             var services = new ServiceCollection();
-            
+
             var pipelineProviderBuilder = new PipelineProviderBuilder();
 
             pipelineProviderBuilder.On<PingRequest>().PipelineAsync()

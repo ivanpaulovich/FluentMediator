@@ -21,7 +21,7 @@ namespace FluentMediator
         /// <summary>
         /// On Pipeline Not Found Handler.
         /// </summary>
-        public event EventHandler<PipelineNotFoundEventArgs>? PipelineNotFound;
+        public event EventHandler<PipelineNotFoundEventArgs> ? PipelineNotFound;
 
         /// <summary>
         /// Instantiate a Mediator

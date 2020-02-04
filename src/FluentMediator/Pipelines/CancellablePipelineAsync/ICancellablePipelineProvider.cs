@@ -13,7 +13,7 @@ namespace FluentMediator.Pipelines.CancellablePipelineAsync
         /// <param name="requestType"></param>
         /// <returns></returns>
         ICancellablePipelineAsync GetCancellablePipeline(Type requestType);
-        
+
         /// <summary>
         /// 
         /// </summary>

@@ -17,7 +17,7 @@ namespace FluentMediator
         public static IServiceCollection AddFluentMediator<TMediator>(
             this IServiceCollection services,
             Action<IPipelineProviderBuilder> setupAction)
-            where TMediator : class, IMediator
+        where TMediator : class, IMediator
         {
             var pipelineProviderBuilder = new PipelineProviderBuilder();
             setupAction(pipelineProviderBuilder);

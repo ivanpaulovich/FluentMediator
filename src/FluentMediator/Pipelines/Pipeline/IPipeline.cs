@@ -11,7 +11,7 @@ namespace FluentMediator.Pipelines.Pipeline
         /// <param name="getService"></param>
         /// <param name="request"></param>
         void Publish(GetService getService, object request);
-        
+
         /// <summary>
         /// 
         /// </summary>
