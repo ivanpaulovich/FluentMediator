@@ -4,7 +4,8 @@
 
 - #48 Changed `PipelineNotFoundException` to internal.
 - #48 Removed sealed modified from Mediator to allow derived implementations.
-- #48 Added `OnPipelineNotFound` event.
+- #48 Added `OnPipelineNotFound` event to `IMediator` interface.
+- #48 Added `void OnPipelineNotFound(PipelineNotFoundEventArgs e)` handler to `Mediator` class.
 
 ## 2019-10-20 - 0.4.6
 
