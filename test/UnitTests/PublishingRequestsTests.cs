@@ -44,7 +44,7 @@ namespace UnitTests
             services.AddFluentMediator(builder =>
             {
                 builder.On<PingRequest>().PipelineAsync()
-                    .Call<IPingHandler>(async (handler, req) => await handler.MyCustomFooBarAsync(req))
+                    .Call<IPingHandler>(async(handler, req) => await handler.MyCustomFooBarAsync(req))
                     .Build();
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -71,7 +71,7 @@ namespace UnitTests
             services.AddFluentMediator(builder =>
             {
                 builder.On<PingRequest>().CancellablePipelineAsync()
-                    .Call<IPingHandler>(async (handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
+                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Build();
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -98,9 +98,9 @@ namespace UnitTests
             services.AddFluentMediator(builder =>
             {
                 builder.On<PingRequest>().CancellablePipelineAsync()
-                    .Call<IPingHandler>(async (handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
+                    .Call<IPingHandler>(async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct))
                     .Return<PingResponse, IPingHandler>(
-                        async (handler, req, ct) => await handler.MyCancellableForAsync(req, ct)
+                        async(handler, req, ct) => await handler.MyCancellableForAsync(req, ct)
                     );
             });
             var pingHandler = new Mock<IPingHandler>();
@@ -118,6 +118,55 @@ namespace UnitTests
             await mediator.PublishAsync(ping, cts.Token);
 
             pingHandler.Verify(e => e.MyCancellableForAsync(ping, It.IsAny<CancellationToken>()), Times.Once);
+        }
+
+        [Fact]
+        public void Publish_CallsPipelineNotFound_WhenHandlerIsNotSetup()
+        {
+            var services = new ServiceCollection();
+            // Mediator Without the Handler for PingRequest.
+            services.AddFluentMediator(builder => { });
+
+            var provider = services.BuildServiceProvider();
+            var mediator = provider.GetRequiredService<IMediator>();
+
+            bool myCustomPipelineNotFoundHandlerWasCalled = false;
+
+            // This is handler is called for every message without a destination pipeline.
+            mediator.PipelineNotFound += (object sender, PipelineNotFoundEventArgs e) =>
+            {
+                myCustomPipelineNotFoundHandlerWasCalled = true;
+            };
+
+            var cts = new CancellationTokenSource();
+            var ping = new PingRequest("Cancellable Async Ping");
+
+            // Should run without throwing exceptions
+            mediator.Publish(ping);
+
+            // The method was called :)
+            Assert.True(myCustomPipelineNotFoundHandlerWasCalled);
+        }
+
+        [Fact]
+        public void Publish_CallsCustomPipelineNotFound_WhenHandlerIsNotSetup()
+        {
+            var services = new ServiceCollection();
+
+            // Mediator Without the Handler for PingRequest.
+            services.AddFluentMediator<MyCustomMediator>(builder => { });
+
+            var provider = services.BuildServiceProvider();
+            var mediator = (MyCustomMediator) provider.GetRequiredService<IMediator>();
+
+            var cts = new CancellationTokenSource();
+            var ping = new PingRequest("Cancellable Async Ping");
+
+            // Should run without throwing exceptions
+            mediator.Publish(ping);
+
+            // The method was called :)
+            Assert.True(mediator.MyCustomPipelineNotFoundHandlerWasCalled);
         }
     }
 }

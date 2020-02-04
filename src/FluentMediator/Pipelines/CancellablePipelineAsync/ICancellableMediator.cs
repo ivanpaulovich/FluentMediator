@@ -16,7 +16,7 @@ namespace FluentMediator.Pipelines.CancellablePipelineAsync
         /// <param name="pipelineName">Pipeline Name</param>
         /// <returns>Task object</returns>
         Task PublishAsync(object request, CancellationToken cancellationToken, string? pipelineName = null);
-        
+
         /// <summary>
         /// Sends a message
         /// </summary>

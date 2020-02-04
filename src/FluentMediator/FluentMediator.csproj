@@ -11,7 +11,7 @@
 
 	<PropertyGroup>
     <PackageId>FluentMediator</PackageId>
-    <Version>0.4.6</Version>
+    <Version>0.4.7</Version>
     <Authors>Ivan Paulovich</Authors>
     <Copyright>Ivan Paulovich</Copyright>
     <Description>FluentMediator is an unobtrusive library that allows developers to build custom pipelines for Commands, Queries and Events.</Description>
@@ -24,7 +24,7 @@
 	</PropertyGroup>
 
   <ItemGroup Label="SourceLink">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19554-01" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <PropertyGroup Label="SourceLink">

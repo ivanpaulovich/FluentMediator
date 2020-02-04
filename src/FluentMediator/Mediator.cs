@@ -1,19 +1,27 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentMediator.Pipelines;
 
 namespace FluentMediator
 {
     /// <summary>
     /// Publishes/Sends messages through the Pipelines
     /// </summary>
-    public sealed class Mediator : IMediator
+    public class Mediator : IMediator
     {
         /// <summary>
         /// Returns a service from the Container
         /// </summary>
         /// <value></value>
         public GetService GetService { get; }
+
         private IPipelineProvider _pipelines;
+
+        /// <summary>
+        /// On Pipeline Not Found Handler.
+        /// </summary>
+        public event EventHandler<PipelineNotFoundEventArgs> ? PipelineNotFound;
 
         /// <summary>
         /// Instantiate a Mediator
@@ -40,16 +48,23 @@ namespace FluentMediator
                 throw new NullRequestException("The request is null.");
             }
 
-            if (pipelineName is string)
+            try
             {
-                var pipeline = _pipelines.GetPipeline(pipelineName);
-                pipeline.Publish(GetService, request!);
-
+                if (pipelineName is string)
+                {
+                    var pipeline = _pipelines.GetPipeline(pipelineName);
+                    pipeline.Publish(GetService, request!);
+                }
+                else
+                {
+                    var pipeline = _pipelines.GetPipeline(request.GetType());
+                    pipeline.Publish(GetService, request!);
+                }
             }
-            else
+            catch (PipelineNotFoundException)
             {
-                var pipeline = _pipelines.GetPipeline(request.GetType());
-                pipeline.Publish(GetService, request!);
+                var e = new PipelineNotFoundEventArgs(request);
+                OnPipelineNotFound(e);
             }
         }
 
@@ -180,6 +195,18 @@ namespace FluentMediator
             {
                 var pipeline = _pipelines.GetCancellablePipeline(request.GetType());
                 return await pipeline.SendAsync<TResult>(GetService, request, cancellationToken);
+            }
+        }
+
+        /// <summary>
+        /// On Pipeline Not Found.
+        /// </summary>
+        /// <param name="e">OnErrorEventArgs.</param>
+        protected virtual void OnPipelineNotFound(PipelineNotFoundEventArgs e)
+        {
+            if (this.PipelineNotFound is EventHandler<PipelineNotFoundEventArgs>)
+            {
+                this.PipelineNotFound(this, e);
             }
         }
     }

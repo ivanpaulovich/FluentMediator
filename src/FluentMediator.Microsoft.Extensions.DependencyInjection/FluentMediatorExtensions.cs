@@ -14,6 +14,28 @@ namespace FluentMediator
         /// <param name="services">The ServiceCollection</param>
         /// <param name="setupAction">Builder</param>
         /// <returns>The changed ServiceCollection</returns>
+        public static IServiceCollection AddFluentMediator<TMediator>(
+            this IServiceCollection services,
+            Action<IPipelineProviderBuilder> setupAction)
+        where TMediator : class, IMediator
+        {
+            var pipelineProviderBuilder = new PipelineProviderBuilder();
+            setupAction(pipelineProviderBuilder);
+            var pipelineProvider = pipelineProviderBuilder.Build();
+
+            services.AddTransient<GetService>(c => c.GetService);
+            services.AddTransient(c => pipelineProvider);
+            services.AddTransient<IMediator, TMediator>();
+
+            return services;
+        }
+
+        /// <summary>
+        /// Adds the FluentMediator
+        /// </summary>
+        /// <param name="services">The ServiceCollection</param>
+        /// <param name="setupAction">Builder</param>
+        /// <returns>The changed ServiceCollection</returns>
         public static IServiceCollection AddFluentMediator(this IServiceCollection services, Action<IPipelineProviderBuilder> setupAction)
         {
             var pipelineProviderBuilder = new PipelineProviderBuilder();
