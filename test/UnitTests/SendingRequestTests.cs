@@ -229,24 +229,6 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Send_Not_Configured_Throws_PipelineNotFoundException()
-        {
-            var services = new ServiceCollection();
-            services.AddFluentMediator(m =>
-            { });
-
-            services.AddScoped<IPingHandler, PingHandler>();
-            var provider = services.BuildServiceProvider();
-            var mediator = provider.GetRequiredService<IMediator>();
-
-            var ping = new PingRequest("Ping");
-            var actualEx = Record.Exception(() => mediator.Send<PingResponse>(ping));
-
-            Assert.NotNull(actualEx);
-            Assert.IsType<PipelineNotFoundException>(actualEx);
-        }
-
-        [Fact]
         public void Send_Throws_Exception_Null_Requests()
         {
             var services = new ServiceCollection();
