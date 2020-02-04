@@ -1,3 +1,4 @@
+using System;
 using FluentMediator.Pipelines.CancellablePipelineAsync;
 using FluentMediator.Pipelines.Pipeline;
 using FluentMediator.Pipelines.PipelineAsync;
@@ -10,5 +11,11 @@ namespace FluentMediator
     public interface IMediator:
         ISyncMediator,
         IAsyncMediator,
-        ICancellableMediator { }
+        ICancellableMediator
+    {
+        /// <summary>
+        /// On Pipeline Not Found Event Handler.
+        /// </summary>
+        event EventHandler<PipelineNotFoundEventArgs>? PipelineNotFound;
+    }
 }

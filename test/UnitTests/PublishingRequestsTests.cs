@@ -154,5 +154,32 @@ namespace UnitTests
             var actualEx = Record.Exception(() => mediator.Publish(ping));
             Assert.IsType<PipelineNotFoundException>(actualEx);
         }
+
+        [Fact]
+        public void Publish_CallsOnPipelineNotFound_WhenHandlerIsNotSetup()
+        {
+            var services = new ServiceCollection();
+            // Mediator Without the Handler for PingRequest.
+            services.AddFluentMediator(builder => { });
+
+            var provider = services.BuildServiceProvider();
+            var mediator = provider.GetRequiredService<IMediator>();
+
+            bool myCustomPipelineNotFoundHandlerWasCalled = false;
+
+            // This is handler is called for every message without a destination pipeline.
+            mediator.PipelineNotFound += (object sender, PipelineNotFoundEventArgs e) => {
+                myCustomPipelineNotFoundHandlerWasCalled = true;
+            };
+
+            var cts = new CancellationTokenSource();
+            var ping = new PingRequest("Cancellable Async Ping");
+
+            // Should run without throwing exceptions
+            mediator.Publish(ping);
+
+            // The method was called :)
+            Assert.True(myCustomPipelineNotFoundHandlerWasCalled);
+        }
     }
 }
